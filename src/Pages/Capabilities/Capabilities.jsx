@@ -16,7 +16,7 @@ const Capabilities = () => {
       <section className="capabilities-hero">
         <img src={heroImg} alt="Capabilities hero" className="hero-img" />
         <div className="hero-center">
-          <h1>Capabilities</h1>
+          <h1>CAPABILITIES</h1>
         </div>
       </section>
 

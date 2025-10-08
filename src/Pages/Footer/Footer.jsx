@@ -48,11 +48,11 @@ const Footer = () => {
         {/* MIDDLE: pages */}
         <nav className="footer__middle" aria-label="footer links">
           <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">CAPABILITIES</a></li>
-            <li><a href="#">INQUIRY FORM</a></li>
-            <li><a href="#">OUR PRODUCTS</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT US</a></li>
+            <li><a href="/capabilities">CAPABILITIES</a></li>
+            <li><a href="/contact">INQUIRY FORM</a></li>
+            <li><a href="product/">OUR PRODUCTS</a></li>
           </ul>
         </nav>
 
