@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Capabilities.scss";
 
 // Sample hero and section images
@@ -10,6 +10,13 @@ const img2 =
   "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
 
 const Capabilities = () => {
+
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
+
   return (
     <div className="capabilities">
       {/* HERO */}

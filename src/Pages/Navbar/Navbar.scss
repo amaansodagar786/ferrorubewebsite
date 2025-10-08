@@ -4,10 +4,13 @@ $max-width: 1600px;
 
 .navbar {
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
   box-shadow: 0 3px 10px rgba(8, 20, 40, 0.06);
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
 
   &__inner {
     max-width: $max-width;
@@ -24,7 +27,6 @@ $max-width: 1600px;
     background: #fff;
     display: flex;
     align-items: center;
-
     padding: 0px 36px;
     z-index: 1;
     height: 100%;
@@ -43,10 +45,10 @@ $max-width: 1600px;
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center; // CHANGED: from flex-end to flex-start
+    justify-content: center;
     background: $blue;
     height: 100%;
-    padding: 0 20px 0 80px; // CHANGED: More left padding, less right padding
+    padding: 0 20px 0 80px;
     position: relative;
     z-index: 3;
     overflow: visible;
@@ -73,10 +75,12 @@ $max-width: 1600px;
       margin: 0;
       padding: 0;
       align-items: center;
-      margin-left: 20px; // ADDED: Push links to the left
+      margin-left: 20px;
     }
 
     li {
+      position: relative;
+
       a.navlink {
         color: #fff;
         font-weight: 600;
@@ -117,6 +121,146 @@ $max-width: 1600px;
     }
   }
 
+  // Products Dropdown Styles - FIXED
+  .products-dropdown {
+    position: relative;
+
+    &__trigger {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      padding: 6px 0;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+
+      &:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+      
+      .arrow {
+        // display: none; 
+        transition: transform 0.3s ease;
+        font-size: 12px;
+      }
+
+      &.open .arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__menu {
+      position: absolute;
+      top: 150%;
+      left: -124%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(38, 70, 151, 0.1);
+      padding: 32px;
+      width: 95vw; // CHANGED: Use almost full viewport width
+      max-width: 1400px; // CHANGED: Much wider for proper spacing
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(38, 70, 151, 0.1);
+
+      &.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(8px);
+      }
+
+      // Arrow pointing up
+      &::before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid #fff;
+        filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.05));
+      }
+    }
+
+    &__grid {
+      display: flex;
+      gap: 15px;
+      justify-content: space-between; // CHANGED: Better space distribution
+      align-items: stretch;
+    }
+
+    &__item {
+      text-align: center;
+      padding: 20px 10px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      flex: 1;
+      min-width: 0;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: #ffffff;
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(38, 70, 151, 0.15);
+        border-color: rgba(38, 70, 151, 0.2);
+      }
+    }
+
+    &__link {
+      color: #264697;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.3;
+      display: block;
+      width: 100%;
+
+      .line1 {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 700;
+        color: #1e4a8b;
+        font-size: 13px;
+      }
+
+      .line2 {
+        display: block;
+        font-weight: 600;
+        color: #2c5282;
+        font-size: 12px;
+      }
+
+      &:hover {
+        color: #1a365d;
+        
+        .line1 {
+          color: #15325c;
+        }
+        
+        .line2 {
+          color: #234e86;
+        }
+      }
+    }
+  }
+
   // Toggle (hamburger) hidden on desktop
   &__toggle {
     display: none;
@@ -124,7 +268,7 @@ $max-width: 1600px;
     border: none;
     font-size: 26px;
     cursor: pointer;
-    margin-left: auto; // ✅ push it to the right
+    margin-left: auto;
     z-index: 1100;
     color: $blue;
     padding: 6px;
@@ -176,7 +320,7 @@ $max-width: 1600px;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      gap: 20px;
+      gap: 0;
 
       &.open {
         transform: translateX(0);
@@ -185,12 +329,14 @@ $max-width: 1600px;
       .navbar__links {
         flex-direction: column;
         width: 100%;
-        gap: 18px;
-        margin-left: 0; // RESET: Remove left margin on mobile
+        gap: 0;
+        margin-left: 0;
 
         li a.navlink {
           font-size: 14px;
-          padding: 6px 0;
+          padding: 12px 0;
+          width: 100%;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
       }
 
@@ -199,14 +345,115 @@ $max-width: 1600px;
         width: 100%;
         text-align: center;
         font-size: 16px;
+        margin-top: 20px;
+      }
+    }
+
+    // Mobile Products Dropdown - COMPLETELY FIXED
+    .products-dropdown {
+      width: 100%;
+
+      &__trigger {
+        width: 100%;
+        // justify-content: space-between; 
+        gap: 1rem;
+        color: #fff;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 0;
+      }
+
+      &__menu {
+        position: static;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0; // CHANGED: Remove left padding
+        min-width: auto;
+        width: 100%;
+        border: none;
+        margin-top: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+
+        &.open {
+          display: block;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 8px;
+        padding-left: 0; // CHANGED: Remove left padding
+      }
+
+      &__item {
+        text-align: left;
+        padding: 12px 0; // CHANGED: Increased padding
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: transparent;
+        margin: 0;
+        display: block;
+        justify-content: flex-start;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          transform: none;
+          box-shadow: none;
+          border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      &__link {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        padding: 0;
+        width: 100%;
+
+        // CHANGED: Single line for mobile
+        .line1, .line2 {
+          color: rgba(255, 255, 255, 0.9);
+          display: inline; // CHANGED: Show in single line
+          margin-left: 0;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        .line1 {
+          font-weight: 600;
+        }
+
+        .line2 {
+          margin-left: 4px; // CHANGED: Small space between words
+        }
+
+        &:hover {
+          color: #fff;
+          
+          .line1, .line2 {
+            color: #fff;
+          }
+        }
       }
     }
 
     &__toggle {
       display: block;
       position: relative;
-       z-index: 1200;
-       color: black;
+      z-index: 1200;
+      color: black;
     }
   }
 
