@@ -4,30 +4,61 @@ import './Slider.scss';
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const slides = [
     {
       id: 1,
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      text: 'Premium Experience Awaits You'
+      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
+      text: 'Premium Industrial Solutions'
     },
     {
       id: 2,
-      background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      text: 'Innovation Meets Elegance'
-    }
+      image: 'https://images.unsplash.com/photo-1581094794355-69d3d8d12b44?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
+      text: 'Innovation in Mechanical Engineering'
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
+      text: 'Advanced Forge Technologies'
+    },
+   
   ];
 
   const nextSlide = () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    
+    // Reset transitioning state after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
   };
 
   const prevSlide = () => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    
+    // Reset transitioning state after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
   };
 
   const goToSlide = (index) => {
+    if (isTransitioning || index === currentSlide) return;
+    
+    setIsTransitioning(true);
     setCurrentSlide(index);
+    
+    // Reset transitioning state after animation completes
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
   };
 
   // Auto-play functionality
@@ -48,18 +79,25 @@ const Slider = () => {
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
       >
-        <div 
-          className="slider-track"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
+        {/* Slides with fade transition */}
+        <div className="slides-container">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`slide ${index === currentSlide ? 'active' : ''}`}
-              style={{ background: slide.background }}
+              className={`slide ${index === currentSlide ? 'active' : ''} ${
+                index === currentSlide ? 'fade-in' : 'fade-out'
+              }`}
+              style={{ 
+                backgroundImage: `url(${slide.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             >
+              <div className="slide-overlay"></div>
               <div className="slide-content">
                 <h2 className="slide-text">{slide.text}</h2>
+                {/* <button className="cta-button">Explore Our Solutions</button>  */}
               </div>
             </div>
           ))}

@@ -14,6 +14,7 @@ $white: #ffffff;
 $gray-light: #e9ecef;
 $shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 $transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$blue: #264697;
 
 // Mixins
 @mixin flex-center {
@@ -171,7 +172,7 @@ $transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: $shadow;
   transition: $transition;
   cursor: pointer;
-  border: 1px solid rgba($primary-color, 0.1);
+  border: 1px solid $blue;
   overflow: hidden;
 
   @include responsive(tablet) {

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+/* GLOBAL */
+.capabilities {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  color: #1f1f1f;
+  background: #fff;
+  overflow-x: hidden; // ✅ fix mobile right side gap
+}
+
+/* ---------------- HERO ---------------- */
+.capabilities-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.03);
+    filter: brightness(0.9);
+  }
+
+  .hero-center {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5.5vw, 4.2rem);
+      font-weight: 800;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.4));
+    z-index: 2;
+  }
+}
+
+/* ---------------- ROW ---------------- */
+.capabilities-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 4rem 6%;
+  position: relative;
+
+  .text-col {
+    flex: 1;
+    max-width: 54ch;
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0d1630;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin: 0.6rem 0;
+      line-height: 1.7;
+      font-size: 1rem;
+      color: #333;
+    }
+  }
+
+  .media-col {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .image-frame {
+      position: relative;
+      z-index: 4;
+      width: 90%;
+      max-width: 640px;
+
+      img {
+        display: block;
+        width: 100%;
+        border-radius: 24px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    .shape-right, .shape-left {
+      position: absolute;
+      top: -8%;
+      width: 36%;
+      height: 116%;
+      background: #2f4fb0;
+      z-index: 2;
+    }
+
+    .shape-right {
+      right: -4%;
+      transform: skewX(-16deg);
+      border-radius: 0 36px 36px 0;
+    }
+
+    .shape-left {
+      left: -4%;
+      transform: skewX(16deg);
+      border-radius: 36px 0 0 36px;
+    }
+  }
+}
+
+/* Reverse layout */
+.capabilities-row.reverse {
+  flex-direction: row;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 900px) {
+
+    .capabilities-row.reverse {
+    flex-direction: column;
+
+    
+  }
+
+  .capabilities-row {
+    flex-direction: column;
+    padding: 2.5rem 5%;
+    gap: 1.5rem;
+
+    .media-col {
+      order: 0;
+      width: 100%;
+
+      .shape-right, .shape-left {
+        display: none;
+      }
+
+      .image-frame {
+        width: 100%;
+        max-width: 100%;
+        img {
+          border-radius: 16px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+      }
+    }
+
+    .text-col {
+      order: 1;
+      max-width: 100%;
+      text-align: left;
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .capabilities-hero {
+    height: 40vh;
+    .hero-center h1 {
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .capabilities-row {
+    padding: 1.5rem 1rem;
+  }
+
+  .text-col {
+    p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+  }
+}

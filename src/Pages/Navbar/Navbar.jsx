@@ -9,6 +9,7 @@ const DEFAULT_MENU = [
   { title: "ABOUT US", link: "/about" },
   { title: "CAPABILITIES", link: "/capabilities" },
   { title: "OUR PRODUCTS", link: "/products" },
+  { title: "INQUIRY FORM", link: "/contact" },
 ];
 
 const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {

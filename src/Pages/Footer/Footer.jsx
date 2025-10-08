@@ -2,6 +2,7 @@
 import React from "react";
 import "./Footer.scss";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import logo from "../../assets/logo/ferrologo.jpg"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");
@@ -33,10 +34,13 @@ const Footer = () => {
 
             <li>
               <FiMapPin className="footer__icon" />
-              <span>
-                C1/219, GIDC Estate, Vaghdodia, Vadodara - 391760 Gujarat
-                (India)
-              </span>
+              <a
+                href="https://www.google.com/maps/place/C1%2F219,+GIDC+Estate,+Vaghdodia,+Vadodara+-+391760+Gujarat+(India)"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                C1/219, GIDC Estate, Vaghdodia, Vadodara - 391760 Gujarat (India)
+              </a>
             </li>
           </ul>
         </div>
@@ -56,7 +60,7 @@ const Footer = () => {
         <div className="footer__right" aria-hidden="false">
           <div className="footer__logo">
             {/* Use /logo.png (public folder) or replace with an import */}
-            <img src="/logo.png" alt="company logo" />
+            <img src={logo} alt="company logo" />
           </div>
         </div>
       </div>
