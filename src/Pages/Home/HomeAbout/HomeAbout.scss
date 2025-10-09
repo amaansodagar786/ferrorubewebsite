@@ -261,6 +261,10 @@ $transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       height: 3px;
       background: linear-gradient(90deg, $primary-color, $secondary-color);
       border-radius: 2px;
+
+      @include responsive(mobile) {
+        display: none;
+      }
     }
   }
 
@@ -269,9 +273,11 @@ $transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   @include responsive(mobile) {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     text-align: center;
     margin-bottom: 20px;
+
+    
   }
 }
 

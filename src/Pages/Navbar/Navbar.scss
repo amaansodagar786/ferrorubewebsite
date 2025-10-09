@@ -31,7 +31,7 @@ $max-width: 1600px;
     z-index: 1;
     height: 100%;
     flex: 0 0 auto;
-    padding-right: 190px;
+    // padding-right: 190px; 
 
     .navbar__logo {
       height: 56px;
@@ -106,7 +106,7 @@ $max-width: 1600px;
     .navbar__contact {
       margin-left: 36px;
       background: #ffffff;
-      color: #000;
+      color: #264697;
       font-weight: 650;
       padding: 7px 20px;
       border-radius: 999px;
@@ -142,7 +142,7 @@ $max-width: 1600px;
         opacity: 0.85;
         transform: translateY(-1px);
       }
-      
+
       .arrow {
         // display: none; 
         transition: transform 0.3s ease;
@@ -190,7 +190,7 @@ $max-width: 1600px;
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
         border-bottom: 12px solid #fff;
-        filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.05));
+        filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.05));
       }
     }
 
@@ -215,10 +215,14 @@ $max-width: 1600px;
       align-items: center;
       justify-content: center;
 
+      // ADDED: Shadow for desktop dropdown items
+      box-shadow: 0 2px 8px rgba(38, 70, 151, 0.1);
+
       &:hover {
         background: #ffffff;
         transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(38, 70, 151, 0.15);
+        // ENHANCED: Stronger shadow on hover
+        box-shadow: 0 8px 25px rgba(38, 70, 151, 0.2);
         border-color: rgba(38, 70, 151, 0.2);
       }
     }
@@ -249,11 +253,11 @@ $max-width: 1600px;
 
       &:hover {
         color: #1a365d;
-        
+
         .line1 {
           color: #15325c;
         }
-        
+
         .line2 {
           color: #234e86;
         }
@@ -355,7 +359,6 @@ $max-width: 1600px;
 
       &__trigger {
         width: 100%;
-        // justify-content: space-between; 
         gap: 1rem;
         color: #fff;
         padding: 12px 0;
@@ -368,7 +371,7 @@ $max-width: 1600px;
         transform: none;
         background: transparent;
         box-shadow: none;
-        padding: 0; // CHANGED: Remove left padding
+        padding: 0;
         min-width: auto;
         width: 100%;
         border: none;
@@ -376,6 +379,8 @@ $max-width: 1600px;
         display: none;
         opacity: 1;
         visibility: visible;
+        // FIXED: Remove any left positioning
+        left: 0;
 
         &.open {
           display: block;
@@ -391,18 +396,22 @@ $max-width: 1600px;
         flex-direction: column;
         gap: 0;
         margin-top: 8px;
-        padding-left: 0; // CHANGED: Remove left padding
+        padding-left: 0;
+        // FIXED: Ensure proper alignment
+        width: 100%;
       }
 
       &__item {
         text-align: left;
-        padding: 12px 0; // CHANGED: Increased padding
+        padding: 12px 0;
         border-radius: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         background: transparent;
         margin: 0;
         display: block;
         justify-content: flex-start;
+        // FIXED: Remove any shadow for mobile
+        box-shadow: none;
 
         &:hover {
           background: rgba(255, 255, 255, 0.1);
@@ -423,7 +432,8 @@ $max-width: 1600px;
         width: 100%;
 
         // CHANGED: Single line for mobile
-        .line1, .line2 {
+        .line1,
+        .line2 {
           color: rgba(255, 255, 255, 0.9);
           display: inline; // CHANGED: Show in single line
           margin-left: 0;
@@ -441,8 +451,9 @@ $max-width: 1600px;
 
         &:hover {
           color: #fff;
-          
-          .line1, .line2 {
+
+          .line1,
+          .line2 {
             color: #fff;
           }
         }

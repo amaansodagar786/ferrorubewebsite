@@ -105,7 +105,7 @@ const Leader2 = () => {
 
             {/* Back button or navigation */}
             <div className="back-nav">
-                <a href="/about#leaders" className="back-button">← Back to Leadership Team</a>
+                <a href="/about" className="back-button">← Back to Leadership Team</a>
             </div>
         </div>
     );

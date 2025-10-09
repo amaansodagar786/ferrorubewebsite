@@ -1,0 +1,925 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: #e74c3c;
+$accent-color: #3498db;
+$text-color: #333;
+$light-gray: #f8f9fa;
+$white: #ffffff;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+$border-radius: 12px;
+$transition: all 0.3s ease;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint ==tablet {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==mobile {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint ==small-mobile {
+        @media (max-width: 480px) {
+            @content;
+        }
+    }
+}
+
+.floating-roof {
+    font-family: 'Inter', sans-serif;
+    color: $text-color;
+    line-height: 1.6;
+}
+
+// Common Container
+.floating-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Hero Section
+.floating-hero {
+    position: relative;
+    height: 60vh;
+    margin-top: 70px;
+    min-height: 500px;
+    overflow: hidden;
+
+    @include responsive(mobile) {
+        height: 50vh;
+        min-height: 400px;
+    }
+}
+
+.floating-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.floating-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(44, 62, 80, 0.4) 100%);
+}
+
+.floating-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+    color: $white;
+    padding: 0 20px;
+}
+
+.floating-hero-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @include responsive(tablet) {
+        font-size: 3rem;
+    }
+
+    @include responsive(mobile) {
+        font-size: 2.5rem;
+    }
+
+    @include responsive(small-mobile) {
+        font-size: 2rem;
+    }
+}
+
+// Intro Section
+.floating-intro-section {
+    padding: 60px 0 0px 0;
+
+    @include responsive(mobile) {
+        padding: 40px 0 20px 0;
+    }
+}
+
+.floating-intro-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.floating-intro-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    text-align: center;
+    color: $primary-color;
+
+    @include responsive(mobile) {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+}
+
+// Drain System Section
+.floating-drain-section {
+    padding: 60px 0;
+
+    @include responsive(mobile) {
+        padding: 30px 0;
+    }
+}
+
+.floating-drain-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.floating-drain-image {
+    display: flex;
+    justify-content: center;
+}
+
+.floating-drain-img {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @include responsive(mobile) {
+        height: 300px;
+        max-width: 100%;
+    }
+}
+
+.floating-drain-text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-drain-para {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+}
+
+// Specs Section
+.floating-specs-section {
+    padding: 0px 0;
+
+    @include responsive(mobile) {
+        padding: 20px 0;
+    }
+}
+
+.floating-specs-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-specs-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+}
+
+// Swing Joints Section
+.floating-swing-section {
+    padding: 40px 0 0 0;
+    background: $light-gray;
+
+    @include responsive(mobile) {
+        padding: 30px 0 0 0;
+    }
+}
+
+.floating-swing-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: $primary-color;
+    text-align: center;
+
+    @include responsive(mobile) {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+.floating-swing-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: start;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.floating-swing-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-swing-para {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.87rem;
+        line-height: 1.6;
+    }
+}
+
+.floating-swing-images {
+    display: flex;
+    justify-content: center;
+}
+
+.floating-swing-img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-swing-img-tall {
+    width: 80%;
+    height: 240px;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 200px;
+    }
+}
+
+.floating-swing-img-wide {
+    width: 80%;
+    height: 240px;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 190px;
+    }
+}
+
+// Testing Section
+.floating-testing-section {
+    padding: 80px 0;
+    background: $light-gray;
+
+    @include responsive(mobile) {
+        padding: 40px 0;
+    }
+}
+
+.floating-testing-layout {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 50px;
+    align-items: start;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.floating-testing-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include responsive(mobile) {
+        gap: 25px;
+    }
+}
+
+.floating-testing-main-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    @include responsive(mobile) {
+        height: 250px;
+    }
+}
+
+.floating-testing-points {
+    padding: 10px 0 10px 20px;
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+
+    @include responsive(mobile) {
+        padding: 15px;
+    }
+}
+
+.floating-testing-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: $primary-color;
+
+    @include responsive(mobile) {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+}
+
+.floating-testing-list {
+    list-style: none;
+    padding: 0;
+}
+
+.floating-testing-item {
+    padding: 5px 0;
+    position: relative;
+    font-size: 0.9rem;
+
+    @include responsive(mobile) {
+        font-size: 0.85rem;
+        padding: 4px 0;
+    }
+}
+
+.floating-testing-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-testing-text {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.87rem;
+        line-height: 1.6;
+    }
+}
+
+.floating-testing-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+.floating-testing-gallery-img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    @include responsive(mobile) {
+        height: 200px;
+        width: fit-content;
+    }
+}
+
+// Conventional Section
+.floating-conventional-section {
+    padding: 80px 0;
+
+    @include responsive(mobile) {
+        padding: 40px 0;
+    }
+}
+
+.floating-conventional-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: $primary-color;
+    text-align: center;
+
+    @include responsive(mobile) {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+.floating-conventional-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 50px;
+    align-items: start;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.floating-conventional-text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-conventional-para {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+.floating-conventional-images {
+    display: flex;
+    justify-content: center;
+}
+
+.floating-conventional-img-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-conventional-img-vertical {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 220px;
+    }
+}
+
+.floating-conventional-img-horizontal {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 240px;
+    }
+}
+
+// Aluminum Section
+.floating-aluminum-section {
+    padding: 80px 0;
+    background: $light-gray;
+
+    @include responsive(mobile) {
+        padding: 40px 0;
+    }
+}
+
+.floating-aluminum-layout {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 50px;
+    align-items: start;
+
+    @include responsive(mobile) {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.floating-aluminum-images {
+    display: flex;
+    justify-content: center;
+}
+
+.floating-aluminum-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include responsive(mobile) {
+        gap: 15px;
+    }
+}
+
+.floating-aluminum-img-portrait {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 200px;
+    }
+}
+
+.floating-aluminum-img-landscape {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 150px;
+    }
+}
+
+.floating-aluminum-img-square {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @include responsive(mobile) {
+        height: 140px;
+    }
+}
+
+.floating-aluminum-text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include responsive(mobile) {
+        gap: 20px;
+    }
+}
+
+.floating-aluminum-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 10px;
+    margin-top: 40px;
+
+    @include responsive(mobile) {
+        font-size: 1.8rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+}
+
+.floating-aluminum-para {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: $text-color;
+
+    @include responsive(mobile) {
+        font-size: 0.87rem;
+        line-height: 1.6;
+    }
+}
+
+// Technical Data Section (Keep as it is)
+.technical-data {
+    width: 100%;
+    padding: 60px 20px;
+    background: #fff;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+
+    .technical-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #000;
+    }
+
+    .table-wrapper {
+        display: flex;
+        justify-content: center;
+        background: #f9fbfd;
+        border-radius: 15px;
+        padding: 15px;
+
+        .data-table {
+            width: 100%;
+            max-width: 1000px;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+            th,
+            td {
+                border: 1px solid #d0d7de;
+                padding: 12px 8px;
+                text-align: center;
+                font-size: 14px;
+                color: #222;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+
+            th {
+                background: #e8eff7;
+                font-weight: 600;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f5f8fa;
+            }
+        }
+    }
+
+    .diagram-section {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        flex-wrap: wrap;
+
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 220px;
+                height: auto;
+                object-fit: contain;
+                border: 1px solid #d0d7de;
+                border-radius: 10px;
+                background: #fff;
+                padding: 10px;
+            }
+
+            p {
+                margin-top: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                color: #333;
+            }
+        }
+    }
+
+    /* Tablet adjustments */
+    @media (max-width: 1024px) {
+
+        .data-table th,
+        .data-table td {
+            font-size: 13px;
+            padding: 10px 6px;
+        }
+
+        .diagram-section {
+            gap: 25px;
+
+            .diagram img {
+                width: 180px;
+            }
+        }
+    }
+
+    /* ✅ MOBILE FIX — full table visible on screen */
+    @media (max-width: 768px) {
+        padding: 40px 8px;
+
+        .technical-title {
+            font-size: 1.6rem;
+        }
+
+        .table-wrapper {
+            padding: 8px;
+
+            .data-table {
+                font-size: 10px;
+
+                th,
+                td {
+                    padding: 6px 3px;
+                    font-size: 10px;
+                    line-height: 1.2;
+                    word-break: break-word;
+                }
+
+                th {
+                    font-size: 10px;
+                    white-space: normal;
+                }
+            }
+        }
+
+        .diagram-section {
+            flex-direction: column;
+            gap: 20px;
+
+            .diagram img {
+                width: 180px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+// Additional Mobile Optimizations
+@include responsive(mobile) {
+    .floating-container {
+        padding: 0 15px;
+    }
+
+    // Reduce gaps and padding for mobile
+    .floating-drain-layout,
+    .floating-swing-layout,
+    .floating-testing-layout,
+    .floating-conventional-layout,
+    .floating-aluminum-layout {
+        gap: 25px;
+    }
+
+    // Ensure text remains readable on mobile
+    .floating-drain-para,
+    .floating-specs-text,
+    .floating-swing-para,
+    .floating-testing-text,
+    .floating-conventional-para,
+    .floating-aluminum-para {
+        text-align: justify;
+    }
+}
+
+@include responsive(small-mobile) {
+    .floating-container {
+        padding: 0 10px;
+    }
+
+    // Further reduce gaps for very small screens
+    .floating-drain-layout,
+    .floating-swing-layout,
+    .floating-testing-layout,
+    .floating-conventional-layout,
+    .floating-aluminum-layout {
+        gap: 20px;
+    }
+
+    // Adjust image heights for very small screens
+    .floating-drain-img,
+    .floating-swing-img-tall,
+    .floating-swing-img-wide,
+    .floating-testing-main-img,
+    .floating-testing-gallery-img,
+    .floating-conventional-img-vertical,
+    .floating-conventional-img-horizontal,
+    .floating-aluminum-img-portrait,
+    .floating-aluminum-img-landscape,
+    .floating-aluminum-img-square {
+        height: auto;
+        min-height: 180px;
+        max-height: 250px;
+    }
+}

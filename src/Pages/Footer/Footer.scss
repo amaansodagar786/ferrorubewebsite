@@ -1,4 +1,4 @@
-/* File: src/components/Footer/Footer.scss */
+// File: src/components/Footer/Footer.scss
 $blue: #264697;
 $white: #ffffff;
 $max-width: 1600px;
@@ -18,7 +18,7 @@ $max-width: 1600px;
 
     /* LEFT (blue) - REDUCED WIDTH */
     .footer__left {
-        flex: 0 0 40%;
+        flex: 0 0 28%;
         background: $blue;
         color: $white;
         padding: 30px 36px 30px 80px;
@@ -68,9 +68,7 @@ $max-width: 1600px;
                     transition: all 0.3s ease;
 
                     &:hover {
-                        // text-decoration: underline; 
                         color: #ffd700;
-                        /* Golden color on hover */
                         transform: translateX(3px);
                     }
                 }
@@ -83,7 +81,6 @@ $max-width: 1600px;
 
                     &:hover {
                         color: #ffd700;
-                        /* Golden color on hover */
                         transform: translateX(3px);
                     }
                 }
@@ -94,6 +91,73 @@ $max-width: 1600px;
                         color: #ffd700;
                         transform: scale(1.1);
                     }
+                }
+
+                /* Special styling for address item */
+                &.address-item {
+                    align-items: flex-start;
+
+                    .footer__icon {
+                        margin-top: 2px;
+                    }
+
+                    a {
+                        line-height: 1.4;
+                    }
+                }
+            }
+        }
+    }
+
+    /* NEW PRODUCTS COLUMN */
+    .footer__products {
+        flex: 0 0 16%;
+        background: $blue;
+        color: $white;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 3;
+
+        .footer__products-title {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer__products-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            li {
+                font-weight: 600;
+                transition: all 0.3s ease;
+
+                a {
+                    color: $white;
+                    text-decoration: none;
+                    font-size: 13px;
+                    transition: all 0.3s ease;
+                    padding: 3px 0;
+                    display: block;
+                    border-radius: 3px;
+
+                    &:hover {
+                        color: #ffd700;
+                        background-color: rgba(255, 215, 0, 0.1);
+                        transform: translateX(5px);
+                    }
+                }
+
+                &:hover {
+                    transform: translateX(5px);
                 }
             }
         }
@@ -127,15 +191,12 @@ $max-width: 1600px;
                     border-radius: 3px;
 
                     &:hover {
-                        // text-decoration: underline; 
                         color: #ffd700;
-                        /* Golden color on hover */
                         background-color: rgba(255, 215, 0, 0.1);
                         transform: translateX(5px);
                     }
                 }
 
-                /* Hover effect on entire list item */
                 &:hover {
                     transform: translateX(5px);
                 }
@@ -162,11 +223,13 @@ $max-width: 1600px;
 
             img {
                 display: block;
-                width: 100%;
+                width: 126%;
                 height: auto;
                 object-fit: contain;
                 transition: all 0.3s ease;
                 filter: brightness(1.1);
+                margin-left: -84px;
+                margin-top: 15px;
             }
 
             &:hover {
@@ -215,13 +278,10 @@ $max-width: 1600px;
 @media (max-width: 720px) {
     .footer {
         background: $blue;
-        /* full-footer blue */
         color: $white;
         overflow-x: hidden;
-        /* prevent horizontal scroll from leftover geometry */
     }
 
-    /* avoid padding/width causing overflow on small screens */
     .footer,
     .footer * {
         box-sizing: border-box;
@@ -236,7 +296,34 @@ $max-width: 1600px;
         text-align: center;
         padding: 20px 16px;
         min-height: auto;
-        /* override desktop min-height */
+    }
+
+    /* --- PRODUCTS COLUMN MOBILE --- */
+    .footer__products {
+
+        order: 2;
+        width: 100%;
+        background: transparent;
+        padding: 18px 20px !important;
+        text-align: center;
+        display: none !important;
+    }
+
+    .footer__products .footer__products-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .footer__products-links {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px !important;
+        text-align: left;
+    }
+
+    .footer__products-links li a {
+        font-size: 13px;
+        padding: 4px 0 !important;
     }
 
     /* --- LOGO FIRST --- */
@@ -253,7 +340,6 @@ $max-width: 1600px;
 
     .footer__right::before {
         display: none;
-        /* remove diagonal overlap on mobile */
     }
 
     .footer__logo {
@@ -272,12 +358,11 @@ $max-width: 1600px;
         filter: brightness(1.1);
     }
 
-    /* --- INFO SECTION (centered) --- */
+    /* --- INFO SECTION --- */
     .footer__left {
-        order: 3;
+        order: 4;
         width: 100%;
         background: transparent;
-        /* footer already blue */
         padding: 12px 20px !important;
         text-align: center;
     }
@@ -301,7 +386,6 @@ $max-width: 1600px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* center contacts */
         gap: 12px !important;
     }
 
@@ -323,9 +407,9 @@ $max-width: 1600px;
         text-decoration: none;
     }
 
-    /* --- LINKS (centered) --- */
+    /* --- LINKS SECTION --- */
     .footer__middle {
-        order: 2;
+        order: 3;
         width: 100%;
         background: transparent;
         padding: 12px 0 18px;
@@ -359,6 +443,7 @@ $max-width: 1600px;
     /* disable heavy hover transforms on mobile for stability */
     .footer__left a,
     .footer__middle a,
+    .footer__products a,
     .footer__contacts li a,
     .footer__contacts li span {
         transition: none;

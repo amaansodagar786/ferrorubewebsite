@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import './PipeFitting.scss';
 
+
+import img1 from "../../../assets/products/pipe-fitting/p_1.jpg"
+import img2 from "../../../assets/products/pipe-fitting/p_2.jpg"
+import img3 from "../../../assets/products/pipe-fitting/p_3.jpg"
+import img4 from "../../../assets/products/pipe-fitting/p_4.jpg"
+
 const PipeFitting = () => {
 
 
@@ -23,10 +29,7 @@ const PipeFitting = () => {
   ];
 
   const images = [
-    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+    img1, img2 , img3 , img4
   ];
 
   return (

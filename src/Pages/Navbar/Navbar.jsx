@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import "./Navbar.scss";
-import logoImg from "../../assets/logo/logo.jpg";
+import logoImg from "../../assets/logo/ferrologo.png";
 
 const DEFAULT_MENU = [
   { title: "HOME", link: "/" },

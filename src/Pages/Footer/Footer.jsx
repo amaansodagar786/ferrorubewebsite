@@ -6,6 +6,18 @@ import logo from "../../assets/logo/ferrologo.jpg"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");
+  
+  // Product pages data
+  const productPages = [
+    { title: "Pipe Fittings", link: "/products/pipe-fitting" },
+    { title: "Floating Roof Drains", link: "/products/floating-roof-drains" },
+    { title: "Top Loading Arms", link: "/products/top-loading-arms" },
+    { title: "Bottom Loading Arms", link: "/products/bottom-loading-arms" },
+    { title: "LPG Loading Arms", link: "/products/lpg-loading-arms" },
+    { title: "Swivel Joints", link: "/products/swivel-joints" },
+    { title: "Accessories", link: "/products/accessories" },
+  ];
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -32,16 +44,29 @@ const Footer = () => {
               <a href="mailto:ferrotubeindia@yahoo.in">ferrotubeindia@yahoo.in</a>
             </li>
 
-            <li>
+            <li className="address-item">
               <FiMapPin className="footer__icon" />
               <a
                 href="https://www.google.com/maps/place/C1%2F219,+GIDC+Estate,+Vaghdodia,+Vadodara+-+391760+Gujarat+(India)"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                C1/219, GIDC Estate, Vaghdodia, Vadodara - 391760 Gujarat (India)
+                C1/219, GIDC Estate, Vaghdodia,<br />
+                Vadodara - 391760 Gujarat (India)
               </a>
             </li>
+          </ul>
+        </div>
+
+        {/* NEW: Products column */}
+        <div className="footer__products">
+          {/* <h4 className="footer__products-title">Our Products</h4>  */}
+          <ul className="footer__products-links">
+            {productPages.map((product) => (
+              <li key={product.link}>
+                <a href={product.link}>{product.title}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -52,14 +77,13 @@ const Footer = () => {
             <li><a href="/about">ABOUT US</a></li>
             <li><a href="/capabilities">CAPABILITIES</a></li>
             <li><a href="/contact">INQUIRY FORM</a></li>
-            <li><a href="product/">OUR PRODUCTS</a></li>
+            <li><a href="/products">OUR PRODUCTS</a></li>
           </ul>
         </nav>
 
         {/* RIGHT: logo with diagonal divider */}
         <div className="footer__right" aria-hidden="false">
           <div className="footer__logo">
-            {/* Use /logo.png (public folder) or replace with an import */}
             <img src={logo} alt="company logo" />
           </div>
         </div>

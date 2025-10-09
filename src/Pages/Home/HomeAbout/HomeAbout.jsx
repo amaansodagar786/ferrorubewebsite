@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import './HomeAbout.scss';
 
 const HomeAbout = () => {
   const sectionRef = useRef(null);
   const imageRef = useRef(null);
   const contentRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate("/about"); // 👈 change this to your route
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -80,7 +87,7 @@ const HomeAbout = () => {
               
              
 
-              <button className="cta-button">
+              <button className="cta-button" onClick={handleRedirect}>
                 Learn More About Us
                 <span className="arrow">→</span>
               </button>

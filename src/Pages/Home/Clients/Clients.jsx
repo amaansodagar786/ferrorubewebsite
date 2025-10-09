@@ -15,14 +15,19 @@ import client11 from "../../../assets/home/clients/client11.png"
 import client12 from "../../../assets/home/clients/client1.png"
 
 const Clients = () => {
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(false); // kept for any UI needs
+  const isPausedRef = useRef(false);                // used inside animation loop (no rerun)
   const topRowRef = useRef(null);
   const bottomRowRef = useRef(null);
   const animationRef = useRef(null);
 
-  // Store animation positions in refs
+  // positions
   const topRowPosition = useRef(0);
   const bottomRowPosition = useRef(0);
+
+  // store set widths so animate can reference them without re-running effect
+  const topRowSetWidthRef = useRef(0);
+  const bottomRowSetWidthRef = useRef(0);
 
   // Client logos
   const clientLogos = [
@@ -40,14 +45,12 @@ const Clients = () => {
     { id: 12, name: 'Client 12', logo: client12 },
   ];
 
-  // Top row: logos 1-6 repeated 3 times
   const topRowLogos = [
     ...clientLogos.slice(0, 6),
     ...clientLogos.slice(0, 6),
     ...clientLogos.slice(0, 6)
   ];
 
-  // Bottom row: logos 7-12 repeated 3 times
   const bottomRowLogos = [
     ...clientLogos.slice(6, 12),
     ...clientLogos.slice(6, 12),
@@ -57,57 +60,90 @@ const Clients = () => {
   useEffect(() => {
     const topRow = topRowRef.current;
     const bottomRow = bottomRowRef.current;
-
     if (!topRow || !bottomRow) return;
 
-    // Get the width of one set of logos (6 logos)
+    // compute width of a single repeated set (6 logos)
     const getSingleSetWidth = (element) => {
-      const firstLogo = element.querySelector('.client-logo');
-      return firstLogo ? firstLogo.offsetWidth * 6 + (5 * 60) : 0; // 6 logos with 60px gap
+      const logos = element.querySelectorAll('.client-logo');
+      if (!logos || logos.length === 0) return 0;
+      // take first 6 logos (one set)
+      const firstSix = Array.from(logos).slice(0, 6);
+      const logosWidth = firstSix.reduce((acc, el) => acc + el.offsetWidth, 0);
+      // try to read gap from computed style, else fallback to 60
+      const computedGap = parseInt(getComputedStyle(element).gap || '') || 60;
+      return logosWidth + computedGap * (firstSix.length - 1);
     };
 
-    const topRowSetWidth = getSingleSetWidth(topRow);
-    const bottomRowSetWidth = getSingleSetWidth(bottomRow);
+    const updateWidthsAndPositions = () => {
+      topRowSetWidthRef.current = getSingleSetWidth(topRow);
+      bottomRowSetWidthRef.current = getSingleSetWidth(bottomRow);
 
-    // Initialize bottom row position to start from the right
-    bottomRowPosition.current = -bottomRowSetWidth;
-    bottomRow.style.transform = `translateX(${bottomRowPosition.current}px)`;
+      // initialize positions only once (or when resize happens)
+      topRowPosition.current = 0;
+      bottomRowPosition.current = -bottomRowSetWidthRef.current;
 
+      topRow.style.transform = `translateX(${topRowPosition.current}px)`;
+      bottomRow.style.transform = `translateX(${bottomRowPosition.current}px)`;
+
+      console.log('Widths updated:', topRowSetWidthRef.current, bottomRowSetWidthRef.current);
+    };
+
+    updateWidthsAndPositions();
+
+    // animation loop (reads pause from isPausedRef, so no effect re-run needed)
     const animate = () => {
-      if (!isPaused) {
-        // Top row: left to right
+      if (!isPausedRef.current) {
+        // top row: move left to right visually (we decrease x for continuous left movement)
         topRowPosition.current -= 0.5;
-        if (Math.abs(topRowPosition.current) >= topRowSetWidth) {
+        if (Math.abs(topRowPosition.current) >= topRowSetWidthRef.current) {
           topRowPosition.current = 0;
         }
         topRow.style.transform = `translateX(${topRowPosition.current}px)`;
 
-        // Bottom row: right to left - FIXED LOGIC
+        // bottom row: move right to left (we increase x)
         bottomRowPosition.current += 0.4;
         if (bottomRowPosition.current >= 0) {
-          bottomRowPosition.current = -bottomRowSetWidth;
+          bottomRowPosition.current = -bottomRowSetWidthRef.current;
         }
         bottomRow.style.transform = `translateX(${bottomRowPosition.current}px)`;
       }
-      
+
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    // Start animation
     animationRef.current = requestAnimationFrame(animate);
 
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [isPaused]);
+    // recompute widths on resize so the loop stays correct
+    window.addEventListener('resize', updateWidthsAndPositions);
 
-  // Separate mouse handlers for each row to prevent conflicts
-  const handleTopRowMouseEnter = () => setIsPaused(true);
-  const handleTopRowMouseLeave = () => setIsPaused(false);
-  const handleBottomRowMouseEnter = () => setIsPaused(true);
-  const handleBottomRowMouseLeave = () => setIsPaused(false);
+    // cleanup
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      window.removeEventListener('resize', updateWidthsAndPositions);
+    };
+  }, []); // run once on mount
+
+  // handlers update both ref and state (state kept for any UI)
+  const handleTopRowMouseEnter = () => {
+    isPausedRef.current = true;
+    setIsPaused(true);
+    console.log('Top row paused');
+  };
+  const handleTopRowMouseLeave = () => {
+    isPausedRef.current = false;
+    setIsPaused(false);
+    console.log('Top row resumed');
+  };
+  const handleBottomRowMouseEnter = () => {
+    isPausedRef.current = true;
+    setIsPaused(true);
+    console.log('Bottom row paused');
+  };
+  const handleBottomRowMouseLeave = () => {
+    isPausedRef.current = false;
+    setIsPaused(false);
+    console.log('Bottom row resumed');
+  };
 
   return (
     <section className="clients-section">
@@ -119,56 +155,32 @@ const Clients = () => {
 
         <div className="clients-slider">
           {/* Top Row - Left to Right */}
-          <div 
+          <div
             className="slider-row top-row"
             onMouseEnter={handleTopRowMouseEnter}
             onMouseLeave={handleTopRowMouseLeave}
           >
-            <div
-              className="slider-track"
-              ref={topRowRef}
-            >
+            <div className="slider-track" ref={topRowRef}>
               {topRowLogos.map((client, index) => (
-                <div
-                  key={`top-${client.id}-${index}`}
-                  className="client-logo"
-                >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="logo-image"
-                  />
-                  <div className="logo-overlay">
-                    <span>{client.name}</span>
-                  </div>
+                <div key={`top-${client.id}-${index}`} className="client-logo">
+                  <img src={client.logo} alt={client.name} className="logo-image" />
+                  <div className="logo-overlay"><span>{client.name}</span></div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Bottom Row - Right to Left */}
-          <div 
+          <div
             className="slider-row bottom-row"
             onMouseEnter={handleBottomRowMouseEnter}
             onMouseLeave={handleBottomRowMouseLeave}
           >
-            <div
-              className="slider-track"
-              ref={bottomRowRef}
-            >
+            <div className="slider-track" ref={bottomRowRef}>
               {bottomRowLogos.map((client, index) => (
-                <div
-                  key={`bottom-${client.id}-${index}`}
-                  className="client-logo"
-                >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="logo-image"
-                  />
-                  <div className="logo-overlay">
-                    <span>{client.name}</span>
-                  </div>
+                <div key={`bottom-${client.id}-${index}`} className="client-logo">
+                  <img src={client.logo} alt={client.name} className="logo-image" />
+                  <div className="logo-overlay"><span>{client.name}</span></div>
                 </div>
               ))}
             </div>

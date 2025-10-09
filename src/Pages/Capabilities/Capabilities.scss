@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 
 /* GLOBAL */
@@ -17,7 +18,8 @@
 .capabilities-hero {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 60vh;
+    margin-top: 70px;
     min-height: 320px;
     display: flex;
     align-items: center;
@@ -43,8 +45,9 @@
 
         h1 {
             margin: 0;
-            font-size: clamp(2rem, 5.5vw, 4.2rem);
-            font-family: "Archivo Narrow", sans-serif;
+            font-size: clamp(2rem, 5.5vw, 3rem);
+            // font-family: "Archivo Narrow", sans-serif; 
+             font-family: 'Inter', sans-serif;
             font-optical-sizing: auto;
             //   font-weight: <weight>;
             font-style: normal;

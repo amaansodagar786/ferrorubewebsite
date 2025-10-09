@@ -36,13 +36,14 @@ $body-font: 'Poppins', sans-serif;
 /* HERO */
 .hero {
     position: relative;
-    height: 80vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    // border-bottom-left-radius: 18px;
+    // border-bottom-right-radius: 18px;
+    margin-top: 70px;
 }
 
 .hero__img {

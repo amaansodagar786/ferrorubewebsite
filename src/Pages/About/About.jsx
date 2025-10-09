@@ -47,11 +47,18 @@ const About = () => {
     <div className="about-page">
 
       {/* HERO SECTION */}
-      <section
+      {/* <section
         className="about-hero"
         style={{ backgroundImage: `url(${heroImg})` }}
       >
         <h1>About Us</h1>
+      </section> */}
+
+      <section className="about-hero">
+        <img src={heroImg} alt="about hero" className="hero-img" />
+        <div className="hero-center">
+          <h1>About Us</h1>
+        </div>
       </section>
 
       {/* ABOUT INFO SECTION */}

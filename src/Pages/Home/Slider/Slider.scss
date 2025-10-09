@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 
 // Variables
-$slider-height: 80vh;
+$slider-height: 60vh;
 $slider-height-mobile: 45vh;
 $slider-height-tablet: 60vh;
 $transition-duration: 0.6s;
@@ -25,6 +27,7 @@ $easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 // Slider Container
 .slider-container {
+  margin-top: 70px;
   width: 100%;
   height: $slider-height;
   overflow: hidden;
@@ -34,12 +37,12 @@ $easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   // Responsive heights
   @media (max-width: 768px) {
     height: $slider-height-tablet;
-    border-radius: 15px;
+    // border-radius: 15px; 
   }
   
   @media (max-width: 480px) {
     height: $slider-height-mobile;
-    border-radius: 10px;
+    // border-radius: 10px;
   }
 }
 
@@ -122,7 +125,8 @@ $easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   color: white;
   font-size: 3rem;
   font-weight: 700;
-  font-family: "Archivo Narrow", sans-serif;
+  // font-family: "Archivo Narrow", sans-serif; 
+   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
