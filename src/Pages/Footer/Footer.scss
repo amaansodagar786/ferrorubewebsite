@@ -219,12 +219,13 @@ $max-width: 1600px;
 
             img {
                 display: block;
-                width: 126%;
+                width: 106%;
                 height: auto;
                 object-fit: contain;
                 transition: all 0.3s ease;
                 filter: brightness(1.1);
-                margin-left: -84px;
+                transform: scale(5.5);
+                margin-left: -154px;
                 margin-top: 15px;
             }
 
@@ -292,6 +293,9 @@ $max-width: 1600px;
     }
 }
 
+// File: src/components/Footer/Footer.scss
+// ... (desktop styles remain exactly the same) ...
+
 @media (max-width: 720px) {
     .footer {
         background: $blue;
@@ -316,38 +320,7 @@ $max-width: 1600px;
         background: $blue;
     }
 
-    /* --- MIDDLE SECTION MOBILE --- */
-    .footer__middle {
-        order: 3;
-        width: 100%;
-        background: transparent;
-        padding: 18px 0 !important;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .footer__links-grid {
-        gap: 15px !important;
-    }
-
-    .footer__link-row {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-    }
-
-    .footer__link-item {
-        flex: 0 0 auto !important;
-        /* Reset equal width on mobile */
-    }
-
-    .footer__link-item a {
-        font-size: 13px !important;
-        padding: 8px 12px !important;
-        white-space: nowrap;
-    }
-
-    /* --- LOGO SECTION MOBILE - UNCHANGED --- */
+    /* --- LOGO SECTION MOBILE - UPDATED --- */
     .footer__right {
         order: 1;
         width: 100%;
@@ -380,20 +353,69 @@ $max-width: 1600px;
 
     .footer__logo img {
         display: block;
-        width: 100%;
+        width: 100% !important;
         height: auto;
         object-fit: contain;
         margin: 0 !important;
         filter: brightness(1.1);
-        margin-left: 50px !important;
+        transform: none !important;
+        margin-left: 65px !important;
     }
 
-    /* --- INFO SECTION MOBILE - UNCHANGED --- */
-    .footer__left {
-        order: 4;
+    /* --- MIDDLE SECTION MOBILE - UPDATED TO HIDE PRODUCTS --- */
+    .footer__middle {
+        order: 2;
         width: 100%;
         background: transparent;
-        padding: 12px 20px !important;
+        padding: 18px 0 !important;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer__links-grid {
+        gap: 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .footer__link-row {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100%;
+    }
+
+    /* HIDE PRODUCTS ROWS IN MOBILE */
+    .footer__link-row:nth-child(2), /* OUR PRODUCTS heading */
+    .footer__link-row:nth-child(3), /* Product Links 1 */
+    .footer__link-row:nth-child(4), /* Product Links 2 */
+    .footer__link-row:nth-child(5) { /* Accessories */
+        display: none !important;
+    }
+
+    .footer__link-item {
+        flex: 0 0 auto !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer__link-item a {
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        white-space: nowrap;
+        display: inline-block;
+        width: auto;
+        min-width: 200px;
+    }
+
+    /* --- INFO SECTION MOBILE - UPDATED --- */
+    .footer__left {
+        order: 3;
+        width: 100%;
+        background: transparent;
+        padding: 18px 20px !important;
         text-align: center;
     }
 
