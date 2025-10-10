@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import "./LPGLoadingArms.scss";
 
+import img1 from "../../../assets/products/lpg_loading/lpg_1.jpg"
+import img2 from "../../../assets/products/lpg_loading/lpg_2.jpg"
+
 // Sample hero and section images
-const heroImg =
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80";
-const img1 =
-  "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
-const img2 =
-  "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+import heroimg from "../../../assets/products/lpg_loading/lpgloadinghero.png" ;
+
 
 const LPGLoadingArms = () => {
   useEffect(() => {
@@ -18,7 +17,7 @@ const LPGLoadingArms = () => {
     <div className="lpg-loading-arms">
       {/* HERO */}
       <section className="lpg-loading-arms-hero">
-        <img src={heroImg} alt="LPG Loading Arms hero" className="hero-img" />
+        <img src={heroimg} alt="LPG Loading Arms hero" className="hero-img" />
         <div className="hero-center">
           <h1>LPG Loading Arms</h1>
         </div>

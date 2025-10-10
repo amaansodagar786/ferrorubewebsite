@@ -6,6 +6,7 @@ import flexible1 from "../../../assets/products/floating-roof/flo_img1.jpg"
 import flexible2 from "../../../assets/products/floating-roof/flo_img2.jpg"
 import flexible3 from "../../../assets/products/floating-roof/flo_img3.jpg"
 import flexible4 from "../../../assets/products/floating-roof/flo_img4.jpg"
+import flexible5 from "../../../assets/products/floating-roof/flo_img5.jpg"
 import tech from "../../../assets/products/floating-roof/tech_3.jpg"
 
 
@@ -15,10 +16,13 @@ import conventional3 from "../../../assets/products/floating-roof/flo_img9.jpg"
 import conventional4 from "../../../assets/products/floating-roof/tech_2.jpg"
 
 
+import heroimg from "../../../assets/products/floating-roof/floatingroofhero.png" ;
 
-import sideView from "../../../assets/home/clients/client10.png"
-import endView from "../../../assets/home/clients/client11.png"
-import topView from "../../../assets/home/clients/client1.png"
+
+
+
+
+
 
 const FloatingRoof = () => {
     return (
@@ -27,7 +31,7 @@ const FloatingRoof = () => {
             <section className="floating-hero">
                 <div className="floating-hero-background">
                     <img
-                        src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+                        src={heroimg}
                         alt="Floating Roof Drains"
                         className="floating-hero-img"
                     />
@@ -226,18 +230,18 @@ const FloatingRoof = () => {
                 </div>
 
                 <div className="diagram-section">
-                    <div className="diagram">
+                    {/* <div className="diagram">
                         <img src={sideView} alt="Side View" />
                         <p>Side View</p>
-                    </div>
+                    </div> */}
                     <div className="diagram">
-                        <img src={topView} alt="Top View" />
-                        <p>Top View</p>
+                        <img src={flexible5} alt="Top View" />
+
                     </div>
-                    <div className="diagram">
+                    {/* <div className="diagram">
                         <img src={endView} alt="End View" />
                         <p>End View</p>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
@@ -260,13 +264,12 @@ const FloatingRoof = () => {
                         <div className="floating-conventional-images">
                             <div className="floating-conventional-img-stack">
                                 <img
-                                    src="https://images.unsplash.com/photo-1581094794329-cd6cbb9adf6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=600&q=80"
+                                    src={conventional1}
                                     alt="Conventional Swivel Joint 1"
                                     className="floating-conventional-img-vertical"
                                 />
                                 <img
-                                    src="https://images.unsplash.com/photo-1581094794355-1d0d716b6ce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=400&q=80"
-                                    alt="Conventional Swivel Joint 2"
+                                    src={conventional2} alt="Conventional Swivel Joint 2"
                                     className="floating-conventional-img-horizontal"
                                 />
                             </div>
@@ -282,20 +285,15 @@ const FloatingRoof = () => {
                         <div className="floating-aluminum-images">
                             <div className="floating-aluminum-gallery">
                                 <img
-                                    src="https://images.unsplash.com/photo-1581094794329-cd6cbb9adf6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=500&q=80"
+                                    src={conventional3}
                                     alt="Aluminum Joint 1"
                                     className="floating-aluminum-img-portrait"
                                 />
                                 <img
-                                    src="https://images.unsplash.com/photo-1581094794355-1d0d716b6ce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80"
-                                    alt="Aluminum Joint 2"
+                                    src={conventional4} alt="Aluminum Joint 2"
                                     className="floating-aluminum-img-landscape"
                                 />
-                                <img
-                                    src="https://images.unsplash.com/photo-1581094794329-cd6cbb9adf6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80"
-                                    alt="Aluminum Joint 3"
-                                    className="floating-aluminum-img-square"
-                                />
+
                             </div>
                         </div>
                         <div className="floating-aluminum-text">

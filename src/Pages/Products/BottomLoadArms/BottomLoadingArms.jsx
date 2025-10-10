@@ -2,6 +2,13 @@
 import React, { useEffect } from "react";
 import "./BottomArms.scss";
 
+import img1 from "../../../assets/products/bottom-loading/bot_arm_1.jpg"
+import img2 from "../../../assets/products/bottom-loading/bot_arm_3.jpg"
+import img3 from "../../../assets/products/bottom-loading/bot_arm_3.jpg"
+
+
+import heroimg from "../../../assets/products/bottom-loading/bottomloadinghero.png" ;
+
 const BottomArms = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -53,7 +60,7 @@ const BottomArms = () => {
       <section className="ba-hero">
         <div className="ba-hero__bg">
           <img
-            src={"/mnt/data/c5b13941-4c5b-4f69-a536-556e48419041.png"}
+            src={heroimg}
             alt="Bottom loading arms hero"
             onError={(e) => {
               e.currentTarget.onerror = null;
@@ -118,7 +125,7 @@ const BottomArms = () => {
             <div className="ba-spring__shape" aria-hidden="true" />
             <div className="ba-spring__imgwrap">
               <img
-                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1000&q=80"
+                src={img1}
                 alt="Spring balanced loader"
               />
             </div>
@@ -139,16 +146,14 @@ const BottomArms = () => {
                 <div className="ba-img-card">
                   <div className="ba-img-card__shape" />
                   <img
-                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
-                    alt="arm detail 1"
+                    src={img2} alt="arm detail 1"
                   />
                 </div>
 
                 <div className="ba-img-card">
                   <div className="ba-img-card__shape" />
                   <img
-                    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-                    alt="arm detail 2"
+                    src={img3} alt="arm detail 2"
                   />
                 </div>
               </div>

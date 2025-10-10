@@ -1,6 +1,23 @@
 import React, { useEffect } from "react";
 import "./Accessories.scss";
 
+import heroimg from "../../../assets/products/accessories/accessorieshero.png" ;
+
+import img1 from "../../../assets/products/accessories/7.png" ;
+import img2 from "../../../assets/products/accessories/6.png" ;
+import img3 from "../../../assets/products/accessories/5.png" ;
+import img4 from "../../../assets/products/accessories/5.png" ;
+import img5 from "../../../assets/products/accessories/com_6.jpg" ;
+import img6 from "../../../assets/products/accessories/9.png" ;
+import img7 from "../../../assets/products/accessories/8.png" ;
+import img8 from "../../../assets/products/accessories/10.png" ;
+import img9 from "../../../assets/products/accessories/9.png" ;
+import img10 from "../../../assets/products/accessories/10.png" ;
+
+
+
+
+
 const accessoriesData = [
     {
         title: "API Coupler",
@@ -9,8 +26,7 @@ const accessoriesData = [
             `The coupler contains 3 trigger mechanisms to prevent accidental opening of the valve and 5 interlock lugs for secure holding during loading operations. Hence, unless the coupler is tightly connected to an API adaptor, its valve cannot be opened and also, cannot be disconnected unless the valve is closed.`,
             `The unit has hard anodized aluminum body, sleeve and valve with a 4” TTMA mounting flange. Stainless steel internals with chrome plated handle. All seals are Viton and bushings are PTFE. Hydro tested at a pressure of 16 kg/cm² (g) before dispatch.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=900&q=80",
+        image: img1,
     },
     {
         title: "API Adaptor",
@@ -19,8 +35,7 @@ const accessoriesData = [
             `The unit provides dependable and low maintenance service.`,
             `The unit has hard anodized aluminum body and valve with a 4” TTMA mounting flange. Stainless steel internals. All seals are Viton and bushings are PTFE. Hydro tested at a pressure of 16 kg/cm² (g) before dispatch.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=900&q=80",
+        image: img2,
     },
     {
         title: "Spring Balance unit",
@@ -37,8 +52,7 @@ mounting flange. Stainless steel internals with chrome plated handle. All seals 
 Viton and bushings are PTFE. Hydro tested at a pressure of 16 kg/cm² (g) before
 dispatch.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=900&q=80",
+        image: img3,
     },
     {
         title: "Torsion spring unit",
@@ -48,8 +62,7 @@ little operating space. Operating principle is simple- lowering the arm winds th
 spring tighter and lifting the arm spring unwinds. We offer 3 different sizes of
 spring assemblies with progressive higher lifting capacities.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581092433208-423b51b2a10e?auto=format&fit=crop&w=900&q=80",
+        image: img4,
     },
     {
         title: "Compression spring unit",
@@ -59,8 +72,7 @@ compresses the spring as the arm lowered. Adjusting screws are located outside t
 casing for adjustment of spring tension with a standard tool. 3 different sizes of
 spring assemblies are offered with progressive higher lifting capacities.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581094369584-9c74d8d2e066?auto=format&fit=crop&w=900&q=80",
+        image: img5,
     },
     {
         title: "Vacuum breaker",
@@ -74,8 +86,7 @@ loading operation is completed.`,
 are highly effective and provides dependable and long maintenance free
 performance`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581091870622-3c74d8a64d66?auto=format&fit=crop&w=900&q=80",
+       image: img6,
     },
     {
         title: "Position Sensor",
@@ -87,8 +98,7 @@ product level and prevent from overflow during filling operation. Both these dev
 are designed for rugged services, provides dependable and trouble free
 performance.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=900&q=80",
+        image: img7,
     },
     {
         title: "Overspill Protection Device",
@@ -104,13 +114,10 @@ housed inside a flameproof (Ex-d, IIA/ IIB) and weatherproofs (IP 65) Junction b
 which mounted on a permanent Platform structure. However, the cabling beyond the
 junction box to batch controller falls under the scope of customers.`,
         ],
-        image:
-            "https://images.unsplash.com/photo-1581094369584-9c74d8d2e066?auto=format&fit=crop&w=900&q=80",
+        image: img8,
     },
 ];
 
-const heroImg =
-    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2000&q=80";
 
 const Accessories = () => {
     useEffect(() => {
@@ -121,7 +128,7 @@ const Accessories = () => {
         <div className="accessories-page">
             {/* HERO SECTION */}
             <section className="accessories-hero">
-                <img src={heroImg} alt="Accessories Hero" className="hero-img" />
+                <img src={heroimg} alt="Accessories Hero" className="hero-img" />
                 <div className="hero-center">
                     <h1>ACCESSORIES</h1>
                 </div>

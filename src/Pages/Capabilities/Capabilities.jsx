@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Capabilities.scss";
 
+import heroimage from "../../assets/home/slider/Capabilitieshero.png"
+
 // Sample hero and section images
-const heroImg =
-  "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80";
+
 const img1 =
   "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
 const img2 =
@@ -21,7 +22,7 @@ const Capabilities = () => {
     <div className="capabilities">
       {/* HERO */}
       <section className="capabilities-hero">
-        <img src={heroImg} alt="Capabilities hero" className="hero-img" />
+        <img src={heroimage} alt="Capabilities hero" className="hero-img" />
         <div className="hero-center">
           <h1>Capabilities</h1>
         </div>

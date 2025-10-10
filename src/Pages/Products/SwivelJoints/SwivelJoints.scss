@@ -1,3 +1,4 @@
+/* File: src/components/SwivelJoints/SwivelJoints.scss */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
 /* GLOBAL */
@@ -15,7 +16,8 @@
 .swivel-joints-hero {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
+    margin-top: 70px;
     min-height: 320px;
     display: flex;
     align-items: center;
@@ -46,19 +48,19 @@
         }
     }
 
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4));
-        z-index: 2;
-    }
+     &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 123, 255, 0.2); // soft blue overlay over the whole image
+            z-index: 2;
+        }
 }
 
 /* ---------------- PARAGRAPHS SECTION ---------------- */
 .swivel-joints-paragraphs {
     padding: 4rem 6%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background-color: #fff;
 
     .paragraphs-container {
         max-width: 1200px;
@@ -91,6 +93,7 @@
     gap: 2.5rem;
     padding: 4rem 6%;
     position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 
     .text-col {
         flex: 1;
@@ -136,7 +139,7 @@
             position: relative;
             z-index: 5;
             width: 90%;
-            max-width: 600px;
+            max-width: 400px;
 
             img {
                 width: 100%;
@@ -145,7 +148,6 @@
             }
         }
 
-        /* SHAPES (same as Accessories page) */
         .shape {
             position: absolute;
             width: 35%;
@@ -156,7 +158,6 @@
             border-radius: 30px;
         }
 
-        /* Shape positions matching Accessories pattern */
         .shape-1-a {
             top: -5%;
             right: -4%;
@@ -219,9 +220,24 @@
     }
 }
 
-/* Reverse layout */
-.swivel-joints-row.reverse {
+/* ---------------- AUTOMATIC REVERSE ALTERNATE ---------------- */
+.swivel-joints-row:nth-child(even) {
     flex-direction: row-reverse;
+}
+
+/* ---------------- BOTTOM IMAGE ---------------- */
+.swivel-bottom-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+
+    img {
+        width: 70%;
+        max-width: 1000px;
+        border-radius: 20px;
+        // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
 }
 
 /* ---------------- RESPONSIVE ---------------- */
@@ -237,10 +253,6 @@
         }
     }
 
-    // .swivel-joints-row.reverse {
-    //     flex-direction: column;
-    // }
-
     .swivel-joints-row {
         flex-direction: column;
         padding: 2.5rem 5%;
@@ -250,7 +262,6 @@
             order: 0;
             width: 100%;
 
-            
             .image-frame {
                 width: 100%;
                 max-width: 100%;
@@ -288,33 +299,37 @@
             font-size: clamp(1.8rem, 6vw, 2.6rem);
         }
     }
+
+    .swivel-bottom-image img {
+        width: 85%;
+    }
 }
 
 @media (max-width: 480px) {
     .swivel-joints-paragraphs {
         padding: 1.5rem 1rem;
+    }
 
-        .paragraphs-container {
-            p {
-                font-size: 0.9rem;
-                line-height: 1.5;
-            }
-        }
+    .paragraphs-container p {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .swivel-joints-row {
         padding: 1.5rem 1rem;
     }
 
-    .text-col {
-        p {
-            font-size: 0.88rem;
-            line-height: 1.6;
-        }
+    .text-col p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
 
-        ul li {
-            font-size: 0.88rem;
-            line-height: 1.5;
-        }
+    .text-col ul li {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    .swivel-bottom-image img {
+        width: 100%;
     }
 }

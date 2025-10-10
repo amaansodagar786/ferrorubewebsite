@@ -7,6 +7,8 @@ import img2 from "../../../assets/products/pipe-fitting/p_2.jpg"
 import img3 from "../../../assets/products/pipe-fitting/p_3.jpg"
 import img4 from "../../../assets/products/pipe-fitting/p_4.jpg"
 
+import heroimg from "../../../assets/products/pipe-fitting/pipefittinghero.png" ;
+
 const PipeFitting = () => {
 
 
@@ -38,7 +40,7 @@ const PipeFitting = () => {
       <section className="hero-section">
         <div className="hero-background">
           <img 
-            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+            src={heroimg} 
             alt="Industrial Pipe Fittings"
             className="hero-image"
           />

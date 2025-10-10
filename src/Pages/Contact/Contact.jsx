@@ -6,6 +6,10 @@ import { HiOutlineMail } from "react-icons/hi";
 import { GoLocation } from "react-icons/go";
 import "./Contact.scss";
 
+
+import heroimage from "../../assets/home/slider/contacthero.png"
+
+
 const Contact = () => {
 
 
@@ -59,7 +63,7 @@ const Contact = () => {
         <div className="hero__overlay"></div>
         <img
           className="hero__img"
-          src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80"
+          src={heroimage}
           alt="Contact Hero"
         />
         <div className="hero__center">

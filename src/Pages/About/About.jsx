@@ -19,7 +19,12 @@ import React, { useEffect } from "react";
 import './About.scss';
 import { useNavigate } from "react-router-dom";
 
-const heroImg = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80";
+// import dummy from "../../assets/home/slider/abouthero.png"
+import heroimage from "../../assets/home/slider/abouthero.png"
+// import mobilehero from "../../assets/home/slider/mobilehero.png" 
+
+
+// const heroImg = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80";
 const media1 = "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media2 = "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media3 = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
@@ -55,7 +60,8 @@ const About = () => {
       </section> */}
 
       <section className="about-hero">
-        <img src={heroImg} alt="about hero" className="hero-img" />
+        <img src={heroimage} alt="about hero" className="hero-img desktop" />
+        <img src={heroimage} alt="about hero" className="hero-img mobile" />
         <div className="hero-center">
           <h1>About Us</h1>
         </div>

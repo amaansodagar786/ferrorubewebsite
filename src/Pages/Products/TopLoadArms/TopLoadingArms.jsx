@@ -1,6 +1,21 @@
 import React from "react";
 import "./TopLoadingArms.scss";
 
+
+import img1 from "../../../assets/products/top-loading/top_img1.jpg" ;
+import img2 from "../../../assets/products/top-loading/top_img2.jpg" ;
+import img3 from "../../../assets/products/top-loading/top_img3.jpg" ;
+import img4 from "../../../assets/products/top-loading/top_img4.jpg" ;
+import img5 from "../../../assets/products/top-loading/top_img5.jpg" ;
+import img6 from "../../../assets/products/top-loading/top_img6.jpg" ;
+import img7 from "../../../assets/products/top-loading/top_img7.jpg" ;
+import img8 from "../../../assets/products/top-loading/top_img8.jpg" ;
+import img9 from "../../../assets/products/top-loading/top_img9.jpg" ;
+import img10 from "../../../assets/products/top-loading/top_img10.jpg" ;
+
+import heroimg from "../../../assets/products/top-loading/toploadinghero.png" ;
+
+
 /**
  * Replace leftImg and rightImg with your actual imports if you have local assets:
  * import leftImg from "./assets/short-reach-left.png";
@@ -28,7 +43,7 @@ const TopLoadingArms = () => {
         <div className="floating-hero-background">
           <img
             className="floating-hero-img"
-            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            src={heroimg}
             alt="Top Loading Arms"
           />
           <div className="floating-hero-overlay" />
@@ -63,7 +78,7 @@ const TopLoadingArms = () => {
             <div className="image-block image-right">
               <div className="shape shape-right" />
               <div className="card">
-                <img src={rightImg} alt="short reach right" />
+                <img src={img1} alt="short reach right" />
               </div>
             </div>
           </div>
@@ -73,7 +88,7 @@ const TopLoadingArms = () => {
             <div className="image-block image-left">
               <div className="shape shape-left" />
               <div className="card">
-                <img src={leftImg} alt="short reach left" />
+                <img src={img3} alt="short reach left" />
               </div>
             </div>
 
@@ -128,12 +143,12 @@ const TopLoadingArms = () => {
               <div className="thumb-stack">
                 <figure className="thumb thumb-top">
                   <div className="thumb-shape" />
-                  <img src={thumbA} alt="thumb A" />
+                  <img src={img4} alt="thumb A" />
                 </figure>
 
                 <figure className="thumb thumb-bottom">
                   <div className="thumb-shape" />
-                  <img src={thumbB} alt="thumb B" />
+                  <img src={img5} alt="thumb B" />
                 </figure>
               </div>
             </div>
@@ -148,13 +163,13 @@ const TopLoadingArms = () => {
                 {/* left big card */}
                 <figure className="big-thumb big-thumb-left">
                   <div className="big-thumb-bg" />
-                  <img src={bigA} alt="big left" />
+                  <img src={img6} alt="big left" />
                 </figure>
 
                 {/* right big card (overlaps to the right) */}
                 <figure className="big-thumb big-thumb-right">
                   <div className="big-thumb-bg" />
-                  <img src={bigB} alt="big right" />
+                  <img src={img7} alt="big right" />
                 </figure>
               </div>
             </div>
@@ -223,7 +238,7 @@ const TopLoadingArms = () => {
           {/* RIGHT - IMAGE */}
           <div className="loader-image">
             <div className="image-bg"></div>
-            <img src={thumbA} alt="Unsupported long reach loader" />
+            <img src={img8} alt="Unsupported long reach loader" />
           </div>
         </div>
       </section>
@@ -264,10 +279,10 @@ const TopLoadingArms = () => {
           <div className="shape shape3"></div>
 
           <div className="image-wrapper">
-            <img src={thumbB} alt="Loading arm special application 1" />
+            <img src={img9} alt="Loading arm special application 1" />
           </div>
           <div className="image-wrapper">
-            <img src={thumbB} alt="Loading arm special application 2" />
+            <img src={img10} alt="Loading arm special application 2" />
           </div>
         </div>
       </section>

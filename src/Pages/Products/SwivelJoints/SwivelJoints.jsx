@@ -1,12 +1,69 @@
+// File: src/components/SwivelJoints/SwivelJoints.jsx
 import React, { useEffect } from "react";
 import "./SwivelJoints.scss";
 
 // Sample hero and section images
-const heroImg = "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
-const img1 = "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
-const img2 = "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
-const img3 = "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
-const img4 = "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80";
+import heroimg from "../../../assets/products/swivel_joints/swivelhero.png" ;
+
+
+
+import img1 from "../../../assets/products/swivel_joints/com_1.jpg"
+import img2 from "../../../assets/products/swivel_joints/com_2.jpg"
+import img3 from "../../../assets/products/swivel_joints/com_3.jpg"
+import img4 from "../../../assets/products/swivel_joints/com_4.jpg"
+import img5 from "../../../assets/products/swivel_joints/swi_1.jpg"
+
+const swivelData = [
+    {
+        title: "Standard Swivel Joint",
+        list: [
+            "2 piece design",
+            "2 nos. of seals",
+            "Main seal is O-ring and other seal is dust seal",
+            "Long trouble free performance",
+            "Good load bearing capacity",
+        ],
+        img: img1,
+        shapes: ["shape-1-a", "shape-1-b"],
+    },
+    {
+        title: "Split Flange Swivel Joint",
+        list: [
+            "3 piece design",
+            "Main seal can be replaced without dismantling the whole assembly",
+            "Main seal is gasket",
+            "Other seal is dust seal",
+            "Secondary and back-up seals are O-rings",
+            "Improved load bearing capacity and long leak-proof life",
+        ],
+        img: img2,
+        shapes: ["shape-2-a", "shape-2-b"],
+    },
+    {
+        title: "Cast Aluminum Alloy Swivel Joint",
+        list: [
+            "3 piece design",
+            "Main seal can be replaced without dismantling the whole assembly",
+            "Main seal is gasket",
+            "Other seal is dust seal",
+            "Secondary and back-up seals are O-rings",
+            "Improved load bearing capacity and long leak-proof life",
+        ],
+        img: img3,
+        shapes: ["shape-3-a", "shape-3-b"],
+    },
+    {
+        title: "Heavy Duty Split Flange Swivel Joint",
+        list: [
+            "3 piece design",
+            "Specially designed for heavy load bearing applications, such as unsupported loading arms",
+            "Number of seals are same as split flange swivel joint except two additional O-rings for top cover",
+            "Greater load bearing capacity and long leak-proof life",
+        ],
+        img: img4,
+        shapes: ["shape-4-a", "shape-4-b"],
+    },
+];
 
 const SwivelJoints = () => {
     useEffect(() => {
@@ -17,7 +74,7 @@ const SwivelJoints = () => {
         <div className="swivel-joints">
             {/* HERO */}
             <section className="swivel-joints-hero">
-                <img src={heroImg} alt="Swivel Joints hero" className="hero-img" />
+                <img src={heroimg} alt="Swivel Joints hero" className="hero-img" />
                 <div className="hero-center">
                     <h1>SWIVEL JOINTS</h1>
                 </div>
@@ -38,95 +95,29 @@ const SwivelJoints = () => {
                 </div>
             </section>
 
-            {/* SECTION 1: LEFT TEXT - RIGHT IMAGE */}
-            <section className="swivel-joints-row">
-                <div className="text-col">
-                    <h2>Standard Swivel Joint</h2>
-                    <ul>
-                        <li>2 piece design</li>
-                        <li>2 nos. of seals</li>
-                        <li>Main seal is O-ring and other seal is dust seal</li>
-                        <li>Long trouble free performance</li>
-                        <li>Good load bearing capacity</li>
-                    </ul>
-                </div>
-
-                <div className="media-col">
-                    <div className="shape shape-1-a" aria-hidden />
-                    <div className="shape shape-1-b" aria-hidden />
-                    <div className="image-frame">
-                        <img src={img1} alt="Standard Swivel Joint" />
+            {/* DYNAMIC SECTIONS */}
+            {swivelData.map((item, idx) => (
+                <section className={`swivel-joints-row`} key={idx}>
+                    <div className="text-col">
+                        <h2>{item.title}</h2>
+                        <ul>
+                            {item.list.map((li, index) => (
+                                <li key={index}>{li}</li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-            </section>
 
-            {/* SECTION 2: LEFT IMAGE - RIGHT TEXT */}
-            <section className="swivel-joints-row reverse">
-                <div className="media-col">  {/* ← MEDIA FIRST */}
-                    <div className="shape shape-2-a" aria-hidden />
-                    <div className="shape shape-2-b" aria-hidden />
-                    <div className="image-frame">
-                        <img src={img2} alt="Split Flange Swivel Joint" />
+                    <div className="media-col">
+                        <div className={`shape ${item.shapes[0]}`} aria-hidden />
+                        <div className={`shape ${item.shapes[1]}`} aria-hidden />
+                        <div className="image-frame">
+                            <img src={item.img} alt={item.title} />
+                        </div>
                     </div>
-                </div>
+                </section>
+            ))}
 
-                <div className="text-col">  {/* ← TEXT SECOND */}
-                    <h2>Split Flange Swivel Joint</h2>
-                    <ul>
-                        <li>3 piece design</li>
-                        <li>Main seal can be replaced without dismantling the whole assembly</li>
-                        <li>Main seal is gasket</li>
-                        <li>Other seal is dust seal</li>
-                        <li>Secondary and back-up seals are O-rings</li>
-                        <li>Improved load bearing capacity and long leak-proof life</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* SECTION 3: LEFT TEXT - RIGHT IMAGE */}
-            <section className="swivel-joints-row">
-                <div className="text-col">
-                    <h2>Cast Aluminum Alloy Swivel Joint</h2>
-                    <ul>
-                        <li>3 piece design</li>
-                        <li>Main seal can be replaced without dismantling the whole assembly</li>
-                        <li>Main seal is gasket</li>
-                        <li>Other seal is dust seal</li>
-                        <li>Secondary and back-up seals are O-rings</li>
-                        <li>Improved load bearing capacity and long leak-proof life</li>
-                    </ul>
-                </div>
-
-                <div className="media-col">
-                    <div className="shape shape-3-a" aria-hidden />
-                    <div className="shape shape-3-b" aria-hidden />
-                    <div className="image-frame">
-                        <img src={img3} alt="Cast Aluminum Alloy Swivel Joint" />
-                    </div>
-                </div>
-            </section>
-
-            {/* SECTION 4: LEFT IMAGE - RIGHT TEXT */}
-            <section className="swivel-joints-row reverse">
-                <div className="media-col">  {/* ← MEDIA FIRST */}
-                    <div className="shape shape-4-a" aria-hidden />
-                    <div className="shape shape-4-b" aria-hidden />
-                    <div className="image-frame">
-                        <img src={img4} alt="Heavy Duty Split Flange Swivel Joint" />
-                    </div>
-                </div>
-
-                <div className="text-col">  {/* ← TEXT SECOND */}
-                    <h2>Heavy Duty Split Flange Swivel Joint</h2>
-                    <ul>
-                        <li>3 piece design</li>
-                        <li>Specially designed for heavy load bearing applications, such as unsupported loading arms</li>
-                        <li>Number of seals are same as split flange swivel joint except two additional O-rings for top cover</li>
-                        <li>Greater load bearing capacity and long leak-proof life</li>
-                    </ul>
-                </div>
-            </section>
-
+            {/* BOTTOM PARAGRAPH */}
             <section className="swivel-joints-paragraphs">
                 <div className="paragraphs-container">
                     <h1>Available styles for swivel joints</h1>
@@ -143,6 +134,11 @@ const SwivelJoints = () => {
                     </p>
                     <p>Available sizes are 2", 3", 4" and 6".</p>
                 </div>
+            </section>
+
+            {/* BOTTOM FULL-WIDTH IMAGE */}
+            <section className="swivel-bottom-image">
+                <img src={img5} alt="Swivel Joint Styles" />
             </section>
         </div>
     );

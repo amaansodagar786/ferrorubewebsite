@@ -31,10 +31,10 @@ const Clients = () => {
 
   // Client logos
   const clientLogos = [
-    { id: 1, name: 'Client 1', logo: client1 },
-    { id: 2, name: 'Client 2', logo: client2 },
-    { id: 3, name: 'Client 3', logo: client3 },
-    { id: 4, name: 'Client 4', logo: client4 },
+    { id: 1, name: 'Indraprastha gas limited', logo: client1 },
+    { id: 2, name: 'Bharat Petroleum', logo: client2 },
+    { id: 3, name: 'GNFC', logo: client3 },
+    { id: 4, name: 'Engineers India Limited', logo: client4 },
     { id: 5, name: 'Client 5', logo: client5 },
     { id: 6, name: 'Client 6', logo: client6 },
     { id: 7, name: 'Client 7', logo: client7 },

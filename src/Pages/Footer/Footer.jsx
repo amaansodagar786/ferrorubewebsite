@@ -3,6 +3,7 @@ import React from "react";
 import "./Footer.scss";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import logo from "../../assets/logo/ferrologo.jpg"
+import mobilelogologo from "../../assets/logo/footermobilelogo.png"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");

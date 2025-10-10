@@ -24,7 +24,7 @@ $light-gray: #e9ecf4;
 /* HERO */
 .floating-hero {
     position: relative;
-    height: 60vh;
+    height: 70vh;
     margin-top: 70px;
     min-height: 320px;
     overflow: hidden;
@@ -40,11 +40,7 @@ $light-gray: #e9ecf4;
             filter: brightness(0.62);
         }
 
-        .floating-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 23, 36, 0.25), rgba(10, 23, 36, 0.02));
-        }
+        
     }
 
     .floating-hero-content {
@@ -67,7 +63,7 @@ $light-gray: #e9ecf4;
     }
 
     @media (max-width: 900px) {
-        height: 34vh;
+        // height: 34vh; 
         min-height: 220px;
 
         .floating-hero-title {
@@ -76,7 +72,7 @@ $light-gray: #e9ecf4;
     }
 
     @media (max-width: 480px) {
-        height: 30vh;
+        // height: 30vh; 
         min-height: 180px;
 
         .floating-hero-title {
@@ -188,13 +184,13 @@ $light-gray: #e9ecf4;
         }
 
         .shape-left {
-            left: 10px;
+            left: 48px;
             top: 95px;
             // transform: rotate(1.2deg); 
         }
 
         .shape-right {
-            right: 12px;
+            right: 50px;
             top: -40px;
             // transform: rotate(-1.2deg); 
         }
@@ -203,7 +199,7 @@ $light-gray: #e9ecf4;
             position: relative;
             z-index: 3;
             width: 100%;
-            max-width: 400px;
+            max-width: 310px;
             border-radius: 14px;
             overflow: hidden;
             display: block;
@@ -214,7 +210,7 @@ $light-gray: #e9ecf4;
             display: block;
             width: 100%;
             height: 230px;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         @media (max-width: 1140px) {
@@ -238,12 +234,13 @@ $light-gray: #e9ecf4;
             }
 
             .card {
-                max-width: 680px;
+                max-width: 190px !important;
                 margin: 0 auto;
             }
 
             .card img {
                 height: 180px;
+                width: fit-content;
             }
         }
     }
@@ -390,9 +387,9 @@ $light-gray: #e9ecf4;
         .thumb-stack {
             position: relative;
             display: flex;
-            flex-direction: column;
-            gap: 22px;
-            align-items: flex-end;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center;
             width: 260px;
             height: 100%;
             justify-content: flex-start;
@@ -400,16 +397,16 @@ $light-gray: #e9ecf4;
 
         .thumb {
             position: relative;
-            width: 230px;
+            width: 250px;
             border-radius: 10px;
             overflow: visible;
             z-index: 2;
 
             img {
                 display: block;
-                width: 100%;
-                height: 120px;
-                object-fit: cover;
+                width: fit-content;
+                height: 150px;
+                object-fit: contain;
                 border-radius: 8px;
                 box-shadow: 0 16px 30px rgba(18, 30, 60, 0.10);
                 position: relative;
@@ -433,13 +430,13 @@ $light-gray: #e9ecf4;
             &.thumb-top .thumb-shape {
                 // transform: rotate(-1.6deg); 
                 top: -20%;
-                left: 50%;
+                left: -30%;
             }
 
             &.thumb-bottom .thumb-shape {
                 // transform: rotate(0.8deg); 
-                top: 45%;
-                left: -12%;
+                top: 55%;
+                left: 40%;
             }
         }
 
@@ -447,17 +444,21 @@ $light-gray: #e9ecf4;
             height: auto;
 
             .thumb-stack {
+               flex-direction: column;
                 width: 100%;
-                align-items: center;
+                align-items: center !important;
+                justify-content: center !important;
                 gap: 14px;
             }
 
             .thumb img {
-                width: 85%;
+                width: fit-content;
                 height: 110px;
+                object-fit: contain;
             }
 
             .thumb .thumb-shape {
+                 display: none;
                 left: 0;
                 width: 85%;
             }
@@ -496,7 +497,7 @@ $light-gray: #e9ecf4;
         /* subtle big rounded background shape behind both images */
         .bottom-shape {
             position: absolute;
-            left: 170px;
+            left: 150px;
             top: -90px;
             width: 250px;
             height: 150px;
@@ -526,9 +527,9 @@ $light-gray: #e9ecf4;
 
         .big-thumb img {
             display: block;
-            width: 280px;
-            height: 170px;
-            object-fit: cover;
+            width: fit-content;
+            height: 200px;
+            object-fit: contain;
             position: relative;
             z-index: 2;
         }
@@ -537,14 +538,14 @@ $light-gray: #e9ecf4;
         .big-thumb-left {
             left: -10px;
             top: -50px;
-            transform: rotate(-0.8deg);
+            // transform: rotate(-0.8deg); 
         }
 
         /* right card: overlaps to the right, sits a bit lower */
         .big-thumb-right {
             left: 250px;
             top: 40px;
-            transform: rotate(0.6deg);
+            // transform: rotate(0.6deg); 
         }
 
         /* smaller screens: stack nicely */
@@ -557,10 +558,11 @@ $light-gray: #e9ecf4;
                 position: relative;
                 margin: 0 auto 12px;
                 display: block;
+                width: fit-content;
             }
 
             .big-thumb img {
-                width: 65%;
+                width: fit-content;
                 height: 160px;
             }
 
@@ -757,7 +759,7 @@ $light-gray: #e9ecf4;
             // Background shape behind image
             .image-bg {
                 position: absolute;
-                bottom: -10%;
+                bottom: -2+0%;
                 right: 10%;
                 width: 50%;
                 height: 50%;
@@ -767,6 +769,7 @@ $light-gray: #e9ecf4;
                 z-index: 1;
 
                 @media (max-width: 992px) {
+                    display: none;
                     width: 70%;
                     height: 65%;
                     bottom: 5%;
@@ -910,18 +913,19 @@ $light-gray: #e9ecf4;
             position: relative;
             z-index: 2;
             flex: 1;
-            max-width: 400px;
+            max-width: 380px;
             display: flex;
             justify-content: center;
             align-items: center;
 
             img {
-                width: 100%;
+                width: fit-content;
                 height: 250PX;
                 max-width: 400px;
                 border-radius: 10px;
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
                 background: transparent;
+                object-fit: contain;
                 // background: #fff; 
             }
 

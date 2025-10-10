@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Slider.scss';
 
+// import dummy from "../../../assets/home/slider/hero.png"
+import slide1 from "../../../assets/home/slider/slide1.png"
+import slide2 from "../../../assets/home/slider/slide2.png"
+
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -9,19 +13,15 @@ const Slider = () => {
   const slides = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
+      image: slide1,
       text: 'Premium Industrial Solutions'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1581094794355-69d3d8d12b44?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
+      image: slide2,
       text: 'Innovation in Mechanical Engineering'
     },
-    {
-      id: 3,
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80',
-      text: 'Advanced Forge Technologies'
-    },
+    
    
   ];
 
