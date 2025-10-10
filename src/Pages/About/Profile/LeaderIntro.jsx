@@ -105,7 +105,7 @@ const LeaderIntro = () => {
 
             {/* Back button or navigation */}
             <div className="back-nav">
-                <a href="/about" className="back-button">← Back to Leadership Team</a>
+                <a href="/about" className="back-button">← Back to About Section</a>
             </div>
         </div>
     );

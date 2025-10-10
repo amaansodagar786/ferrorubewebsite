@@ -4,19 +4,19 @@ import * as Yup from "yup";
 import { FiPhone, FiGlobe } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { GoLocation } from "react-icons/go";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Toastify styles
 import "./Contact.scss";
 
-
-import heroimage from "../../assets/home/slider/contacthero.png"
-
+import heroimage from "../../assets/home/slider/contacthero.png";
+import mobilehero from "../../assets/mobileslider/mobilecontact.png";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
 
-
-   useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   const initialValues = {
     name: "",
@@ -36,39 +36,62 @@ const Contact = () => {
     message: Yup.string().required("Message is required"),
   });
 
-  const handleSubmit = (values, { resetForm, setSubmitting }) => {
-    console.log("Form submitted:", values);
-    setTimeout(() => {
-      setSubmitting(false);
-      resetForm();
-      alert("Message sent — (this is a demo). Check console for values.");
-    }, 800);
+  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+    setLoading(true);
+    try {
+      const res = await fetch("https://ferrotubeindia.techorses.com/api/inquiry/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success("Inquiry submitted successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        resetForm();
+      } else {
+        toast.error(`Error: ${data.message}`, {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to submit inquiry.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
+    setLoading(false);
+    setSubmitting(false);
   };
 
-  // Function to scroll to map section
   const scrollToMap = () => {
-    const mapSection = document.querySelector('.map-section');
+    const mapSection = document.querySelector(".map-section");
     if (mapSection) {
       mapSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+        behavior: "smooth",
+        block: "center",
       });
     }
   };
 
   return (
     <div className="page-contact">
+      <ToastContainer position="top-center" />
       {/* HERO SECTION */}
       <header className="hero">
         <div className="hero__overlay"></div>
-        <img
-          className="hero__img"
-          src={heroimage}
-          alt="Contact Hero"
-        />
+        <img className="hero__img desktop" src={heroimage} alt="Contact Hero" />
+        <img className="hero__img mobile" src={mobilehero} alt="Contact Hero Mobile" />
         <div className="hero__center">
           <h1>Get in Touch</h1>
-          {/* <p>We'd love to hear from you — questions, quotes or partnerships.</p>  */}
         </div>
       </header>
 
@@ -85,14 +108,14 @@ const Contact = () => {
             </p>
 
             <ul className="info-list">
-              <li onClick={() => window.open('tel:+919879611705', '_self')}>
+              <li onClick={() => window.open("tel:+919879611705", "_self")}>
                 <span className="icon"><FiPhone /></span>
                 <div className="text-content">
                   <strong>Phone</strong>
                   <div className="muted">+91 98796 11705</div>
                 </div>
               </li>
-              <li onClick={() => window.open('mailto:ferrotube@yahoo.in,ferrotubeindia@yahoo.in', '_self')}>
+              <li onClick={() => window.open("mailto:ferrotube@yahoo.in,ferrotubeindia@yahoo.in", "_self")}>
                 <span className="icon"><HiOutlineMail /></span>
                 <div className="text-content">
                   <strong>Email</strong>
@@ -100,14 +123,14 @@ const Contact = () => {
                   <div className="muted">ferrotubeindia@yahoo.in</div>
                 </div>
               </li>
-              <li onClick={() => window.open('https://ferrotubeindia.com', '_blank')}>
+              <li onClick={() => window.open("https://ferrotubeindia.com", "_blank")}>
                 <span className="icon"><FiGlobe /></span>
                 <div className="text-content">
                   <strong>Website</strong>
                   <div className="muted">ferrotubeindia.com</div>
                 </div>
               </li>
-              <li onClick={() => window.open('https://maps.google.com/?q=C1/219,GIDC+Estate,Vaghodia,Vadodara,391760,Gujarat,India', '_blank')}>
+              <li onClick={() => window.open("https://maps.google.com/?q=C1/219,GIDC+Estate,Vaghodia,Vadodara,391760,Gujarat,India", "_blank")}>
                 <span className="icon"><GoLocation /></span>
                 <div className="text-content">
                   <strong>Location</strong>
@@ -120,7 +143,7 @@ const Contact = () => {
               </li>
             </ul>
 
-            <div className="note" >
+            <div className="note">
               <strong>NOTE:</strong>
               <div className="muted">Communication in English only.</div>
             </div>
@@ -148,32 +171,19 @@ const Contact = () => {
                   <ErrorMessage name="email" component="div" className="err" />
 
                   <label className="field-label">Mobile Number</label>
-                  <Field name="phone" placeholder="+91 98796 11705" />
+                  <Field name="phone" placeholder="1234567890" />
                   <ErrorMessage name="phone" component="div" className="err" />
 
                   <label className="field-label">Your Message*</label>
-                  <Field
-                    as="textarea"
-                    name="message"
-                    rows="3"
-                    placeholder="Write your message here..."
-                  />
+                  <Field as="textarea" name="message" rows="3" placeholder="Write your message here..." />
                   <ErrorMessage name="message" component="div" className="err" />
 
                   <div className="form-actions">
-                    <button
-                      type="button"
-                      className="btn btn--muted"
-                      onClick={() => handleReset()}
-                    >
+                    <button type="button" className="btn btn--muted" onClick={() => handleReset()}>
                       RESET
                     </button>
-                    <button
-                      type="submit"
-                      className="btn btn--primary"
-                      disabled={isSubmitting}
-                    >
-                      SUBMIT
+                    <button type="submit" className="btn btn--primary" disabled={isSubmitting || loading}>
+                      {loading ? "Submitting..." : "SUBMIT"}
                     </button>
                   </div>
                 </Form>

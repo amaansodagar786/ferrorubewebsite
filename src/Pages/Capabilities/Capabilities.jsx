@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Capabilities.scss";
 
 import heroimage from "../../assets/home/slider/Capabilitieshero.png"
+import mobilehero from "../../assets/mobileslider/mobilecapabilities.png" 
+
 
 // Sample hero and section images
 
@@ -22,11 +24,16 @@ const Capabilities = () => {
     <div className="capabilities">
       {/* HERO */}
       <section className="capabilities-hero">
-        <img src={heroimage} alt="Capabilities hero" className="hero-img" />
-        <div className="hero-center">
-          <h1>Capabilities</h1>
-        </div>
-      </section>
+  {/* Desktop hero image */}
+  <img src={heroimage} alt="Capabilities hero" className="hero-img desktop" />
+
+  {/* Mobile hero image */}
+  <img src={mobilehero} alt="Capabilities hero" className="hero-img mobile" />
+
+  <div className="hero-center">
+    <h1>CAPABILITIES</h1>
+  </div>
+</section>
 
       {/* SECTION 1: LEFT TEXT - RIGHT IMAGE */}
       <section className="capabilities-row">

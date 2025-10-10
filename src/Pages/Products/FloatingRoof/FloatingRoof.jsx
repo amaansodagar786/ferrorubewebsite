@@ -1,4 +1,4 @@
-import React from 'react';
+import {React , useEffect} from 'react';
 import './FloatingRoof.scss';
 
 import drainsystem from "../../../assets/products/floating-roof/drain_system.jpg"
@@ -16,7 +16,9 @@ import conventional3 from "../../../assets/products/floating-roof/flo_img9.jpg"
 import conventional4 from "../../../assets/products/floating-roof/tech_2.jpg"
 
 
-import heroimg from "../../../assets/products/floating-roof/floatingroofhero.png" ;
+import heroimg from "../../../assets/products/floating-roof/floatingroofhero.png";
+import mobilehero from "../../../assets/mobileslider/mobilefloating.png";
+
 
 
 
@@ -25,22 +27,38 @@ import heroimg from "../../../assets/products/floating-roof/floatingroofhero.png
 
 
 const FloatingRoof = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return (
         <div className="floating-roof">
             {/* Hero Section */}
             <section className="floating-hero">
                 <div className="floating-hero-background">
+                    {/* Desktop Image */}
                     <img
                         src={heroimg}
                         alt="Floating Roof Drains"
-                        className="floating-hero-img"
+                        className="floating-hero-img desktop"
                     />
+
+                    {/* Mobile Image */}
+                    <img
+                        src={mobilehero}
+                        alt="Floating Roof Drains Mobile"
+                        className="floating-hero-img mobile"
+                    />
+
+                    {/* Gradient Overlay */}
                     <div className="floating-hero-overlay"></div>
                 </div>
+
                 <div className="floating-hero-content">
-                    <h1 className="floating-hero-title">Floating Roof Drains</h1>
+                    <h1 className="floating-hero-title">FLOATING ROOF DRAINS</h1>
                 </div>
             </section>
+
 
             {/* First Section - Full width paragraph */}
             <section className="floating-intro-section">

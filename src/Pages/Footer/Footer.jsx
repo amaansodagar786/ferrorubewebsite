@@ -3,7 +3,7 @@ import React from "react";
 import "./Footer.scss";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import logo from "../../assets/logo/ferrologo.jpg"
-import mobilelogologo from "../../assets/logo/footermobilelogo.png"
+import mobilelogo from "../../assets/logo/footermobilelogo.png"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");
@@ -61,7 +61,7 @@ const Footer = () => {
 
         {/* NEW: Products column */}
         <div className="footer__products">
-          {/* <h4 className="footer__products-title">Our Products</h4>  */}
+          <h4 className="footer__products-title">Our Products</h4> 
           <ul className="footer__products-links">
             {productPages.map((product) => (
               <li key={product.link}>
@@ -82,12 +82,37 @@ const Footer = () => {
           </ul>
         </nav>
 
-        {/* RIGHT: logo with diagonal divider */}
+        {/* RIGHT: logo with diagonal divider - Updated for mobile logo */}
         <div className="footer__right" aria-hidden="false">
           <div className="footer__logo">
-            <img src={logo} alt="company logo" />
+            {/* Show mobile logo on mobile, desktop logo on larger screens */}
+            <img 
+              src={logo} 
+              alt="company logo" 
+              className="desktop-logo"
+            />
+            <img 
+              src={logo} 
+              alt="company logo" 
+              className="mobile-logo"
+            />
           </div>
         </div>
+      </div>
+
+      {/* NEW: Designed and Developed by section */}
+      <div className="footer__credits">
+        <p>
+          Designed and Developed by{" "}
+          <a 
+            href="https://techorses.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="credits-link"
+          >
+            Techorses
+          </a>
+        </p>
       </div>
     </footer>
   );

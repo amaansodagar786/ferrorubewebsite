@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Slider.scss';
 
-// import dummy from "../../../assets/home/slider/hero.png"
-import slide1 from "../../../assets/home/slider/slide1.png"
-import slide2 from "../../../assets/home/slider/slide2.png"
+import slide1 from "../../../assets/home/slider/slide1.png";
+import slide2 from "../../../assets/home/slider/slide2.png";
+import mobileslide1 from "../../../assets/mobileslider/mobileslide1.png";
+import mobileslide2 from "../../../assets/mobileslider/mobileslide2.png";
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,97 +14,84 @@ const Slider = () => {
   const slides = [
     {
       id: 1,
-      image: slide1,
+      imageDesktop: slide1,
+      imageMobile: mobileslide1,
       text: 'Premium Industrial Solutions'
     },
     {
       id: 2,
-      image: slide2,
+      imageDesktop: slide2,
+      imageMobile: mobileslide2,
       text: 'Innovation in Mechanical Engineering'
     },
-    
-   
   ];
 
   const nextSlide = () => {
     if (isTransitioning) return;
-    
     setIsTransitioning(true);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
-    
-    // Reset transitioning state after animation completes
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600);
+    setTimeout(() => setIsTransitioning(false), 600);
   };
 
   const prevSlide = () => {
     if (isTransitioning) return;
-    
     setIsTransitioning(true);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    
-    // Reset transitioning state after animation completes
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600);
+    setTimeout(() => setIsTransitioning(false), 600);
   };
 
   const goToSlide = (index) => {
     if (isTransitioning || index === currentSlide) return;
-    
     setIsTransitioning(true);
     setCurrentSlide(index);
-    
-    // Reset transitioning state after animation completes
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600);
+    setTimeout(() => setIsTransitioning(false), 600);
   };
 
-  // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
+    const interval = setInterval(() => nextSlide(), 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, currentSlide]);
 
   return (
     <div className="slider-container">
-      <div 
+      <div
         className="slider-wrapper"
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
       >
-        {/* Slides with fade transition */}
+        {/* Slides */}
         <div className="slides-container">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`slide ${index === currentSlide ? 'active' : ''} ${
-                index === currentSlide ? 'fade-in' : 'fade-out'
-              }`}
-              style={{ 
-                backgroundImage: `url(${slide.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
+              className={`slide ${index === currentSlide ? 'active fade-in' : 'fade-out'}`}
             >
+              {/* Desktop image */}
+              <img
+                src={slide.imageDesktop}
+                alt={`Slide ${slide.id}`}
+                className="slide-img desktop"
+              />
+              {/* Mobile image */}
+              <img
+                src={slide.imageMobile}
+                alt={`Slide ${slide.id}`}
+                className="slide-img mobile"
+              />
+
+              {/* Blue overlay + dark layer */}
               <div className="slide-overlay"></div>
+              <div className="blue-shade"></div>
+
               <div className="slide-content">
                 <h2 className="slide-text">{slide.text}</h2>
-                {/* <button className="cta-button">Explore Our Solutions</button>  */}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation */}
         <button className="slider-arrow slider-arrow--prev" onClick={prevSlide}>
           <span>‹</span>
         </button>
@@ -111,7 +99,7 @@ const Slider = () => {
           <span>›</span>
         </button>
 
-        {/* Dots Indicator */}
+        {/* Dots */}
         <div className="slider-dots">
           {slides.map((_, index) => (
             <button
@@ -121,11 +109,6 @@ const Slider = () => {
             />
           ))}
         </div>
-
-        {/* Slide Counter */}
-        {/* <div className="slide-counter">
-          {currentSlide + 1} / {slides.length}
-        </div> */}
       </div>
     </div>
   );

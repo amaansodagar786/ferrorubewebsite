@@ -1,19 +1,21 @@
-import React from "react";
+import {React , useEffect} from "react";
 import "./TopLoadingArms.scss";
 
 
-import img1 from "../../../assets/products/top-loading/top_img1.jpg" ;
-import img2 from "../../../assets/products/top-loading/top_img2.jpg" ;
-import img3 from "../../../assets/products/top-loading/top_img3.jpg" ;
-import img4 from "../../../assets/products/top-loading/top_img4.jpg" ;
-import img5 from "../../../assets/products/top-loading/top_img5.jpg" ;
-import img6 from "../../../assets/products/top-loading/top_img6.jpg" ;
-import img7 from "../../../assets/products/top-loading/top_img7.jpg" ;
-import img8 from "../../../assets/products/top-loading/top_img8.jpg" ;
-import img9 from "../../../assets/products/top-loading/top_img9.jpg" ;
-import img10 from "../../../assets/products/top-loading/top_img10.jpg" ;
+import img1 from "../../../assets/products/top-loading/top_img1.jpg";
+import img2 from "../../../assets/products/top-loading/top_img2.jpg";
+import img3 from "../../../assets/products/top-loading/top_img3.jpg";
+import img4 from "../../../assets/products/top-loading/top_img4.jpg";
+import img5 from "../../../assets/products/top-loading/top_img5.jpg";
+import img6 from "../../../assets/products/top-loading/top_img6.jpg";
+import img7 from "../../../assets/products/top-loading/top_img7.jpg";
+import img8 from "../../../assets/products/top-loading/top_img8.jpg";
+import img9 from "../../../assets/products/top-loading/top_img9.jpg";
+import img10 from "../../../assets/products/top-loading/top_img10.jpg";
 
-import heroimg from "../../../assets/products/top-loading/toploadinghero.png" ;
+import heroimg from "../../../assets/products/top-loading/toploadinghero.png";
+import mobilehero from "../../../assets/mobileslider/mobiletop.png";
+
 
 
 /**
@@ -36,23 +38,36 @@ const bigB =
 
 
 const TopLoadingArms = () => {
+
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [])
+
+
   return (
     <div className="top-loading-arms">
       {/* HERO */}
       <section className="floating-hero">
         <div className="floating-hero-background">
           <img
-            className="floating-hero-img"
             src={heroimg}
             alt="Top Loading Arms"
+            className="floating-hero-img desktop"
           />
-          <div className="floating-hero-overlay" />
+          <img
+            src={mobilehero}
+            alt="Top Loading Arms"
+            className="floating-hero-img mobile"
+          />
+          <div className="floating-hero-overlay"></div>
         </div>
 
         <div className="floating-hero-content">
-          <h1 className="floating-hero-title">Top Loading Arms</h1>
+          <h1 className="floating-hero-title">TOP LOADING ARMS</h1>
         </div>
       </section>
+
 
       {/* MAIN SECTION */}
       <section className="short-reach-section">

@@ -1,5 +1,3 @@
-// Clients.scss
-
 // Google Fonts Import
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
@@ -90,7 +88,7 @@ $blue: #264697;
   }
 
   @include responsive(mobile) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -126,7 +124,7 @@ $blue: #264697;
   }
 }
 
-// Slider Rows
+// Slider Rows - REMOVED BORDERS
 .slider-row {
   position: relative;
   overflow: hidden;
@@ -136,13 +134,8 @@ $blue: #264697;
     padding: 20px 0;
   }
 
-  &.top-row {
-    border-bottom: 1px solid rgba($primary-color, 0.1);
-  }
-
-  &.bottom-row {
-    border-top: 1px solid rgba($primary-color, 0.1);
-  }
+  // REMOVED: border-bottom for top-row
+  // REMOVED: border-top for bottom-row
 }
 
 .slider-track {
@@ -161,7 +154,7 @@ $blue: #264697;
   }
 }
 
-// Client Logo Styles
+// Client Logo Styles - REMOVED DEFAULT FILTERS, KEPT HOVER EFFECTS
 .client-logo {
   position: relative;
   min-width: 180px;
@@ -198,6 +191,7 @@ $blue: #264697;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     border-color: rgba($primary-color, 0.3);
 
+    // KEPT HOVER EFFECTS
     .logo-overlay {
       opacity: 1;
       transform: translateY(0);
@@ -230,12 +224,13 @@ $blue: #264697;
   height: 100%;
   object-fit: contain;
   transition: $transition;
-  filter: grayscale(0.3);
-  opacity: 0.8;
+  // REMOVED: grayscale filter
+  // REMOVED: opacity reduction
+  // Now showing original logos by default
 
   .client-logo:hover & {
-    filter: grayscale(0);
-    opacity: 1;
+    // Only apply filters on hover (as per your requirement)
+    filter: brightness(0.8) blur(1px);
   }
 }
 
@@ -269,9 +264,9 @@ $blue: #264697;
 // Info Section
 .clients-info {
   text-align: center;
-  margin-top: 50px;
-  padding-top: 30px;
-  border-top: 1px solid rgba($primary-color, 0.1);
+  margin-top: 5px;
+  padding-top: 5px;
+  // border-top: 1px solid rgba($primary-color, 0.1);
 
   @include responsive(mobile) {
     margin-top: 40px;
@@ -307,7 +302,7 @@ $blue: #264697;
   animation: fadeInUp 0.8s ease-out;
 }
 
-// Gradient Overlays for Smooth Edges
+// Gradient Overlays for Smooth Edges - FIXED BOTH SIDES
 .slider-row {
   position: relative;
 

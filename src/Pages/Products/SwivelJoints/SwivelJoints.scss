@@ -32,6 +32,23 @@
         object-fit: cover;
         transform: scale(1.03);
         filter: brightness(0.9);
+        transition: transform 0.6s ease;
+
+        &.desktop {
+            display: block;
+        }
+
+        &.mobile {
+            display: none;
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 123, 255, 0.2);
+        z-index: 2;
     }
 
     .hero-center {
@@ -42,19 +59,30 @@
         text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 
         h1 {
-            font-family: 'Roboto Slab', serif;
+            font-family: "Roboto Slab", serif;
             font-size: 3.5rem;
             font-weight: 700;
+
+            @media (max-width: 900px) {
+                font-size: 2.6rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 2rem;
+                padding: 0 12px;
+            }
         }
     }
 
-     &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 123, 255, 0.2); // soft blue overlay over the whole image
-            z-index: 2;
+    @media (max-width: 480px) {
+        .hero-img.desktop {
+            display: none;
         }
+
+        .hero-img.mobile {
+            display: block;
+        }
+    }
 }
 
 /* ---------------- PARAGRAPHS SECTION ---------------- */
@@ -138,13 +166,13 @@
         .image-frame {
             position: relative;
             z-index: 5;
-            width: 90%;
-            max-width: 400px;
+            width: 80%;
+            max-width: 320px;
 
             img {
                 width: 100%;
                 border-radius: 22px;
-                box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+                // box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35); 
             }
         }
 
@@ -152,68 +180,68 @@
             position: absolute;
             width: 35%;
             height: 110%;
-            background: #2f4fb0;
+            background: #2f4fb0b7;
             opacity: 0.9;
             z-index: 2;
             border-radius: 30px;
         }
 
         .shape-1-a {
-            top: -5%;
-            right: -4%;
+            top: 5%;
+            right: 10%;
             width: 30%;
             height: 30%;
         }
 
         .shape-1-b {
             bottom: -6%;
-            left: -3%;
-            background: #5874dc;
+            left: 13%;
+            background: #2f4fb0b7;
             width: 40%;
             height: 50%;
         }
 
         .shape-2-a {
-            top: -5%;
-            right: -4%;
+            top: -10%;
+            right: 10%;
             width: 40%;
             height: 50%;
         }
 
         .shape-2-b {
-            bottom: -6%;
-            left: -3%;
-            background: #5874dc;
+            bottom: 1%;
+            left: 17%;
+            background: #2f4fb0b7;
             width: 30%;
             height: 30%;
         }
 
         .shape-3-a {
-            top: -5%;
-            right: -4%;
+            top: 1%;
+            right: 15%;
             width: 30%;
             height: 30%;
         }
 
         .shape-3-b {
             bottom: -6%;
-            left: -3%;
-            background: #5874dc;
+            left: 13%;
+            background: #2f4fb0b7;
             width: 40%;
             height: 50%;
         }
 
         .shape-4-a {
             top: -5%;
-            right: -4%;
-            width: 40%;
-            height: 50%;
+            right: 14%;
+            width: 35%;
+            height: 45%;
         }
 
         .shape-4-b {
             bottom: -6%;
-            left: -3%;
-            background: #5874dc;
+            left: 13%;
+            background: #2f4fb0b7;
             width: 30%;
             height: 30%;
         }
@@ -254,27 +282,12 @@
     }
 
     .swivel-joints-row {
-        flex-direction: column;
+        flex-direction: column !important; // ✅ Force column for all rows
         padding: 2.5rem 5%;
         gap: 1.5rem;
 
-        .media-col {
-            order: 0;
-            width: 100%;
-
-            .image-frame {
-                width: 100%;
-                max-width: 100%;
-
-                img {
-                    border-radius: 16px;
-                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-                }
-            }
-        }
-
         .text-col {
-            order: 1;
+            order: 0 !important; // ✅ Force text first for all rows
             max-width: 100%;
             text-align: left;
 
@@ -290,11 +303,41 @@
                 font-size: 0.95rem;
             }
         }
+
+        .media-col {
+            order: 1 !important; // ✅ Force image after text for all rows
+            width: 100%;
+
+            .shape {
+                display: none; // ✅ Remove shadow shapes in mobile
+            }
+
+            .image-frame {
+                width: 70%; // ✅ Reduce image size slightly
+                max-width: 280px;
+
+                img {
+                    border-radius: 16px;
+                    box-shadow: none !important; // ✅ Remove shadow behind image
+                }
+            }
+        }
+    }
+
+    // ✅ Override the even row selector in mobile
+    .swivel-joints-row:nth-child(even) {
+        flex-direction: column !important;
+
+        .text-col {
+            order: 0 !important;
+        }
+
+        .media-col {
+            order: 1 !important;
+        }
     }
 
     .swivel-joints-hero {
-        height: 40vh;
-
         .hero-center h1 {
             font-size: clamp(1.8rem, 6vw, 2.6rem);
         }
@@ -317,16 +360,76 @@
 
     .swivel-joints-row {
         padding: 1.5rem 1rem;
+
+        .text-col {
+            p {
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
+
+            ul li {
+                font-size: 0.88rem;
+                line-height: 1.5;
+            }
+        }
+
+        .media-col {
+            .image-frame {
+                width: 65%; // ✅ Further reduce image size for small mobile
+                max-width: 250px;
+            }
+        }
     }
 
-    .text-col p {
-        font-size: 0.88rem;
-        line-height: 1.6;
+    // ✅ Override even rows for small mobile too
+    .swivel-joints-row:nth-child(even) {
+        flex-direction: column !important;
+
+        .text-col {
+            order: 0 !important;
+        }
+
+        .media-col {
+            order: 1 !important;
+        }
     }
 
-    .text-col ul li {
-        font-size: 0.88rem;
+    .swivel-bottom-image img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .swivel-joints-paragraphs {
+        padding: 1.5rem 1rem;
+    }
+
+    .paragraphs-container p {
+        font-size: 0.9rem;
         line-height: 1.5;
+    }
+
+    .swivel-joints-row {
+        padding: 1.5rem 1rem;
+
+        .text-col {
+            p {
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
+
+            ul li {
+                font-size: 0.88rem;
+                line-height: 1.5;
+            }
+        }
+
+        .media-col {
+            .image-frame {
+                width: 65%; // ✅ Further reduce image size for small mobile
+                max-width: 250px;
+            }
+        }
     }
 
     .swivel-bottom-image img {

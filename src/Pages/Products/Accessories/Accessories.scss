@@ -29,6 +29,15 @@
         object-fit: cover;
         filter: brightness(0.7);
         transform: scale(1.05);
+        transition: transform 0.6s ease;
+
+        &.desktop {
+            display: block;
+        }
+
+        &.mobile {
+            display: none;
+        }
     }
 
     .hero-center {
@@ -42,17 +51,37 @@
             font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 700;
             letter-spacing: 1px;
+
+            @media (max-width: 900px) {
+                font-size: 2.5rem;
+            }
+
+            @media (max-width: 480px) {
+                font-size: 2rem;
+                padding: 0 12px;
+            }
         }
     }
 
     &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 123, 255, 0.2); // soft blue overlay over the whole image
-            z-index: 2;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 123, 255, 0.2); // soft blue overlay
+        z-index: 2;
+    }
+
+    @media (max-width: 480px) {
+        .hero-img.desktop {
+            display: none;
         }
+
+        .hero-img.mobile {
+            display: block;
+        }
+    }
 }
+
 
 /* ---------- ACCESSORY ROW ---------- */
 .accessory-row {
@@ -119,7 +148,7 @@
             right: 20%;
             width: 25%;
             height: 30%;
-            
+
         }
 
         .shape-1-b {
@@ -132,29 +161,29 @@
         }
 
         .shape-2-a {
-           
+
             top: 5%;
             right: 14%;
-             width: 30%;
+            width: 30%;
             height: 40%;
         }
 
         .shape-2-b {
-            
-             bottom: 10%;
+
+            bottom: 10%;
             left: 13%;
             background: #5875dcb8;
 
-             width: 25%;
+            width: 25%;
             height: 30%;
         }
 
-       .shape-3-a {
+        .shape-3-a {
             top: 5%;
             right: 10%;
             width: 25%;
             height: 30%;
-            
+
         }
 
         .shape-3-b {
@@ -167,29 +196,29 @@
         }
 
         .shape-4-a {
-           
+
             top: 5%;
             right: 14%;
-             width: 30%;
+            width: 30%;
             height: 40%;
         }
 
         .shape-4-b {
-            
-             bottom: 10%;
+
+            bottom: 10%;
             left: 13%;
             background: #5875dcb8;
 
-             width: 25%;
+            width: 25%;
             height: 30%;
         }
 
-       .shape-5-a {
+        .shape-5-a {
             top: 20%;
             right: 20%;
             width: 25%;
             height: 30%;
-            
+
         }
 
         .shape-5-b {
@@ -202,20 +231,20 @@
         }
 
         .shape-6-a {
-           
+
             top: 5%;
             right: 14%;
-             width: 30%;
+            width: 30%;
             height: 40%;
         }
 
         .shape-6-b {
-            
-             bottom: 10%;
+
+            bottom: 10%;
             left: 13%;
             background: #5875dcb8;
 
-             width: 25%;
+            width: 25%;
             height: 30%;
         }
 
@@ -224,7 +253,7 @@
             right: 20%;
             width: 25%;
             height: 30%;
-            
+
         }
 
         .shape-7-b {
@@ -237,20 +266,20 @@
         }
 
         .shape-8-a {
-           
+
             top: 5%;
             right: 14%;
-             width: 30%;
+            width: 30%;
             height: 40%;
         }
 
         .shape-8-b {
-            
-             bottom: 10%;
+
+            bottom: 10%;
             left: 13%;
             background: #5875dcb8;
 
-             width: 25%;
+            width: 25%;
             height: 30%;
         }
     }
@@ -281,7 +310,8 @@
         .image-frame img {
             width: 100%;
             border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            // box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+            box-shadow: none;
         }
     }
 
@@ -289,11 +319,11 @@
         max-width: 100%;
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 1.6rem !important;
         }
 
         p {
-            font-size: 0.95rem;
+            font-size: 0.90rem !important;
         }
     }
 }

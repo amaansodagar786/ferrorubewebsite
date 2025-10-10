@@ -364,6 +364,10 @@ $max-width: 1600px;
         padding: 12px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 0;
+        // ADDED: Ensure same alignment as other items
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
       &__menu {
@@ -379,11 +383,15 @@ $max-width: 1600px;
         display: none;
         opacity: 1;
         visibility: visible;
-        // FIXED: Remove any left positioning
+        // FIXED: Ensure it stays within the navbar flow
         left: 0;
+        // ADDED: Remove any transforms that might push it sideways
+        transform: none !important;
 
         &.open {
           display: block;
+          // ADDED: Ensure it opens below the trigger
+          position: static;
         }
 
         &::before {
@@ -399,6 +407,9 @@ $max-width: 1600px;
         padding-left: 0;
         // FIXED: Ensure proper alignment
         width: 100%;
+        // ADDED: Remove any left positioning
+        margin-left: 0;
+        transform: none;
       }
 
       &__item {
@@ -412,6 +423,9 @@ $max-width: 1600px;
         justify-content: flex-start;
         // FIXED: Remove any shadow for mobile
         box-shadow: none;
+        // ADDED: Ensure no transform pushes it sideways
+        transform: none;
+        left: 0;
 
         &:hover {
           background: rgba(255, 255, 255, 0.1);
@@ -430,6 +444,9 @@ $max-width: 1600px;
         font-size: 14px;
         padding: 0;
         width: 100%;
+        // ADDED: Ensure proper text alignment
+        text-align: left;
+        margin-left: 0;
 
         // CHANGED: Single line for mobile
         .line1,

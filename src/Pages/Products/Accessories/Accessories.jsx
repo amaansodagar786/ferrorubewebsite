@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import "./Accessories.scss";
 
-import heroimg from "../../../assets/products/accessories/accessorieshero.png" ;
+import heroimg from "../../../assets/products/accessories/accessorieshero.png";
+import mobilehero from "../../../assets//mobileslider/mobileaccessories.png";
 
-import img1 from "../../../assets/products/accessories/7.png" ;
-import img2 from "../../../assets/products/accessories/6.png" ;
-import img3 from "../../../assets/products/accessories/5.png" ;
-import img4 from "../../../assets/products/accessories/5.png" ;
-import img5 from "../../../assets/products/accessories/com_6.jpg" ;
-import img6 from "../../../assets/products/accessories/9.png" ;
-import img7 from "../../../assets/products/accessories/8.png" ;
-import img8 from "../../../assets/products/accessories/10.png" ;
-import img9 from "../../../assets/products/accessories/9.png" ;
-import img10 from "../../../assets/products/accessories/10.png" ;
+
+import img1 from "../../../assets/products/accessories/7.png";
+import img2 from "../../../assets/products/accessories/6.png";
+import img3 from "../../../assets/products/accessories/5.png";
+import img4 from "../../../assets/products/accessories/5.png";
+import img5 from "../../../assets/products/accessories/com_6.jpg";
+import img6 from "../../../assets/products/accessories/9.png";
+import img7 from "../../../assets/products/accessories/8.png";
+import img8 from "../../../assets/products/accessories/10.png";
+import img9 from "../../../assets/products/accessories/9.png";
+import img10 from "../../../assets/products/accessories/10.png";
 
 
 
@@ -86,7 +88,7 @@ loading operation is completed.`,
 are highly effective and provides dependable and long maintenance free
 performance`,
         ],
-       image: img6,
+        image: img6,
     },
     {
         title: "Position Sensor",
@@ -128,11 +130,21 @@ const Accessories = () => {
         <div className="accessories-page">
             {/* HERO SECTION */}
             <section className="accessories-hero">
-                <img src={heroimg} alt="Accessories Hero" className="hero-img" />
+                <img
+                    src={heroimg}
+                    alt="Accessories Hero"
+                    className="hero-img desktop"
+                />
+                <img
+                    src={mobilehero}
+                    alt="Accessories Hero Mobile"
+                    className="hero-img mobile"
+                />
                 <div className="hero-center">
                     <h1>ACCESSORIES</h1>
                 </div>
             </section>
+
 
             {/* ACCESSORY SECTIONS */}
             {accessoriesData.map((item, index) => (

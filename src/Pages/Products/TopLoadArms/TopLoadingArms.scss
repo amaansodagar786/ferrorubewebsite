@@ -23,64 +23,97 @@ $light-gray: #e9ecf4;
 
 /* HERO */
 .floating-hero {
+  position: relative;
+  height: 70vh;
+  margin-top: 70px;
+  min-height: 320px;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 123, 255, 0.2); // soft blue overlay
+    z-index: 2;
+  }
+
+  .floating-hero-background {
+    position: absolute;
+    inset: 0;
+
+    .floating-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.68);
+
+      &.desktop {
+        display: block;
+      }
+
+      &.mobile {
+        display: none;
+      }
+    }
+
+    .floating-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(44, 62, 80, 0.8) 0%,
+        rgba(44, 62, 80, 0.4) 100%
+      );
+      z-index: 2;
+    }
+  }
+
+  .floating-hero-content {
     position: relative;
-    height: 70vh;
-    margin-top: 70px;
-    min-height: 320px;
-    overflow: hidden;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
 
-    .floating-hero-background {
-        position: absolute;
-        inset: 0;
+    .floating-hero-title {
+      font-family: "Roboto Slab", serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+      margin: 0;
+      padding: 0 20px;
+    }
+  }
 
-        .floating-hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.62);
-        }
+  /* ✅ Responsive font only — height stays 70vh */
+  @media (max-width: 900px) {
+    .floating-hero-title {
+      font-size: 2.5rem;
+    }
+  }
 
-        
+  @media (max-width: 480px) {
+    .floating-hero-title {
+      font-size: 1.8rem;
+      padding: 0 15px;
     }
 
-    .floating-hero-content {
-        position: relative;
-        z-index: 3;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .floating-hero-title {
-            font-family: "Roboto Slab", serif;
-            font-size: 3rem;
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-            margin: 0;
-            padding: 0 20px;
-        }
+    .floating-hero-img.desktop {
+      display: none;
     }
 
-    @media (max-width: 900px) {
-        // height: 34vh; 
-        min-height: 220px;
-
-        .floating-hero-title {
-            font-size: 2.0rem;
-        }
+    .floating-hero-img.mobile {
+      display: block;
     }
-
-    @media (max-width: 480px) {
-        // height: 30vh; 
-        min-height: 180px;
-
-        .floating-hero-title {
-            font-size: 1.6rem;
-            padding: 0 15px;
-        }
-    }
+  }
 }
+
 
 /* MAIN SECTION */
 .short-reach-section {
@@ -1055,5 +1088,151 @@ $light-gray: #e9ecf4;
 @media (max-width: 768px) and (min-width: 601px) {
     .top-loading-arms .container {
         padding: 35px 25px;
+    }
+}
+
+
+
+// Add these media queries at the end of your SCSS file, after all the existing styles
+
+/* Mobile-specific fixes for supported long reach loader */
+@media (max-width: 940px) {
+    .supported-long-reach {
+        .slr-col-right {
+            height: auto;
+            
+            .thumb-stack {
+                flex-direction: row !important; // Force horizontal layout
+                width: 100%;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 20px;
+            }
+            
+            .thumb {
+                width: 45% !important; // Make both images take equal width
+                max-width: 160px;
+                
+                img {
+                    width: 100% !important;
+                    height: 120px !important;
+                    object-fit: contain;
+                }
+                
+                .thumb-shape {
+                    display: none; // Hide shapes for cleaner mobile look
+                }
+            }
+        }
+        
+        /* Bottom row images - show in same row */
+        .slr-row-bottom {
+            .bottom-image-group {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 15px;
+                min-height: auto;
+            }
+            
+            .bottom-shape {
+                display: none; // Hide background shape
+            }
+            
+            .big-thumb {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                transform: none !important;
+                margin: 0 !important;
+                width: 45% !important;
+                max-width: 160px;
+                
+                img {
+                    height: 120px !important;
+                    width: 100% !important;
+                    object-fit: contain;
+                }
+                
+                .big-thumb-bg {
+                    display: none; // Hide background for cleaner look
+                }
+            }
+        }
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .supported-long-reach {
+        .slr-col-right {
+            .thumb-stack {
+                gap: 15px;
+            }
+            
+            .thumb {
+                width: 48% !important;
+                max-width: 140px;
+                
+                img {
+                    height: 100px !important;
+                }
+            }
+        }
+        
+        .slr-row-bottom {
+            .bottom-image-group {
+                gap: 12px;
+            }
+            
+            .big-thumb {
+                width: 48% !important;
+                max-width: 140px;
+                
+                img {
+                    height: 100px !important;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet specific adjustments */
+@media (max-width: 768px) and (min-width: 601px) {
+    .supported-long-reach {
+        .slr-col-right {
+            .thumb-stack {
+                gap: 25px;
+            }
+            
+            .thumb {
+                width: 45% !important;
+                max-width: 180px;
+                border-radius: none !important;
+                box-shadow: none !important;
+                
+                img {
+                    height: 140px !important;
+                    border-radius: none !important;
+                box-shadow: none !important;
+                }
+            }
+        }
+        
+        .slr-row-bottom {
+            .bottom-image-group {
+                gap: 20px;
+            }
+            
+            .big-thumb {
+                width: 45% !important;
+                max-width: 180px;
+                
+                img {
+                    height: 140px !important;
+                }
+            }
+        }
     }
 }

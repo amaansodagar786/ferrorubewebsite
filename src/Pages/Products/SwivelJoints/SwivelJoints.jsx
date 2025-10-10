@@ -3,14 +3,20 @@ import React, { useEffect } from "react";
 import "./SwivelJoints.scss";
 
 // Sample hero and section images
-import heroimg from "../../../assets/products/swivel_joints/swivelhero.png" ;
+import heroimg from "../../../assets/products/swivel_joints/swivelhero.png";
+import mobilehero from "../../../assets/mobileslider/mobileswivel.png" ;
 
 
 
-import img1 from "../../../assets/products/swivel_joints/com_1.jpg"
-import img2 from "../../../assets/products/swivel_joints/com_2.jpg"
-import img3 from "../../../assets/products/swivel_joints/com_3.jpg"
-import img4 from "../../../assets/products/swivel_joints/com_4.jpg"
+
+// import img1 from "../../../assets/products/swivel_joints/com_1.jpg"
+// import img2 from "../../../assets/products/swivel_joints/com_2.jpg"
+// import img3 from "../../../assets/products/swivel_joints/com_3.jpg"
+// import img4 from "../../../assets/products/swivel_joints/com_4.jpg"
+import img1 from "../../../assets/products/swivel_joints/1.png"
+import img2 from "../../../assets/products/swivel_joints/2.png"
+import img3 from "../../../assets/products/swivel_joints/3.png"
+import img4 from "../../../assets/products/swivel_joints/4.png"
 import img5 from "../../../assets/products/swivel_joints/swi_1.jpg"
 
 const swivelData = [
@@ -74,11 +80,21 @@ const SwivelJoints = () => {
         <div className="swivel-joints">
             {/* HERO */}
             <section className="swivel-joints-hero">
-                <img src={heroimg} alt="Swivel Joints hero" className="hero-img" />
+                <img
+                    src={heroimg}
+                    alt="Swivel Joints hero"
+                    className="hero-img desktop"
+                />
+                <img
+                    src={mobilehero}
+                    alt="Swivel Joints hero mobile"
+                    className="hero-img mobile"
+                />
                 <div className="hero-center">
                     <h1>SWIVEL JOINTS</h1>
                 </div>
             </section>
+
 
             {/* PARAGRAPH SECTION */}
             <section className="swivel-joints-paragraphs">

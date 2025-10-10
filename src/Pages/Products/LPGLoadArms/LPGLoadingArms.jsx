@@ -5,7 +5,8 @@ import img1 from "../../../assets/products/lpg_loading/lpg_1.jpg"
 import img2 from "../../../assets/products/lpg_loading/lpg_2.jpg"
 
 // Sample hero and section images
-import heroimg from "../../../assets/products/lpg_loading/lpgloadinghero.png" ;
+import heroimg from "../../../assets/products/lpg_loading/lpgloadinghero.png";
+import mobilehero from "../../../assets/mobileslider/mobilelpg.png";
 
 
 const LPGLoadingArms = () => {
@@ -17,11 +18,21 @@ const LPGLoadingArms = () => {
     <div className="lpg-loading-arms">
       {/* HERO */}
       <section className="lpg-loading-arms-hero">
-        <img src={heroimg} alt="LPG Loading Arms hero" className="hero-img" />
+        <img
+          src={heroimg}
+          alt="LPG Loading Arms hero"
+          className="hero-img desktop"
+        />
+        <img
+          src={mobilehero}
+          alt="LPG Loading Arms hero mobile"
+          className="hero-img mobile"
+        />
         <div className="hero-center">
-          <h1>LPG Loading Arms</h1>
+          <h1>LPG LOADING ARMS</h1>
         </div>
       </section>
+
 
       {/* SECTION 1: LEFT TEXT - RIGHT IMAGE */}
       <section className="lpg-loading-arms-row">

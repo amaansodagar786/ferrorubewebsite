@@ -8,6 +8,7 @@ import img3 from "../../../assets/products/pipe-fitting/p_3.jpg"
 import img4 from "../../../assets/products/pipe-fitting/p_4.jpg"
 
 import heroimg from "../../../assets/products/pipe-fitting/pipefittinghero.png" ;
+import mobilehero from "../../../assets/mobileslider/mobilepipe.png" ;
 
 const PipeFitting = () => {
 
@@ -38,19 +39,31 @@ const PipeFitting = () => {
     <div className="pipe-fitting">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-background">
-          <img 
-            src={heroimg} 
-            alt="Industrial Pipe Fittings"
-            className="hero-image"
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        <div className="hero-content">
-          <h1 className="hero-title">PIPE FITTING</h1>
-          {/* <p className="hero-subtitle">Manufacturing Excellence Since 1989</p>  */}
-        </div>
-      </section>
+  <div className="hero-background">
+    {/* Desktop Image */}
+    <img 
+      src={heroimg} 
+      alt="Industrial Pipe Fittings" 
+      className="hero-image desktop"
+    />
+
+    {/* Mobile Image */}
+    <img 
+      src={mobilehero} 
+      alt="Industrial Pipe Fittings Mobile" 
+      className="hero-image mobile"
+    />
+
+    {/* Overlay Layers */}
+    <div className="hero-overlay"></div>
+  </div>
+
+  <div className="hero-content">
+    <h1 className="hero-title">PIPE FITTING</h1>
+    {/* <p className="hero-subtitle">Manufacturing Excellence Since 1989</p> */}
+  </div>
+</section>
+
 
       {/* Content Section */}
       <section className="content-section">

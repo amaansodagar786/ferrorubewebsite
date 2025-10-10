@@ -4,9 +4,6 @@
     font-family: 'Inter', sans-serif;
     color: #1f1f1f;
 
-
-
-
     .about-hero {
         position: relative;
         width: 100%;
@@ -24,7 +21,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            // transform: scale(-0.01);
             filter: brightness(0.9);
 
             &.desktop {
@@ -39,7 +35,7 @@
         // Media query for mobile
         @media (max-width: 480px) {
             .about-hero {
-                height: calc(100vw / 2.22); // width divided by aspect ratio
+                height: calc(100vw / 2.22);
                 min-height: auto;
             }
 
@@ -66,10 +62,8 @@
             h1 {
                 margin: 0;
                 font-size: clamp(2rem, 5.5vw, 3rem);
-                // font-family: "Archivo Narrow", sans-serif; 
                 font-family: 'Inter', sans-serif;
                 font-optical-sizing: auto;
-                //   font-weight: <weight>;
                 font-style: normal;
                 font-weight: 800;
             }
@@ -79,12 +73,12 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 123, 255, 0.2); // soft blue overlay over the whole image
+            background: rgba(0, 123, 255, 0.2);
             z-index: 2;
         }
     }
 
-    // ABOUT INFO
+    // ABOUT INFO - UPDATED FOR MOBILE
     .about-info {
         padding: 4rem 2rem;
         background: #f8f8f8;
@@ -100,9 +94,25 @@
                 color: #333;
             }
         }
+
+        // MOBILE UPDATE: Make paragraphs use more width
+        @media (max-width: 768px) {
+            padding: 1rem 0.5rem;
+
+            .container {
+                max-width: 95%;
+                width: 95%;
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.7;
+                    text-align: justify;
+                }
+            }
+        }
     }
 
-    // MEDIA SECTION
+    // MEDIA SECTION - NO CHANGES
     .about-media {
         padding: 6rem 0rem 2rem 4rem;
         position: relative;
@@ -130,7 +140,7 @@
                 box-shadow:
                     0 10px 25px rgba(0, 0, 0, 0.15),
                     0 20px 40px rgba(0, 0, 0, 0.08),
-                    0 0 20px rgba(28, 61, 145, 0.15); // faint blue glow
+                    0 0 20px rgba(28, 61, 145, 0.15);
 
                 &:hover {
                     transform: scale(1.03);
@@ -188,7 +198,7 @@
         }
     }
 
-    // LEADERS SECTION
+    // LEADERS SECTION - NO CHANGES
     .about-leaders {
         padding: 5rem 2rem;
         background: #fff;
@@ -211,10 +221,10 @@
 
             .leader-card {
                 background: #f9f9f9;
-                padding: 2rem;
+                padding: 2.5rem; // ✅ Increased padding
                 border-radius: 20px;
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-                max-width: 280px;
+                max-width: 320px; // ✅ Increased max-width
                 transition: all 0.3s ease;
                 text-align: center;
 
@@ -224,11 +234,11 @@
                 }
 
                 .leader-img {
-                    width: 130px;
-                    height: 130px;
+                    width: 150px; // ✅ Increased image size
+                    height: 150px; // ✅ Increased image size
                     border-radius: 50%;
                     overflow: hidden;
-                    margin: 0 auto 1rem;
+                    margin: 0 auto 1.5rem; // ✅ Increased margin
                     box-shadow: 0 0 0 6px #e0e6f8;
 
                     img {
@@ -239,26 +249,26 @@
                 }
 
                 h3 {
-                    font-size: 1.3rem;
+                    font-size: 1.4rem; // ✅ Increased font size
                     font-weight: 700;
-                    margin-bottom: 0.3rem;
+                    margin-bottom: 0.5rem; // ✅ Increased margin
                 }
 
                 p {
-                    font-size: 1rem;
+                    font-size: 1.1rem; // ✅ Increased font size
                     color: #555;
-                    margin-bottom: 1.2rem;
+                    margin-bottom: 1.5rem; // ✅ Increased margin
                 }
 
                 .know-more {
                     background: linear-gradient(135deg, #1c3d91, #3f5bd9);
                     border: none;
                     color: #fff;
-                    padding: 0.6rem 1.4rem;
+                    padding: 0.8rem 1.6rem; // ✅ Increased padding
                     border-radius: 25px;
                     cursor: pointer;
                     font-weight: 600;
-                    font-size: 0.95rem;
+                    font-size: 1rem; // ✅ Increased font size
                     transition: all 0.3s ease;
                     box-shadow: 0 4px 12px rgba(28, 61, 145, 0.4);
 
@@ -271,15 +281,13 @@
         }
     }
 
-    // ✅ SAME MEDIA COLLAGE DESIGN FOR MOBILE
+    // ✅ SAME MEDIA COLLAGE DESIGN FOR MOBILE - NO CHANGES
     @media (max-width: 768px) {
         .about-media {
-
             padding-left: 1rem;
             padding-right: 1rem;
             padding-top: 3rem;
             padding-bottom: 0rem !important;
-
             margin-bottom: -15rem;
 
             .media-collage {
@@ -306,8 +314,6 @@
                     top: 25%;
                 }
 
-
-
                 .blue-shape-left {
                     width: 100px;
                     top: -4%;
@@ -319,12 +325,10 @@
                 }
 
                 .blue-shape-right {
-
                     width: 120px;
                     height: 80px;
                     bottom: 55%;
                     right: 6%;
-
                     z-index: 0;
                 }
             }
@@ -336,7 +340,6 @@
             h2 {
                 font-size: 1.8rem;
                 margin-bottom: 2rem;
-
             }
 
             .leaders-wrapper {
@@ -345,7 +348,7 @@
         }
     }
 
-    // ✅ DESKTOP ONLY: Slightly Bigger Leader Cards
+    // ✅ DESKTOP ONLY: Slightly Bigger Leader Cards - NO CHANGES
     @media (min-width: 1025px) {
         .about-leaders .leader-card {
             max-width: 320px;

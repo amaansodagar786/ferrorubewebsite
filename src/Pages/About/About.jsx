@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 
 // import dummy from "../../assets/home/slider/abouthero.png"
 import heroimage from "../../assets/home/slider/abouthero.png"
-// import mobilehero from "../../assets/home/slider/mobilehero.png" 
+ import mobilehero from "../../assets/mobileslider/mobileabout.png" 
 
 
 // const heroImg = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.1&auto=format&fit=crop&w=2000&q=80";
@@ -61,7 +61,7 @@ const About = () => {
 
       <section className="about-hero">
         <img src={heroimage} alt="about hero" className="hero-img desktop" />
-        <img src={heroimage} alt="about hero" className="hero-img mobile" />
+        <img src={mobilehero} alt="about hero" className="hero-img mobile" />
         <div className="hero-center">
           <h1>About Us</h1>
         </div>

@@ -7,7 +7,9 @@ import img2 from "../../../assets/products/bottom-loading/bot_arm_3.jpg"
 import img3 from "../../../assets/products/bottom-loading/bot_arm_3.jpg"
 
 
-import heroimg from "../../../assets/products/bottom-loading/bottomloadinghero.png" ;
+import heroimg from "../../../assets/products/bottom-loading/bottomloadinghero.png";
+import mobilehero from "../../../assets/mobileslider/mobilebottom.png" ;
+
 
 const BottomArms = () => {
   useEffect(() => {
@@ -62,20 +64,20 @@ const BottomArms = () => {
           <img
             src={heroimg}
             alt="Bottom loading arms hero"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src =
-                "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=2000&q=80";
-              console.log("[BottomArms] hero fallback image used");
-            }}
+            className="hero-img desktop"
+          />
+          <img
+            src={mobilehero}
+            alt="Bottom loading arms hero mobile"
+            className="hero-img mobile"
           />
         </div>
 
         <div className="ba-hero__content">
           <h1 className="ba-hero__title">BOTTOM LOADING ARMS</h1>
-          {/* subtitle intentionally removed as per your last code */}
         </div>
       </section>
+
 
       {/* ===== TOP INTRO (below hero) - centered and uses 90% width ===== */}
       <section className="ba-topintro">
