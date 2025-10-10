@@ -5,22 +5,23 @@ import './LeaderIntro.scss';
 
 const LeaderIntro = () => {
 
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    // Dummy data
+    
+    // Updated data for Mr. Kishan Snehi
     const leader = {
-        name: 'Dummy User',
-        position: 'Founder & CEO',
-        designation: 'Tech Entrepreneur, Visionary Leader',
-        education: 'B.Tech in Computer Engineering, MIT University',
-        introduction: `Person is a visionary leader with over 15 years in the tech industry.  
-      He combines strategic thinking with hands-on execution to build scalable solutions.  
-      Passionate about innovation and human-centric design, he leads teams with empathy and purpose.  
-      In his free time, he mentors startups and writes on emerging technologies.`,
-        imageUrl: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        email: 'dummy@example.com',
+        name: 'Mr. Kishan Snehi',
+        position: 'Managing Director',
+        designation: 'Mechanical Industry Expert, Strategic Leader',
+        education: 'Bachelor\'s in Electrical Engineering from L.D.R.P Gandhinagar & Masters in CNC Technology',
+        introduction: `Mr. Kishan Snehi brings with him over 8 years of extensive experience in the mechanical industry, with in-depth expertise across core industry segments and key business functions. His strategic leadership has been pivotal in enhancing operational efficiency and driving sustained growth at Ferro Tube & Forge Industries. Previously, he was associated with Multi Metal Industry as a CEO. He is highly experienced in designing & manufacturing of various types of loading & unloading arms and several other products. He has successfully overseen multiple functions, including sales, operations, and finance. His visionary leadership inspires the team to grow and transform the company's future.`,
+        imageUrl: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // You might want to replace with actual photo
+        email: 'kishansnehi@gmail.com', // Updated email format
+        appointmentDate: 'April 1, 2025',
+        previousRole: 'CEO at Multi Metal Industry',
+        expertise: 'Designing & manufacturing of loading & unloading arms and various mechanical products',
+        managedFunctions: 'Sales, Operations, Finance'
     };
 
     // Animation variants
@@ -80,7 +81,19 @@ const LeaderIntro = () => {
                         </li>
                         <li>
                             <FaBriefcase className="icon" />
-                            <strong>Career:</strong> {leader.position}
+                            <strong>Experience:</strong> Over 8 years in mechanical industry
+                        </li>
+                        <li>
+                            <FaBriefcase className="icon" />
+                            <strong>Previous Role:</strong> {leader.previousRole}
+                        </li>
+                        <li>
+                            <FaBriefcase className="icon" />
+                            <strong>Appointed as MD:</strong> {leader.appointmentDate}
+                        </li>
+                        <li>
+                            <FaBriefcase className="icon" />
+                            <strong>Key Expertise:</strong> {leader.expertise}
                         </li>
                         <li>
                             <FaEnvelope className="icon" />
@@ -99,7 +112,7 @@ const LeaderIntro = () => {
                 transition={{ duration: 1 }}
             >
                 <blockquote>
-                    “I believe success is not just about technology, but about building lasting impact through people and trust.”
+                    "I believe in driving sustained growth through strategic leadership, operational excellence, and empowering teams to transform the future of manufacturing."
                 </blockquote>
             </motion.section>
 

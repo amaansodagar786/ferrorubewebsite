@@ -36,17 +36,20 @@
                     font-size: 2.8rem;
                     font-weight: 700;
                     margin: 0;
+                    color: #1c3d91;
                 }
 
                 h3 {
                     font-size: 1.5rem;
                     margin: 0.5rem 0;
                     color: #555;
+                    font-weight: 600;
                 }
 
                 .designation {
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     color: #777;
+                    font-style: italic;
                 }
             }
         }
@@ -63,8 +66,9 @@
 
             p {
                 line-height: 1.75;
-                font-size: 1rem;
+                font-size: 1.05rem;
                 color: #333;
+                text-align: justify;
             }
         }
 
@@ -74,6 +78,7 @@
             border-radius: 15px;
             padding: 1.5rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #1c3d91;
 
             ul {
                 list-style: none;
@@ -84,18 +89,27 @@
                     display: flex;
                     align-items: flex-start;
                     margin-bottom: 1rem;
+                    padding-bottom: 0.8rem;
+                    border-bottom: 1px solid #eee;
+
+                    &:last-child {
+                        border-bottom: none;
+                        margin-bottom: 0;
+                    }
 
                     .icon {
                         color: #1c3d91;
                         font-size: 1.25rem;
                         margin-right: 0.75rem;
                         margin-top: 0.25rem;
+                        flex-shrink: 0;
                     }
 
                     strong {
                         color: #333;
-                        min-width: 110px;
+                        min-width: 130px;
                         display: inline-block;
+                        font-weight: 600;
                     }
 
                     span,
@@ -108,9 +122,11 @@
                     a {
                         color: #1c3d91;
                         text-decoration: none;
+                        font-weight: 500;
 
                         &:hover {
                             text-decoration: underline;
+                            color: #3f5bd9;
                         }
                     }
                 }
@@ -120,16 +136,36 @@
 
     .intro-vision {
         margin-top: 4rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+        border-radius: 15px;
+        text-align: center;
 
         blockquote {
             font-style: italic;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
             margin: 0 auto;
             max-width: 700px;
-            color: #444;
-            border-left: 4px solid #1c3d91;
-            padding-left: 1rem;
+            color: #1c3d91;
+            border-left: none;
+            padding-left: 0;
+            font-weight: 500;
+            line-height: 1.6;
+
+            &::before {
+                content: "“";
+                font-size: 3rem;
+                color: #3f5bd9;
+                margin-right: 0.5rem;
+            }
+
+            &::after {
+                content: "”";
+                font-size: 3rem;
+                color: #3f5bd9;
+                margin-left: 0.5rem;
+            }
         }
     }
 
@@ -139,17 +175,21 @@
 
         .back-button {
             display: inline-block;
-            padding: 0.6rem 1.6rem;
+            padding: 0.8rem 2rem;
             background: linear-gradient(135deg, #1c3d91, #3f5bd9);
             color: #fff;
             border-radius: 25px;
             font-weight: 600;
             text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
 
             &:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 8px 20px rgba(28, 61, 145, 0.4);
+                background: linear-gradient(135deg, #3f5bd9, #1c3d91);
             }
         }
     }
@@ -157,140 +197,203 @@
     // ✅ Responsive: Tablet and Mobile fixes
     @media (max-width: 992px) {
         .hero-content {
-            flex-direction: column-reverse;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 1.5rem !important;
 
             .hero-text {
                 text-align: center;
                 margin-top: 0;
-                flex: 1 1 110% !important; // ✅ Fix flex for mobile
+                flex: 1 1 100% !important;
                 max-width: 100%;
+                
+                h1 {
+                    font-size: 2.2rem;
+                }
+                
+                h3 {
+                    font-size: 1.3rem;
+                }
             }
 
             .hero-img-wrapper {
                 margin-top: 0;
-                max-width: 280px;
+                max-width: 320px;
                 margin-left: auto;
                 margin-right: auto;
-                flex: 1 1 100% !important; // ✅ Fix flex for mobile
+                flex: 1 1 100% !important;
             }
         }
 
         .intro-main {
             flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 1.2rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
             align-items: center;
 
             .intro-text {
                 text-align: justify;
                 width: 100%;
                 margin-bottom: 0;
-                flex: 1 1 100% !important; // ✅ Fix flex for mobile
+                flex: 1 1 100% !important;
+                
                 p {
-                    font-size: 0.95rem;
+                    font-size: 1rem;
                 }
             }
 
             .info-card {
                 width: 100%;
-                max-width: 500px;
+                max-width: 600px;
                 margin: 0 auto;
-                padding: 1rem 1.2rem;
+                padding: 1.2rem 1.5rem;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 margin-top: 0;
-                flex: 1 1 100% !important; // ✅ Fix flex for mobile
+                flex: 1 1 100% !important;
             }
         }
         
         .intro-vision {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            
+            blockquote {
+                font-size: 1.2rem;
+            }
         }
         
         .back-nav {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
     }
 
     @media (max-width: 576px) {
-        padding: 1rem;
+        padding: 1.5rem;
+        margin-top: 60px;
 
         .intro-hero {
             .hero-content {
-                gap: 1.8rem;
+                gap: 1.5rem !important;
 
                 .hero-text {
                     h1 {
-                        font-size: 1.9rem;
+                        font-size: 2rem;
                         line-height: 1.2;
-                        margin-bottom: 0.2rem;
+                        margin-bottom: 0.5rem;
                     }
 
                     h3 {
-                        font-size: 1.1rem;
-                        margin: 0.2rem 0;
+                        font-size: 1.2rem;
+                        margin: 0.3rem 0;
                     }
 
                     .designation {
-                        font-size: 0.9rem;
-                        margin-bottom: 0.2rem;
+                        font-size: 1rem;
+                        margin-bottom: 0.5rem;
                     }
                 }
 
                 .hero-img-wrapper {
-                    max-width: 260px;
+                    max-width: 280px;
                 }
             }
         }
 
         .intro-main {
-            margin-top: 1rem;
-            gap: 02rem;
+            margin-top: 1.5rem;
+            gap: 1.5rem;
 
             .intro-text {
                 p {
-                    font-size: 0.9rem;
+                    font-size: 0.95rem;
                     line-height: 1.6;
                     margin-bottom: 0;
                 }
             }
 
             .info-card {
-                padding: 0.8rem 1rem;
+                padding: 1rem 1.2rem;
                 max-width: 100%;
                 margin-top: 0;
                 
                 ul li {
                     margin-bottom: 0.8rem;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.3rem;
                     
                     .icon {
-                        display: none;
                         font-size: 1.1rem;
                         margin-right: 0.6rem;
+                        display: inline-flex;
                     }
                     
                     strong {
-                        min-width: 90px;
+                        min-width: auto;
+                        display: inline;
+                        margin-right: 0.5rem;
+                    }
+                    
+                    span, a {
+                        display: inline;
+                        flex: none;
                     }
                 }
             }
         }
         
         .intro-vision {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.2rem;
             
             blockquote {
-                font-size: 1rem;
-                padding-left: 0.8rem;
+                font-size: 1.1rem;
+                line-height: 1.5;
+                
+                &::before,
+                &::after {
+                    font-size: 2rem;
+                }
             }
         }
         
         .back-nav {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             
             .back-button {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.9rem;
+                padding: 0.7rem 1.8rem;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        padding: 1rem;
+
+        .intro-hero {
+            .hero-content {
+                .hero-text {
+                    h1 {
+                        font-size: 1.8rem;
+                    }
+
+                    h3 {
+                        font-size: 1.1rem;
+                    }
+                }
+
+                .hero-img-wrapper {
+                    max-width: 250px;
+                }
+            }
+        }
+
+        .info-card {
+            ul li {
+                .icon {
+                    display: none !important;
+                }
             }
         }
     }

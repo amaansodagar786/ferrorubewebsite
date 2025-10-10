@@ -7,22 +7,11 @@ import mobilelogo from "../../assets/logo/footermobilelogo.png"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");
-  
-  // Product pages data
-  const productPages = [
-    { title: "Pipe Fittings", link: "/products/pipe-fitting" },
-    { title: "Floating Roof Drains", link: "/products/floating-roof-drains" },
-    { title: "Top Loading Arms", link: "/products/top-loading-arms" },
-    { title: "Bottom Loading Arms", link: "/products/bottom-loading-arms" },
-    { title: "LPG Loading Arms", link: "/products/lpg-loading-arms" },
-    { title: "Swivel Joints", link: "/products/swivel-joints" },
-    { title: "Accessories", link: "/products/accessories" },
-  ];
 
   return (
     <footer className="footer">
       <div className="footer__container">
-        {/* LEFT: info */}
+        {/* LEFT: info - UNCHANGED */}
         <div className="footer__left">
           <div className="footer__person">
             <h3 className="footer__name">Mr. G. K. Majumder</h3>
@@ -59,33 +48,70 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* NEW: Products column */}
-        <div className="footer__products">
-          <h4 className="footer__products-title">Our Products</h4> 
-          <ul className="footer__products-links">
-            {productPages.map((product) => (
-              <li key={product.link}>
-                <a href={product.link}>{product.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* MIDDLE: pages */}
+        {/* MIDDLE: pages - UPDATED WITH EVEN WIDTH */}
         <nav className="footer__middle" aria-label="footer links">
-          <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/about">ABOUT US</a></li>
-            <li><a href="/capabilities">CAPABILITIES</a></li>
-            <li><a href="/contact">INQUIRY FORM</a></li>
-            <li><a href="/products">OUR PRODUCTS</a></li>
-          </ul>
+          <div className="footer__links-grid">
+            {/* Row 1: Main Pages */}
+            <div className="footer__link-row">
+              <div className="footer__link-item">
+                <a href="/">HOME</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/about">ABOUTUS</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/capabilities">CAPABILITIES</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/contact">INQUIRY FORM</a>
+              </div>
+            </div>
+
+            {/* Row 2: Our Products Heading */}
+            <div className="footer__link-row">
+              <div className="footer__link-item products-heading single-item">
+                <a href="/products">OUR PRODUCTS</a>
+              </div>
+            </div>
+
+            {/* Row 3: Product Links 1 - Equal width */}
+            <div className="footer__link-row">
+              <div className="footer__link-item">
+                <a href="/products/pipe-fitting">Pipe Fittings</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/products/floating-roof-drains">Floating Roof Drains</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/products/top-loading-arms">Top Loading Arms</a>
+              </div>
+            </div>
+
+            {/* Row 4: Product Links 2 - Equal width */}
+            <div className="footer__link-row">
+              <div className="footer__link-item">
+                <a href="/products/bottom-loading-arms">Bottom Loading Arms</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/products/lpg-loading-arms">Lpg Loading Arms</a>
+              </div>
+              <div className="footer__link-item">
+                <a href="/products/swivel-joints">Swivel Joints</a>
+              </div>
+            </div>
+
+            {/* Row 5: Accessories */}
+            <div className="footer__link-row">
+              <div className="footer__link-item single-item">
+                <a href="/products/accessories">Accessories</a>
+              </div>
+            </div>
+          </div>
         </nav>
 
-        {/* RIGHT: logo with diagonal divider - Updated for mobile logo */}
+        {/* RIGHT: logo with diagonal divider - UNCHANGED */}
         <div className="footer__right" aria-hidden="false">
           <div className="footer__logo">
-            {/* Show mobile logo on mobile, desktop logo on larger screens */}
             <img 
               src={logo} 
               alt="company logo" 
@@ -98,21 +124,6 @@ const Footer = () => {
             />
           </div>
         </div>
-      </div>
-
-      {/* NEW: Designed and Developed by section */}
-      <div className="footer__credits">
-        <p>
-          Designed and Developed by{" "}
-          <a 
-            href="https://techorses.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="credits-link"
-          >
-            Techorses
-          </a>
-        </p>
       </div>
     </footer>
   );

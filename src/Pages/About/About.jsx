@@ -108,11 +108,11 @@ const About = () => {
               <div className="leader-img">
                 <img src={leader1} alt="Leader 1" />
               </div>
-              <h3>John Doe</h3>
-              <p>Chief Executive Officer</p>
+              <h3>Mr. Kishan Snehi</h3>
+              <p>Managing Director</p>
               <button
                 className="know-more"
-                onClick={() => handleRedirect("/about/leader1")}
+                onClick={() => handleRedirect("/about/kishansnehi")}
               >
                 Know More
               </button>

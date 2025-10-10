@@ -6,7 +6,6 @@ $max-width: 1600px;
 .footer {
     width: 100%;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    position: relative;
 
     .footer__container {
         max-width: $max-width;
@@ -110,102 +109,98 @@ $max-width: 1600px;
         }
     }
 
-    /* NEW PRODUCTS COLUMN */
-    .footer__products {
-        flex: 0 0 16%;
-        background: $blue;
-        color: $white;
-        padding: 30px 20px;
+    /* MIDDLE (page links) - UPDATED FOR EVEN WIDTH GRID */
+    .footer__middle {
+        flex: 1;
+        padding: 30px 40px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
         justify-content: center;
         z-index: 3;
 
-        .footer__products-title {
-            margin: 0 0 15px 0;
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer__products-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .footer__links-grid {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
 
-            li {
-                font-weight: 600;
+        .footer__link-row {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: nowrap;
+        }
+
+        .footer__link-item {
+            font-weight: 800;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex: 1;
+            /* Make all items in row equal width */
+            text-align: center;
+            min-width: 0;
+            /* Allow text truncation if needed */
+
+            a {
+                color: $white;
+                text-decoration: none;
+                font-size: 13px;
                 transition: all 0.3s ease;
-
-                a {
-                    color: $white;
-                    text-decoration: none;
-                    font-size: 13px;
-                    transition: all 0.3s ease;
-                    padding: 3px 0;
-                    display: block;
-                    border-radius: 3px;
-
-                    &:hover {
-                        color: #ffd700;
-                        background-color: rgba(255, 215, 0, 0.1);
-                        transform: translateX(5px);
-                    }
-                }
+                padding: 8px 12px;
+                border-radius: 3px;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
 
                 &:hover {
+                    color: #ffd700;
+                    background-color: rgba(255, 215, 0, 0.1);
                     transform: translateX(5px);
                 }
             }
-        }
-    }
 
-    /* MIDDLE (page links) */
-    .footer__middle {
-        padding: 30px 20px;
-        display: flex;
-        align-items: center;
-        z-index: 3;
+            &:hover {
+                transform: translateX(5px);
+            }
 
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            /* Special styling for "OUR PRODUCTS" to make it stand out */
+            &.products-heading {
+                flex: 0 0 auto;
 
-            li {
-                font-weight: 800;
-                transition: all 0.3s ease;
-
+                /* Don't force equal width for heading */
                 a {
-                    color: $white;
-                    text-decoration: none;
-                    font-size: 13px;
-                    transition: all 0.3s ease;
-                    padding: 5px 10px;
-                    border-radius: 3px;
-
-                    &:hover {
-                        color: #ffd700;
-                        background-color: rgba(255, 215, 0, 0.1);
-                        transform: translateX(5px);
-                    }
-                }
-
-                &:hover {
-                    transform: translateX(5px);
+                    font-size: 14px;
+                    font-weight: 900;
+                    padding: 8px 20px;
+                    white-space: nowrap;
                 }
             }
+
+            /* For single item rows (like OUR PRODUCTS and Accessories) */
+            &.single-item {
+                flex: 0 0 auto;
+                text-align: center;
+            }
+        }
+
+        /* Specific styling for main navigation row */
+        .footer__link-row:nth-child(1) .footer__link-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Make product rows have equal width items */
+        .footer__link-row:nth-child(3) .footer__link-item,
+        .footer__link-row:nth-child(4) .footer__link-item {
+            flex: 1;
+            text-align: center;
         }
     }
 
-    /* RIGHT (white panel + diagonal) */
+    /* RIGHT (white panel + diagonal) - UNCHANGED */
     .footer__right {
         width: 220px;
         background: #ffffff;
@@ -250,45 +245,18 @@ $max-width: 1600px;
             }
         }
 
-
         /* diagonal divider that overlaps the blue area */
         &::before {
             content: "";
             position: absolute;
-            left: -575px;
+            left: -955px;
             top: 0;
-            width: 515px;
+            width: 705px;
             height: 100%;
             background: #264697;
             transform: skewX(-22deg);
             transform-origin: top left;
             z-index: 1;
-        }
-    }
-
-    /* NEW: Credits section */
-    .footer__credits {
-        background: darken($blue, 8%);
-        text-align: center;
-        padding: 15px 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-        p {
-            margin: 0;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .credits-link {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-
-            &:hover {
-                color: #ffffff;
-                text-decoration: underline;
-            }
         }
     }
 }
@@ -307,6 +275,19 @@ $max-width: 1600px;
 
         .footer__container {
             padding: 0 12px;
+        }
+
+        .footer__middle {
+            padding: 30px 20px;
+
+            .footer__link-row {
+                gap: 12px;
+            }
+
+            .footer__link-item a {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
         }
     }
 }
@@ -332,42 +313,46 @@ $max-width: 1600px;
         text-align: center;
         padding: 20px 16px;
         min-height: auto;
-        background: $blue; // Ensure container has blue background
+        background: $blue;
     }
 
-    /* --- PRODUCTS COLUMN MOBILE --- */
-    .footer__products {
-        order: 2;
+    /* --- MIDDLE SECTION MOBILE --- */
+    .footer__middle {
+        order: 3;
         width: 100%;
         background: transparent;
-        padding: 18px 20px !important;
+        padding: 18px 0 !important;
         text-align: center;
-        display: none !important;
+        justify-content: center;
     }
 
-    .footer__products .footer__products-title {
-        font-size: 16px;
-        margin-bottom: 12px;
+    .footer__links-grid {
+        gap: 15px !important;
     }
 
-    .footer__products-links {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr;
+    .footer__link-row {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
         gap: 10px !important;
-        text-align: left;
     }
 
-    .footer__products-links li a {
-        font-size: 13px;
-        padding: 4px 0 !important;
+    .footer__link-item {
+        flex: 0 0 auto !important;
+        /* Reset equal width on mobile */
     }
 
-    /* --- LOGO FIRST - UPDATED FOR MOBILE LOGO --- */
+    .footer__link-item a {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+        white-space: nowrap;
+    }
+
+    /* --- LOGO SECTION MOBILE - UNCHANGED --- */
     .footer__right {
         order: 1;
         width: 100%;
-        margin-left: 0 !important; // Remove the margin-left
-        background: transparent !important; // ✅ Remove white background
+        margin-left: 0 !important;
+        background: transparent !important;
         padding: 8px 0 18px !important;
         display: flex !important;
         justify-content: center !important;
@@ -385,11 +370,11 @@ $max-width: 1600px;
         display: block;
 
         .mobile-logo {
-            display: block !important; // ✅ Show mobile logo
+            display: block !important;
         }
 
         .desktop-logo {
-            display: none !important; // ✅ Hide desktop logo
+            display: none !important;
         }
     }
 
@@ -398,12 +383,12 @@ $max-width: 1600px;
         width: 100%;
         height: auto;
         object-fit: contain;
-        margin: 0 !important; // ✅ Remove all margins
+        margin: 0 !important;
         filter: brightness(1.1);
         margin-left: 50px !important;
     }
 
-    /* --- INFO SECTION --- */
+    /* --- INFO SECTION MOBILE - UNCHANGED --- */
     .footer__left {
         order: 4;
         width: 100%;
@@ -452,52 +437,9 @@ $max-width: 1600px;
         text-decoration: none;
     }
 
-    /* --- LINKS SECTION --- */
-    .footer__middle {
-        order: 3;
-        width: 100%;
-        background: transparent;
-        padding: 12px 0 18px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .footer__middle ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .footer__middle li {
-        font-weight: 800;
-    }
-
-    .footer__middle a {
-        color: $white;
-        text-decoration: none;
-        font-size: 14px;
-        display: inline-block;
-        text-align: center;
-    }
-
-    /* --- CREDITS SECTION MOBILE --- */
-    .footer__credits {
-        padding: 12px 16px;
-        
-        p {
-            font-size: 13px;
-        }
-    }
-
     /* disable heavy hover transforms on mobile for stability */
     .footer__left a,
     .footer__middle a,
-    .footer__products a,
     .footer__contacts li a,
     .footer__contacts li span {
         transition: none;
