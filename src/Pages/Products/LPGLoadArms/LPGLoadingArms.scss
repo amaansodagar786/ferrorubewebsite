@@ -46,7 +46,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 123, 255, 0.2);
+    background: rgba(0, 123, 255, 0.35);
     z-index: 2;
   }
 
@@ -58,8 +58,8 @@
     text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 
     h1 {
-      font-family: "Roboto Slab", serif;
-      font-size: 3.5rem;
+      font-family: "Poppins", serif;
+      font-size: 7rem;
       font-weight: 700;
 
       @media (max-width: 900px) {
@@ -98,16 +98,17 @@
         max-width: 54ch;
 
         h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #0d1630;
+            font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0d1630;
             margin-bottom: 1rem;
         }
 
         p {
             margin: 0.6rem 0;
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #333;
         }
 
@@ -119,7 +120,7 @@
             li {
                 margin-bottom: 0.6rem;
                 line-height: 1.6;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 color: #333;
             }
         }

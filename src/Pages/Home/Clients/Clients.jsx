@@ -188,7 +188,7 @@ const Clients = () => {
         </div>
 
         <div className="clients-info">
-          <p>Trusted by industry leaders worldwide</p>
+          {/* <p>Trusted by industry leaders worldwide</p>  */}
         </div>
       </div>
     </section>

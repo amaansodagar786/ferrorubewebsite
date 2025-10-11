@@ -16,13 +16,13 @@ const Slider = () => {
       id: 1,
       imageDesktop: slide1,
       imageMobile: mobileslide1,
-      text: 'Premium Industrial Solutions'
+      text: '492 Loading arms for rail cars were supplied to HCPL BAHADURGAH Terminal in 2007'
     },
     {
       id: 2,
       imageDesktop: slide2,
       imageMobile: mobileslide2,
-      text: 'Innovation in Mechanical Engineering'
+      text: '357 Loading arms for Rail cars were supplied to HCPL MAHUL Terminal in 2009 '
     },
   ];
 
@@ -49,7 +49,7 @@ const Slider = () => {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(() => nextSlide(), 5000);
+    const interval = setInterval(() => nextSlide(), 3000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, currentSlide]);
 
@@ -92,12 +92,12 @@ const Slider = () => {
         </div>
 
         {/* Navigation */}
-        <button className="slider-arrow slider-arrow--prev" onClick={prevSlide}>
+        {/* <button className="slider-arrow slider-arrow--prev" onClick={prevSlide}>
           <span>‹</span>
         </button>
         <button className="slider-arrow slider-arrow--next" onClick={nextSlide}>
           <span>›</span>
-        </button>
+        </button> */}
 
         {/* Dots */}
         <div className="slider-dots">

@@ -103,18 +103,19 @@
                         margin-right: 0.75rem;
                         margin-top: 0.25rem;
                         flex-shrink: 0;
-                        width: 20px; /* FIX 1: Fixed width for all icons */
-                        height: 20px; /* FIX 1: Fixed height for all icons */
+                        width: 20px;
+                        /* FIX 1: Fixed width for all icons */
+                        height: 20px;
+                        /* FIX 1: Fixed height for all icons */
                         display: flex;
                         align-items: center;
                         justify-content: center;
                     }
 
-                    .education-icon
-                    {
+                    .education-icon {
                         color: #1c3d91;
                         width: 22px
-                    } 
+                    }
 
                     strong {
                         color: #333;
@@ -151,8 +152,12 @@
         background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
         border-radius: 15px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
 
         blockquote {
+            position: relative;
+            /* ✅ This is the missing key line */
             font-style: italic;
             font-size: 1.4rem;
             text-align: center;
@@ -162,31 +167,26 @@
             border-left: none;
             padding-left: 0;
             font-weight: 500;
-            line-height: 1.6; /* FIX 2: Consistent line height */
+            line-height: 1.6;
             display: inline-block;
-            
-            /* FIX 2: Remove quotation marks that were affecting spacing */
-            &::before {
-                content: "“";
-                display: none;
-                font-size: 3rem;
-                color: #3f5bd9;
-                margin-right: 0.5rem;
-                vertical-align: top;
-                line-height: 1;
-            }
+            z-index: 2;
 
-            &::after {
-                content: "”";
-                display: none;
-                font-size: 3rem;
-                color: #3f5bd9;
-                margin-left: 0.5rem;
-                vertical-align: top;
+            &::before {
+                content: "❝";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 10rem;
+                color: rgba(28, 61, 145, 0.08);
+                /* faint transparent blue */
+                z-index: 1;
+                pointer-events: none;
                 line-height: 1;
             }
         }
     }
+
 
     .back-nav {
         margin-top: 3rem;
@@ -224,11 +224,11 @@
                 margin-top: 0;
                 flex: 1 1 100% !important;
                 max-width: 100%;
-                
+
                 h1 {
                     font-size: 2.2rem;
                 }
-                
+
                 h3 {
                     font-size: 1.3rem;
                 }
@@ -254,7 +254,7 @@
                 width: 100%;
                 margin-bottom: 0;
                 flex: 1 1 100% !important;
-                
+
                 p {
                     font-size: 1rem;
                 }
@@ -270,17 +270,18 @@
                 flex: 1 1 100% !important;
             }
         }
-        
+
         .intro-vision {
             margin-top: 2.5rem;
             padding: 1.5rem;
-            
+
             blockquote {
                 font-size: 1.2rem;
-                line-height: 1.6; /* FIX 2: Consistent line height for mobile */
+                line-height: 1.6;
+                /* FIX 2: Consistent line height for mobile */
             }
         }
-        
+
         .back-nav {
             margin-top: 2.5rem;
         }
@@ -334,55 +335,60 @@
                 padding: 1rem 1.2rem;
                 max-width: 100%;
                 margin-top: 0;
-                
+
                 ul li {
                     margin-bottom: 0.8rem;
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 0.3rem;
-                    
+
                     .icon {
                         font-size: 1.1rem;
                         margin-right: 0.6rem;
                         display: inline-flex;
-                        width: 18px; /* FIX 1: Fixed width for mobile */
-                        height: 18px; /* FIX 1: Fixed height for mobile */
+                        width: 18px;
+                        /* FIX 1: Fixed width for mobile */
+                        height: 18px;
+                        /* FIX 1: Fixed height for mobile */
                     }
-                    
+
                     strong {
                         min-width: auto;
                         display: inline;
                         margin-right: 0.5rem;
                     }
-                    
-                    span, a {
+
+                    span,
+                    a {
                         display: inline;
                         flex: none;
                     }
                 }
             }
         }
-        
+
         .intro-vision {
             margin-top: 2rem;
             padding: 1.2rem;
-            
+
             blockquote {
                 font-size: 1.1rem;
-                line-height: 1.6; /* FIX 2: Consistent line height for mobile */
-                
+                line-height: 1.6;
+                /* FIX 2: Consistent line height for mobile */
+
                 &::before,
                 &::after {
                     font-size: 2rem;
-                    vertical-align: top; /* FIX 2: Align quotation marks properly */
+                    vertical-align: top;
+                    /* FIX 2: Align quotation marks properly */
                     line-height: 1;
                 }
             }
         }
-        
+
         .back-nav {
             margin-top: 2rem;
-            
+
             .back-button {
                 padding: 0.7rem 1.8rem;
                 font-size: 0.95rem;

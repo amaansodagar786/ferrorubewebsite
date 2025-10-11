@@ -95,7 +95,7 @@ $blue: #264697;
 .title-underline {
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, $primary-color, $secondary-color);
+  background: linear-gradient(90deg, $blue, $blue);
   margin: 0 auto;
   border-radius: 2px;
   position: relative;
@@ -188,8 +188,8 @@ $blue: #264697;
 
   &:hover {
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba($primary-color, 0.3);
+    box-shadow: 0 20px 40px #26469750;
+    border-color: rgba($blue, 0.3);
 
     // KEPT HOVER EFFECTS
     .logo-overlay {
@@ -210,7 +210,7 @@ $blue: #264697;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba($primary-color, 0.05), transparent);
+    background: linear-gradient(90deg, transparent, rgba($blue, 0.05), transparent);
     transition: left 0.5s;
   }
 
@@ -240,7 +240,7 @@ $blue: #264697;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba($primary-color, 0.9), rgba($secondary-color, 0.8));
+  background: linear-gradient(135deg, rgba($blue, 0.8), rgba($blue, 0.65));
   @include flex-center;
   opacity: 0;
   transform: translateY(10px);

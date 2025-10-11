@@ -80,12 +80,14 @@
     }
 
     &__title {
-        font-family: "Roboto Slab", serif;
-        font-size: 3rem;
+        font-family: "Poppins", sans-serif;
+
+        font-size: 7rem;
         margin: 0;
         font-weight: 700;
         letter-spacing: 1px;
         text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        letter-spacing: 0.1px;
 
         @media (max-width: 900px) {
             font-size: 2.4rem;
@@ -184,13 +186,15 @@
     .ba-spring__title {
         grid-column: 1 / -1;
         text-align: center;
-        font-family: 'Roboto Slab', serif;
-        font-size: 2.2rem;
+        font-family: "Poppins", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0d1630;
         margin: 0 0 18px;
 
-          @media (max-width: 768px) {
-                font-size: 1.5rem;
-            }
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
     }
 
     &__left {
@@ -198,6 +202,8 @@
             margin: 0 0 14px 0;
             font-weight: 600;
             text-align: left;
+            font-size: 1.15rem;
+            // font-size: 1.15px;
         }
 
         .ba-spring__list {
@@ -208,7 +214,8 @@
 
             li {
                 margin: 10px 0;
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                text-align: justify;
             }
         }
     }
@@ -271,8 +278,10 @@
     }
 
     &__title {
-        font-family: 'Roboto Slab', serif;
-        font-size: 2.2rem;
+        font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0d1630;
         text-align: center;
         margin-bottom: 18px;
     }
@@ -331,6 +340,7 @@
         .ba-features__lead {
             margin: 0 0 12px 0;
             font-weight: 600;
+            font-size: 1.15rem;
         }
 
         .ba-features__list {
@@ -345,6 +355,8 @@
                 color: rgba(0, 0, 0, 0.78);
                 line-height: 1.5;
                 list-style: disc;
+                font-size: 0.9rem;
+                text-align: justify;
 
                 // &::before {
                 //     content: "";

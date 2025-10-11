@@ -88,8 +88,8 @@ $transition: all 0.3s ease;
       position: absolute;
       inset: 0;
       background: linear-gradient(135deg,
-          rgba(44, 62, 80, 0.8) 0%,
-          rgba(44, 62, 80, 0.4) 100%);
+          rgba(44, 62, 80, 0.7) 0%,
+          rgba(44, 62, 80, 0.3) 100%);
       z-index: 1;
     }
   }
@@ -108,11 +108,13 @@ $transition: all 0.3s ease;
 
     .hero-title {
       font-family: 'Roboto Slab', serif;
-      font-size: 4rem;
+    font-family: "Poppins", sans-serif;
+
+      font-size: 7rem;
       font-weight: 700;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      letter-spacing: -0.02em;
+      letter-spacing: 0.1em;
 
       @media (max-width: 1024px) {
         font-size: 3rem;
@@ -194,6 +196,7 @@ $transition: all 0.3s ease;
     line-height: 1.8;
     color: $text-color;
     margin: 0;
+    text-align: justify;
 
     @include responsive(mobile) {
       font-size: 0.85rem;
@@ -232,12 +235,14 @@ $transition: all 0.3s ease;
     position: relative;
     border-radius: $border-radius;
     overflow: hidden;
-    box-shadow: $shadow;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    // box-shadow: $shadow;
     transition: $transition;
     aspect-ratio: 4/3;
 
     &:hover {
       .gallery-image {
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         transform: scale(1.1);
       }
     }
@@ -247,6 +252,9 @@ $transition: all 0.3s ease;
       height: 100%;
       object-fit: cover;
       transition: $transition;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          box-shadow: $shadow;
+
     }
   }
 

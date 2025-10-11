@@ -174,6 +174,7 @@ const TopLoadingArms = () => {
             <div className="slr-col slr-col-left-image">
               <div className="bottom-image-group">
                 <div className="bottom-shape" />
+                <div className="bottom-shape2" />
 
                 {/* left big card */}
                 <figure className="big-thumb big-thumb-left">
@@ -262,7 +263,7 @@ const TopLoadingArms = () => {
       <section className="loading-arm-special">
         <h2 className="loading-arm-title">Loading arm for special application</h2>
 
-        <div class in="loading-arm-text">
+        <div className="loading-arm-text">
           <p>
             Ferro Tube provides all technical assistance to their customers for
             design, manufacture and supply of loading arms for their special
