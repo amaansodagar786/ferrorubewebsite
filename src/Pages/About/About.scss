@@ -1,3 +1,4 @@
+// About.scss
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 .about-page {
@@ -34,10 +35,8 @@
 
         // Media query for mobile
         @media (max-width: 480px) {
-            .about-hero {
-                height: calc(100vw / 2.22);
-                min-height: auto;
-            }
+            height: calc(100vw / 2.22);
+            min-height: auto;
 
             .hero-img {
                 object-fit: cover;
@@ -78,7 +77,7 @@
         }
     }
 
-    // ABOUT INFO - UPDATED FOR MOBILE
+    // ABOUT INFO
     .about-info {
         padding: 4rem 2rem;
         background: #f8f8f8;
@@ -95,7 +94,6 @@
             }
         }
 
-        // MOBILE UPDATE: Make paragraphs use more width
         @media (max-width: 768px) {
             padding: 1rem 0.5rem;
 
@@ -112,7 +110,7 @@
         }
     }
 
-    // MEDIA SECTION - NO CHANGES
+    // MEDIA SECTION
     .about-media {
         padding: 6rem 0rem 2rem 4rem;
         position: relative;
@@ -198,7 +196,7 @@
         }
     }
 
-    // LEADERS SECTION - NO CHANGES
+    // UPDATED LEADERS SECTION - SIDE BY SIDE LAYOUT
     .about-leaders {
         padding: 5rem 2rem;
         background: #fff;
@@ -215,60 +213,81 @@
 
         .leaders-wrapper {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        // Side by side leader card
+        .leader-card-side {
+            display: flex;
+            align-items: center;
             gap: 3rem;
+            background: #f9f9f9;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
 
-            .leader-card {
-                background: #f9f9f9;
-                padding: 2.5rem; // ✅ Increased padding
-                border-radius: 20px;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-                max-width: 320px; // ✅ Increased max-width
-                transition: all 0.3s ease;
-                text-align: center;
+            &:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            }
 
-                &:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            // Reversed layout for second card
+            &.reversed {
+                flex-direction: row-reverse;
+            }
+
+            .leader-image-side {
+                flex: 0 0 300px;
+
+                img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
                 }
+            }
 
-                .leader-img {
-                    width: 150px; // ✅ Increased image size
-                    height: 150px; // ✅ Increased image size
-                    border-radius: 50%;
-                    overflow: hidden;
-                    margin: 0 auto 1.5rem; // ✅ Increased margin
-                    box-shadow: 0 0 0 6px #e0e6f8;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
+            .leader-content-side {
+                flex: 1;
+                text-align: left;
 
                 h3 {
-                    font-size: 1.4rem; // ✅ Increased font size
+                    font-size: 1.8rem;
                     font-weight: 700;
-                    margin-bottom: 0.5rem; // ✅ Increased margin
+                    margin-bottom: 0.5rem;
+                    color: #1c3d91;
                 }
 
                 p {
-                    font-size: 1.1rem; // ✅ Increased font size
+                    font-size: 1.2rem;
                     color: #555;
-                    margin-bottom: 1.5rem; // ✅ Increased margin
+                    margin-bottom: 1rem;
+                }
+
+                .leader-description {
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    color: #666;
+                    margin-bottom: 2rem;
+
+                    /* Show on desktop only */
+                    display: block;
                 }
 
                 .know-more {
                     background: linear-gradient(135deg, #1c3d91, #3f5bd9);
                     border: none;
                     color: #fff;
-                    padding: 0.8rem 1.6rem; // ✅ Increased padding
+                    padding: 0.8rem 1.8rem;
                     border-radius: 25px;
                     cursor: pointer;
                     font-weight: 600;
-                    font-size: 1rem; // ✅ Increased font size
+                    font-size: 1rem;
                     transition: all 0.3s ease;
                     box-shadow: 0 4px 12px rgba(28, 61, 145, 0.4);
 
@@ -281,7 +300,45 @@
         }
     }
 
-    // ✅ SAME MEDIA COLLAGE DESIGN FOR MOBILE - NO CHANGES
+    // MEDIA QUERIES
+
+    @media (max-width: 1024px) {
+        .about-leaders {
+            .leader-card-side {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+
+                &.reversed {
+                    flex-direction: column;
+                }
+
+                .leader-image-side {
+                    flex: 0 0 auto;
+                    width: 200px;
+                    height: 200px;
+
+                    img {
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .leader-content-side {
+                    text-align: center;
+
+                    .leader-description {
+                        /* Hide description on mobile */
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // Mobile specific styles for media collage
     @media (max-width: 768px) {
         .about-media {
             padding-left: 1rem;
@@ -345,18 +402,27 @@
             .leaders-wrapper {
                 gap: 2rem;
             }
+
+            .leader-card-side {
+                padding: 1.5rem;
+            }
         }
     }
 
-    // ✅ DESKTOP ONLY: Slightly Bigger Leader Cards - NO CHANGES
-    @media (min-width: 1025px) {
-        .about-leaders .leader-card {
-            max-width: 320px;
-            padding: 2.5rem;
+    // Large desktop optimization
+    @media (min-width: 1400px) {
+        .about-leaders {
+            .leader-card-side {
+                padding: 4rem;
+                gap: 4rem;
 
-            .leader-img {
-                width: 150px;
-                height: 150px;
+                .leader-image-side {
+                    flex: 0 0 350px;
+
+                    img {
+                        height: 350px;
+                    }
+                }
             }
         }
     }

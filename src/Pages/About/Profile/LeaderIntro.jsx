@@ -76,7 +76,7 @@ const LeaderIntro = () => {
                 >
                     <ul>
                         <li>
-                            <FaGraduationCap className="icon" />
+                            <FaGraduationCap className="icon education-icon" />
                             <strong>Education:</strong> {leader.education}
                         </li>
                         <li>
@@ -111,9 +111,9 @@ const LeaderIntro = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 1 }}
             >
-                <blockquote>
+                <blockquote> 
                     "I believe in driving sustained growth through strategic leadership, operational excellence, and empowering teams to transform the future of manufacturing."
-                </blockquote>
+                </blockquote> 
             </motion.section>
 
             {/* Back button or navigation */}

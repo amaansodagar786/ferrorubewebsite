@@ -12,6 +12,19 @@ $max-width: 1600px;
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fff;
 
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 50%; // Start from the middle
+  //   background: $blue;
+  //   z-index: 1;
+  //   pointer-events: none;
+  // }
+
+
   &__inner {
     max-width: $max-width;
     margin: 0 auto;
@@ -364,10 +377,15 @@ $max-width: 1600px;
         padding: 12px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         margin-bottom: 0;
+        text-align: center;
         // ADDED: Ensure same alignment as other items
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: block !important;
+        // justify-content: flex-start;
+        // align-items: center;
+
+        .arrow {
+          display: none !important; // This will hide the arrow in mobile view
+        }
       }
 
       &__menu {

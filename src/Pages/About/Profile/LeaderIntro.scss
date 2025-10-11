@@ -103,7 +103,18 @@
                         margin-right: 0.75rem;
                         margin-top: 0.25rem;
                         flex-shrink: 0;
+                        width: 20px; /* FIX 1: Fixed width for all icons */
+                        height: 20px; /* FIX 1: Fixed height for all icons */
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                     }
+
+                    .education-icon
+                    {
+                        color: #1c3d91;
+                        width: 22px
+                    } 
 
                     strong {
                         color: #333;
@@ -151,13 +162,17 @@
             border-left: none;
             padding-left: 0;
             font-weight: 500;
-            line-height: 1.6;
-
+            line-height: 1.6; /* FIX 2: Consistent line height */
+            display: inline-block;
+            
+            /* FIX 2: Remove quotation marks that were affecting spacing */
             &::before {
                 content: "“";
                 font-size: 3rem;
                 color: #3f5bd9;
                 margin-right: 0.5rem;
+                vertical-align: top;
+                line-height: 1;
             }
 
             &::after {
@@ -165,6 +180,8 @@
                 font-size: 3rem;
                 color: #3f5bd9;
                 margin-left: 0.5rem;
+                vertical-align: top;
+                line-height: 1;
             }
         }
     }
@@ -258,6 +275,7 @@
             
             blockquote {
                 font-size: 1.2rem;
+                line-height: 1.6; /* FIX 2: Consistent line height for mobile */
             }
         }
         
@@ -325,6 +343,8 @@
                         font-size: 1.1rem;
                         margin-right: 0.6rem;
                         display: inline-flex;
+                        width: 18px; /* FIX 1: Fixed width for mobile */
+                        height: 18px; /* FIX 1: Fixed height for mobile */
                     }
                     
                     strong {
@@ -347,11 +367,13 @@
             
             blockquote {
                 font-size: 1.1rem;
-                line-height: 1.5;
+                line-height: 1.6; /* FIX 2: Consistent line height for mobile */
                 
                 &::before,
                 &::after {
                     font-size: 2rem;
+                    vertical-align: top; /* FIX 2: Align quotation marks properly */
+                    line-height: 1;
                 }
             }
         }
