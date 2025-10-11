@@ -168,6 +168,7 @@
             /* FIX 2: Remove quotation marks that were affecting spacing */
             &::before {
                 content: "“";
+                display: none;
                 font-size: 3rem;
                 color: #3f5bd9;
                 margin-right: 0.5rem;
@@ -177,6 +178,7 @@
 
             &::after {
                 content: "”";
+                display: none;
                 font-size: 3rem;
                 color: #3f5bd9;
                 margin-left: 0.5rem;
