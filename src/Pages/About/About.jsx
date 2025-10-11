@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import heroimage from "../../assets/home/slider/abouthero.png"
 import mobilehero from "../../assets/mobileslider/mobileabout.png"
 
+import video1 from "../../assets/home/about/aboutvideo1.mp4"
+import video2 from "../../assets/home/about/aboutvideo2.mp4"
+import img1 from "../../assets/home/about/aboutimage.png"
+
 const media1 = "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media2 = "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media3 = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
@@ -63,13 +67,32 @@ const About = () => {
       <section className="about-media">
         <div className="media-collage">
           <div className="blue-shape-left"></div>
-          <img src={media1} alt="Pipeline work" className="media-img img1" />
-          <img src={media2} alt="Worker welding" className="media-img img2" />
-          <img src={media3} alt="Industrial machinery" className="media-img img3" />
+          <img src={img1} alt="Pipeline work" className="media-img img1" />
+          {/* Replace img2 with video */}
+          <video
+            className="media-img img2"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={video1} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Replace img3 with video */}
+          <video
+            className="media-img img3"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src={video2} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="blue-shape-right"></div>
         </div>
       </section>
-
       {/* LEADERS SECTION - UPDATED LAYOUT */}
       <section className="about-leaders">
         <div className="container">

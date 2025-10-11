@@ -12,7 +12,7 @@ import client8 from "../../../assets/home/clients/client8.png"
 import client9 from "../../../assets/home/clients/client9.png"
 import client10 from "../../../assets/home/clients/client10.png"
 import client11 from "../../../assets/home/clients/client11.png"
-import client12 from "../../../assets/home/clients/client1.png"
+import client12 from "../../../assets/home/clients/client12.png"
 
 const Clients = () => {
   const [isPaused, setIsPaused] = useState(false); // kept for any UI needs
@@ -35,14 +35,14 @@ const Clients = () => {
     { id: 2, name: 'Bharat Petroleum', logo: client2 },
     { id: 3, name: 'GNFC', logo: client3 },
     { id: 4, name: 'Engineers India Limited', logo: client4 },
-    { id: 5, name: 'Client 5', logo: client5 },
-    { id: 6, name: 'Client 6', logo: client6 },
-    { id: 7, name: 'Client 7', logo: client7 },
-    { id: 8, name: 'Client 8', logo: client8 },
-    { id: 9, name: 'Client 9', logo: client9 },
-    { id: 10, name: 'Client 10', logo: client10 },
-    { id: 11, name: 'Client 11', logo: client11 },
-    { id: 12, name: 'Client 12', logo: client12 },
+    { id: 5, name: 'Gas Authority Of India Ltd', logo: client5 },
+    { id: 6, name: 'Gujarat State Patronet Ltd', logo: client6 },
+    { id: 7, name: 'Hindustan Petroleum', logo: client7 },
+    { id: 8, name: 'HoneyWell', logo: client8 },
+    { id: 9, name: 'Indian Oil', logo: client9 },
+    { id: 10, name: 'Chemtrols', logo: client10 },
+    { id: 11, name: 'Mecon', logo: client11 },
+    { id: 12, name: 'L & T', logo: client12 },
   ];
 
   const topRowLogos = [

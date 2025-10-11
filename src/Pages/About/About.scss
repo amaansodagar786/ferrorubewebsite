@@ -35,8 +35,7 @@
 
         // Media query for mobile
         @media (max-width: 480px) {
-            height: calc(100vw / 2.22);
-            min-height: auto;
+            
 
             .hero-img {
                 object-fit: cover;

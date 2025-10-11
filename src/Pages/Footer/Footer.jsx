@@ -3,7 +3,7 @@ import React from "react";
 import "./Footer.scss";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 import logo from "../../assets/logo/ferrologo.jpg"
-import mobilelogo from "../../assets/logo/footermobilelogo.png"
+import mobilelogo from "../../assets/logo/mobilefooter.png"
 
 const Footer = () => {
   console.log("Footer: mounted/rendered");
@@ -48,7 +48,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* MIDDLE: pages - UPDATED WITH EVEN WIDTH */}
+        {/* MIDDLE: pages - UNCHANGED */}
         <nav className="footer__middle" aria-label="footer links">
           <div className="footer__links-grid">
             {/* Row 1: Main Pages */}
@@ -112,18 +112,31 @@ const Footer = () => {
         {/* RIGHT: logo with diagonal divider - UNCHANGED */}
         <div className="footer__right" aria-hidden="false">
           <div className="footer__logo">
-            <img 
-              src={logo} 
-              alt="company logo" 
+            <img
+              src={logo}
+              alt="company logo"
               className="desktop-logo"
             />
-            <img 
-              src={logo} 
-              alt="company logo" 
+            <img
+              src={mobilelogo}
+              alt="company logo"
               className="mobile-logo"
             />
           </div>
         </div>
+      </div>
+
+      {/* ADDED DEVELOPER CREDIT AT BOTTOM CENTER OF ENTIRE FOOTER */}
+      <div className="footer__bottom-credit">
+        DESIGNED AND DEVELOPED BY{" "}
+        <a
+          href="https://techorses.com"       // <-- replace with your actual site link
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__credit-link"
+        >
+          TECHORSES
+        </a>
       </div>
     </footer>
   );

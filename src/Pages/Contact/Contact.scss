@@ -96,8 +96,8 @@ $body-font: 'Poppins', sans-serif;
 /* ✅ Mobile Responsive */
 @media (max-width: 480px) {
     .hero {
-        height: calc(100vw / 2.22);
-        min-height: auto;
+        // height: calc(100vw / 2.22);
+        // min-height: auto;
     }
 
     .hero__img.desktop {

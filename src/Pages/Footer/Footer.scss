@@ -1,4 +1,4 @@
-// File: src/components/Footer/Footer.scss
+// File: src/components/Footer/Footer.scss - OPTION 1 (Flexbox)
 $blue: #264697;
 $white: #ffffff;
 $max-width: 1600px;
@@ -6,6 +6,7 @@ $max-width: 1600px;
 .footer {
     width: 100%;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    position: relative;
 
     .footer__container {
         max-width: $max-width;
@@ -16,7 +17,7 @@ $max-width: 1600px;
         min-height: 280px;
     }
 
-    /* LEFT (blue) - REDUCED WIDTH */
+    /* LEFT (blue) - UNCHANGED */
     .footer__left {
         flex: 0 0 28%;
         background: $blue;
@@ -109,7 +110,7 @@ $max-width: 1600px;
         }
     }
 
-    /* MIDDLE (page links) - UPDATED FOR EVEN WIDTH GRID */
+    /* MIDDLE (page links) - UNCHANGED */
     .footer__middle {
         flex: 1;
         padding: 30px 40px;
@@ -139,10 +140,8 @@ $max-width: 1600px;
             transition: all 0.3s ease;
             white-space: nowrap;
             flex: 1;
-            /* Make all items in row equal width */
             text-align: left;
             min-width: 0;
-            /* Allow text truncation if needed */
 
             a {
                 color: $white;
@@ -158,7 +157,6 @@ $max-width: 1600px;
 
                 &:hover {
                     color: #ffd700;
-                    // background-color: rgba(255, 215, 0, 0.1);
                     transform: translateX(5px);
                 }
             }
@@ -167,12 +165,10 @@ $max-width: 1600px;
                 transform: translateX(5px);
             }
 
-            /* Special styling for "OUR PRODUCTS" to make it stand out */
             &.products-heading {
                 flex: 0 0 auto;
                 margin-left: -10px;
 
-                /* Don't force equal width for heading */
                 a {
                     font-size: 14px;
                     font-weight: 900;
@@ -182,16 +178,12 @@ $max-width: 1600px;
                 }
             }
 
-            /* For single item rows (like OUR PRODUCTS and Accessories) */
             &.single-item {
                 flex: 0 0 auto;
                 text-align: left;
             }
         }
 
-
-
-        /* Ensure all rows have consistent left alignment */
         .footer__link-row:nth-child(1) .footer__link-item {
             flex: 1;
             text-align: left;
@@ -257,7 +249,6 @@ $max-width: 1600px;
             }
         }
 
-        /* diagonal divider that overlaps the blue area */
         &::before {
             content: "";
             position: absolute;
@@ -271,6 +262,36 @@ $max-width: 1600px;
             z-index: 1;
         }
     }
+
+    /* ADDED DEVELOPER CREDIT AT BOTTOM CENTER */
+    .footer__bottom-credit {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: $white;
+        opacity: 0.8;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-align: center;
+        width: 100%;
+        z-index: 4;
+        background: transparent;
+
+        .footer__credit-link {
+            color: #ffd700; // ✅ yellow
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.3s ease;
+
+            &:hover {
+                opacity: 1;
+                text-decoration: underline;
+            }
+        }
+    }
+
 }
 
 /* Responsiveness */
@@ -304,14 +325,13 @@ $max-width: 1600px;
     }
 }
 
-// File: src/components/Footer/Footer.scss
-// ... (desktop styles remain exactly the same) ...
-
 @media (max-width: 720px) {
     .footer {
         background: $blue;
         color: $white;
         overflow-x: hidden;
+        padding-bottom: 50px;
+        /* Add padding for bottom credit */
     }
 
     .footer,
@@ -331,7 +351,7 @@ $max-width: 1600px;
         background: $blue;
     }
 
-    /* --- LOGO SECTION MOBILE - UPDATED --- */
+    /* --- LOGO SECTION MOBILE - UNCHANGED --- */
     .footer__right {
         order: 1;
         width: 100%;
@@ -362,7 +382,7 @@ $max-width: 1600px;
         }
     }
 
-    .footer__logo img {
+      .footer__logo img {
         display: block;
         width: 100% !important;
         height: auto;
@@ -370,16 +390,16 @@ $max-width: 1600px;
         margin: 0 !important;
         filter: brightness(1.1);
         transform: none !important;
-        margin-left: 65px !important;
+        margin-left: 80px !important;
+        margin-top: -20px !important;
+        margin-bottom: -55px !important;
     }
-
-    /* --- MIDDLE SECTION MOBILE - UPDATED TO HIDE PRODUCTS --- */
+    /* --- MIDDLE SECTION MOBILE - UNCHANGED --- */
     .footer__middle {
         order: 2;
         width: 100%;
         background: transparent;
         padding: 18px 16px !important;
-        /* ← Add equal left-right padding */
         text-align: center;
         justify-content: center;
     }
@@ -395,123 +415,121 @@ $max-width: 1600px;
         margin: 0 auto !important;
     }
 
+    .footer__link-item a {
+        text-align: center !important;
+    }
+
+    .footer__link-row {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100%;
+    }
+
+    /* HIDE PRODUCTS ROWS IN MOBILE */
+    .footer__link-row:nth-child(2),
+    .footer__link-row:nth-child(3),
+    .footer__link-row:nth-child(4),
+    .footer__link-row:nth-child(5) {
+        display: none !important;
+    }
+
     .footer__link-item {
-       
-
-        a {
-
-            text-align: center !important;
-
-        }
+        flex: 0 0 auto !important;
+        width: 100%;
+        text-align: center;
     }
 
-        .footer__link-row {
-            flex-direction: column !important;
-            flex-wrap: nowrap !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 8px !important;
-            width: 100%;
-        }
-
-        /* HIDE PRODUCTS ROWS IN MOBILE */
-        .footer__link-row:nth-child(2),
-        /* OUR PRODUCTS heading */
-        .footer__link-row:nth-child(3),
-        /* Product Links 1 */
-        .footer__link-row:nth-child(4),
-        /* Product Links 2 */
-        .footer__link-row:nth-child(5) {
-            /* Accessories */
-            display: none !important;
-        }
-
-        .footer__link-item {
-            flex: 0 0 auto !important;
-            width: 100%;
-            text-align: center;
-        }
-
-        .footer__link-item a {
-            font-size: 14px !important;
-            padding: 10px 16px !important;
-            white-space: nowrap;
-            display: block; // ← Changed to block
-            width: 100%; // ← Changed to 100%
-            min-width: auto; // ← Changed to auto
-            text-align: center; // ← Add this
-        }
-
-        /* --- INFO SECTION MOBILE - UPDATED --- */
-        .footer__left {
-            order: 3;
-            width: 100%;
-            background: transparent;
-            padding: 18px 20px !important;
-            text-align: center;
-        }
-
-        .footer__left .footer__name {
-            font-size: 18px;
-            font-weight: 800;
-            margin: 0 auto;
-        }
-
-        .footer__left .footer__role {
-            font-size: 13px;
-            opacity: 0.95;
-            margin-top: 6px;
-        }
-
-        .footer__contacts {
-            margin-top: 14px;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px !important;
-        }
-
-        .footer__contacts li {
-            display: flex;
-            align-items: center;
-            gap: 8px !important;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        .footer__contacts .footer__icon {
-            font-size: 17px;
-            opacity: 0.95;
-        }
-
-        .footer__contacts a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* disable heavy hover transforms on mobile for stability */
-        .footer__left a,
-        .footer__middle a,
-        .footer__contacts li a,
-        .footer__contacts li span {
-            transition: none;
-        }
+    .footer__link-item a {
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+        min-width: auto;
+        text-align: center;
     }
 
+    /* --- INFO SECTION MOBILE - UNCHANGED --- */
+    .footer__left {
+        order: 3;
+        width: 100%;
+        background: transparent;
+        padding: 18px 20px !important;
+        text-align: center;
+    }
 
+    .footer__left .footer__name {
+        font-size: 18px;
+        font-weight: 800;
+        margin: 0 auto;
+    }
 
-    /* Media Queries for Large Screens (1700px - 2500px) */
-    @media (min-width: 1600px) and (max-width: 2500px) {
-        .footer {
-            .footer__right {
-                .footer__logo img {
-                    transform: scale(1.8); // Slightly smaller scale for very large screens
-                    margin-left: -100px;
-                }
+    .footer__left .footer__role {
+        font-size: 13px;
+        opacity: 0.95;
+        margin-top: 6px;
+    }
+
+    .footer__contacts {
+        margin-top: 14px;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px !important;
+    }
+
+    .footer__contacts li {
+        display: flex;
+        align-items: center;
+        gap: 8px !important;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .footer__contacts .footer__icon {
+        font-size: 17px;
+        opacity: 0.95;
+    }
+
+    .footer__contacts a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* DEVELOPER CREDIT MOBILE STYLES */
+    .footer__bottom-credit {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 20px;
+        padding: 15px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 11px;
+    }
+
+    /* disable heavy hover transforms on mobile for stability */
+    .footer__left a,
+    .footer__middle a,
+    .footer__contacts li a,
+    .footer__contacts li span {
+        transition: none;
+    }
+}
+
+/* Media Queries for Large Screens (1700px - 2500px) */
+@media (min-width: 1600px) and (max-width: 2500px) {
+    .footer {
+        .footer__right {
+            .footer__logo img {
+                transform: scale(1.8);
+                margin-left: -100px;
             }
-
-
         }
     }
+}
