@@ -74,7 +74,7 @@ const BottomArms = () => {
         </div>
 
         <div className="ba-hero__content">
-          <h1 className="ba-hero__title">BOTTOM LOADING ARMS</h1>
+          <h1 className="ba-hero__title">BOTTOM <br /> LOADING ARMS</h1>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ const BottomArms = () => {
           </div>
 
           <p className="ba-topintro__note">
-            Our standard size is 4" with API Coupler as per API RP-1004 which provides flow rate up to 2500 liters per minute. Available other sizes are 2", 3" and 6" with various end fittings, such as loose flange with stub end, quick coupling, unions or other customer specified end fittings.
+            Our standard size is 4" with API Coupler as per API RP-1004 which provides flow rate up to 2500 liters per minute. Available other sizes are <br /> 2", 3" and 6" with various end fittings, such as loose flange with stub end, quick coupling, unions or other customer specified end fittings.
           </p>
         </div>
       </section>

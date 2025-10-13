@@ -1,4 +1,3 @@
-/* File: src/components/SwivelJoints/SwivelJoints.scss */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 
 /* GLOBAL */
@@ -57,19 +56,22 @@
         text-align: center;
         color: #fff;
         text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+        
 
         h1 {
             font-family: "Poppins", serif;
             font-size: 7rem;
             font-weight: 700;
+            letter-spacing: 7px;
 
             @media (max-width: 900px) {
                 font-size: 2.6rem;
             }
 
             @media (max-width: 480px) {
-                font-size: 2rem;
+                font-size: 2.5rem;
                 padding: 0 12px;
+                letter-spacing: 2px;
             }
         }
     }
@@ -101,6 +103,10 @@
             font-size: 2rem;
             font-weight: 800;
             color: #0d1630;
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
         }
 
         p {
@@ -110,6 +116,10 @@
             margin-top: 1.5rem;
             color: #333;
             text-align: justify;
+
+            @media (max-width: 768px) {
+                font-size: 0.85rem;
+            }
 
             &:last-child {
                 margin-bottom: 0;
@@ -138,7 +148,11 @@
             font-weight: 800;
             color: #0d1630;
             margin-bottom: 1rem;
-            text-transform: uppercase;
+            // text-transform: uppercase; 
+
+            @media (max-width: 768px) {
+                font-size: 1.5rem;
+            }
         }
 
         p {
@@ -146,6 +160,10 @@
             line-height: 1.7;
             font-size: 1rem;
             color: #333;
+
+            @media (max-width: 768px) {
+                font-size: 0.85rem;
+            }
         }
 
         ul {
@@ -158,6 +176,10 @@
                 line-height: 1.6;
                 font-size: 0.9rem;
                 color: #333;
+
+                @media (max-width: 768px) {
+                    font-size: 0.85rem;
+                }
             }
         }
     }
@@ -281,7 +303,7 @@
 
         .paragraphs-container {
             p {
-                font-size: 1rem;
+                font-size: 0.85rem;
                 line-height: 1.6;
             }
         }
@@ -299,14 +321,15 @@
 
             h2 {
                 font-size: 1.5rem;
+                text-align: center;
             }
 
             p {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
 
             ul li {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -343,11 +366,11 @@
         }
     }
 
-    .swivel-joints-hero {
-        .hero-center h1 {
-            font-size: clamp(1.8rem, 6vw, 2.6rem);
-        }
-    }
+    // .swivel-joints-hero {
+    //     .hero-center h1 {
+    //         font-size: clamp(1.8rem, 6vw, 2.6rem);
+    //     }
+    // }
 
     .swivel-bottom-image img {
         width: 85%;
@@ -360,7 +383,7 @@
     }
 
     .paragraphs-container p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.5;
     }
 
@@ -369,12 +392,12 @@
 
         .text-col {
             p {
-                font-size: 0.88rem;
+                font-size: 0.85rem;
                 line-height: 1.6;
             }
 
             ul li {
-                font-size: 0.88rem;
+                font-size: 0.85rem;
                 line-height: 1.5;
             }
         }
@@ -397,44 +420,6 @@
 
         .media-col {
             order: 1 !important;
-        }
-    }
-
-    .swivel-bottom-image img {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .swivel-joints-paragraphs {
-        padding: 1.5rem 1rem;
-    }
-
-    .paragraphs-container p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    .swivel-joints-row {
-        padding: 1.5rem 1rem;
-
-        .text-col {
-            p {
-                font-size: 0.88rem;
-                line-height: 1.6;
-            }
-
-            ul li {
-                font-size: 0.88rem;
-                line-height: 1.5;
-            }
-        }
-
-        .media-col {
-            .image-frame {
-                width: 65%; // ✅ Further reduce image size for small mobile
-                max-width: 250px;
-            }
         }
     }
 

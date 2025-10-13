@@ -102,12 +102,22 @@ $dot-size: 12px;
     padding: 0 20px;
 
     .slide-text {
-      font-size: clamp(1rem, 5vw, 1.9rem);
+      font-size: clamp(1rem, 5vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.2;
+      line-height: 1.5;
       text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
       color: #fff;
+    }
+
+    /* Desktop Text - Show by default */
+    .desktop-text {
+      display: block;
+    }
+
+    /* Mobile Text - Hide by default */
+    .mobile-text {
+      display: none;
     }
   }
 }
@@ -215,11 +225,22 @@ $dot-size: 12px;
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - TABLET
+========================================================= */
+@media (max-width: 1024px) {
+  .slide-content .slide-text {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    line-height: 1.4;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN - MOBILE (768px and below)
 ========================================================= */
 @media (max-width: 768px) {
   .slide-content .slide-text {
     font-size: clamp(1.6rem, 6vw, 2.4rem);
+    line-height: 1.3;
   }
 
   .slider-arrow {
@@ -237,6 +258,9 @@ $dot-size: 12px;
   }
 }
 
+/* =========================================================
+   RESPONSIVE DESIGN - SMALL MOBILE (480px and below)
+========================================================= */
 @media (max-width: 480px) {
   .slide {
     .slide-img.desktop {
@@ -248,13 +272,40 @@ $dot-size: 12px;
     }
   }
 
+  /* ✅ TEXT SWITCHING FOR MOBILE - This is the key fix! */
+  .slide-content {
+    .desktop-text {
+      display: none !important;
+    }
+    
+    .mobile-text {
+      display: block !important;
+    }
+  }
+
+  .slide-content .slide-text {
+    font-size: clamp(1.4rem, 5.5vw, 2rem);
+    line-height: 1.4;
+  }
+
   .slider-dots {
     bottom: 16px;
     gap: 8px;
   }
 
   .slider-dot {
-    width: 10px;
-    height: 10px;
+    width: 7px !important;
+    height: 7px !important;
+  }
+}
+
+/* =========================================================
+   EXTRA SMALL MOBILE (360px and below)
+========================================================= */
+@media (max-width: 360px) {
+  .slide-content .slide-text {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    line-height: 1.4;
+    padding: 0 15px;
   }
 }

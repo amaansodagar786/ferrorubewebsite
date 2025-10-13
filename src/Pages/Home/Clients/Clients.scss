@@ -22,14 +22,22 @@ $blue: #264697;
 }
 
 @mixin responsive($breakpoint) {
-  @if $breakpoint == tablet {
-    @media (max-width: 1024px) { @content; }
+  @if $breakpoint ==tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
   }
-  @if $breakpoint == mobile {
-    @media (max-width: 768px) { @content; }
+
+  @if $breakpoint ==mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
   }
-  @if $breakpoint == small-mobile {
-    @media (max-width: 480px) { @content; }
+
+  @if $breakpoint ==small-mobile {
+    @media (max-width: 480px) {
+      @content;
+    }
   }
 }
 
@@ -76,8 +84,8 @@ $blue: #264697;
 }
 
 .clients-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
   font-weight: 700;
   color: $text-dark;
   margin-bottom: 20px;
@@ -292,6 +300,7 @@ $blue: #264697;
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

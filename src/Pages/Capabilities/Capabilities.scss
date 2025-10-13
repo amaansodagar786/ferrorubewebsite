@@ -51,7 +51,7 @@
 
         h1 {
             margin: 0;
-            font-size: clamp(2rem, 5.5vw, 3rem);
+            font-size: clamp(2.5rem, 5.5vw, 7rem);
             font-family: 'Inter', sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
@@ -178,13 +178,13 @@
             width: 100%;
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.5rem !important;
                 text-align: center; // ✅ Center align heading
             }
 
             p {
                 font-size: 0.95rem;
-                text-align: center; // ✅ Center align paragraphs
+                text-align: justify; // ✅ Center align paragraphs
             }
         }
 
@@ -213,7 +213,7 @@
         height: 70vh;
 
         .hero-center h1 {
-            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-size: clamp(2.5rem, 6vw, 2.6rem);
         }
     }
 }

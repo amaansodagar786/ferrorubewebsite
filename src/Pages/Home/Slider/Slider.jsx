@@ -16,13 +16,15 @@ const Slider = () => {
       id: 1,
       imageDesktop: slide1,
       imageMobile: mobileslide1,
-      text: '492 Loading arms for rail cars were supplied to HCPL BAHADURGAH Terminal in 2007'
+      textDesktop: '492 Loading arms for rail cars were supplied to </br> HCPL BAHADURGAH Terminal in 2007',
+      textMobile: '492 Loading arms for rail cars </br>were supplied to HCPL BAHADURGAH </br>Terminal in 2007'
     },
     {
       id: 2,
       imageDesktop: slide2,
       imageMobile: mobileslide2,
-      text: '357 Loading arms for Rail cars were supplied to HCPL MAHUL Terminal in 2009 '
+      textDesktop: '357 Loading arms for Rail cars were supplied to </br> HCPL MAHUL Terminal in 2009',
+      textMobile: '357 Loading arms for Rail cars </br>were supplied to HCPL MAHUL </br> Terminal in 2009'
     },
   ];
 
@@ -85,7 +87,16 @@ const Slider = () => {
               <div className="blue-shade"></div>
 
               <div className="slide-content">
-                <h2 className="slide-text">{slide.text}</h2>
+                {/* Desktop Text */}
+                <h2 
+                  className="slide-text desktop-text"
+                  dangerouslySetInnerHTML={{ __html: slide.textDesktop }}
+                />
+                {/* Mobile Text */}
+                <h2 
+                  className="slide-text mobile-text"
+                  dangerouslySetInnerHTML={{ __html: slide.textMobile }}
+                />
               </div>
             </div>
           ))}

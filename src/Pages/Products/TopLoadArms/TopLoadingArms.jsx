@@ -64,7 +64,7 @@ const TopLoadingArms = () => {
         </div>
 
         <div className="floating-hero-content">
-          <h1 className="floating-hero-title">TOP LOADING ARMS</h1>
+          <h1 className="floating-hero-title">TOP LOADING <br /> ARMS</h1>
         </div>
       </section>
 

@@ -384,7 +384,7 @@ $max-width: 1600px;
 
       .footer__logo img {
         display: block;
-        width: 100% !important;
+        width: 90% !important;
         height: auto;
         object-fit: contain;
         margin: 0 !important;
@@ -394,7 +394,8 @@ $max-width: 1600px;
         margin-top: -20px !important;
         margin-bottom: -55px !important;
     }
-    /* --- MIDDLE SECTION MOBILE - UNCHANGED --- */
+
+    /* --- MIDDLE SECTION MOBILE - UPDATED FOR 2x2 GRID --- */
     .footer__middle {
         order: 2;
         width: 100%;
@@ -415,20 +416,17 @@ $max-width: 1600px;
         margin: 0 auto !important;
     }
 
-    .footer__link-item a {
-        text-align: center !important;
-    }
-
-    .footer__link-row {
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 8px !important;
+    /* SHOW ONLY THE FIRST ROW (MAIN PAGES) IN MOBILE */
+    .footer__link-row:nth-child(1) {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px !important;
         width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
     }
 
-    /* HIDE PRODUCTS ROWS IN MOBILE */
+    /* HIDE OTHER ROWS IN MOBILE */
     .footer__link-row:nth-child(2),
     .footer__link-row:nth-child(3),
     .footer__link-row:nth-child(4),
@@ -437,19 +435,26 @@ $max-width: 1600px;
     }
 
     .footer__link-item {
-        flex: 0 0 auto !important;
         width: 100%;
         text-align: center;
     }
 
     .footer__link-item a {
         font-size: 14px !important;
-        padding: 10px 16px !important;
+        padding: 12px 8px !important;
         white-space: nowrap;
         display: block;
         width: 100%;
-        min-width: auto;
-        text-align: center;
+        text-align: center !important;
+        // border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .footer__link-item a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
     }
 
     /* --- INFO SECTION MOBILE - UNCHANGED --- */

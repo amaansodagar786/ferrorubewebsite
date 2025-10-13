@@ -64,7 +64,7 @@ $transition: all 0.3s ease;
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 123, 255, 0.2);
+        background: rgba(0, 123, 255, 0.30);
         z-index: 2;
     }
 
@@ -93,14 +93,14 @@ $transition: all 0.3s ease;
             }
         }
 
-        .floating-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg,
-                    rgba(44, 62, 80, 0.7) 0%,
-                    rgba(44, 62, 80, 0.3) 100%);
-            z-index: 1;
-        }
+        // .floating-hero-overlay {
+        //     position: absolute;
+        //     inset: 0;
+        //     background: linear-gradient(135deg,
+        //             rgba(44, 62, 80, 0.7) 0%,
+        //             rgba(44, 62, 80, 0.3) 100%);
+        //     z-index: 1;
+        // }
     }
 
     .floating-hero-content {
@@ -116,7 +116,7 @@ $transition: all 0.3s ease;
         padding: 0 20px;
 
         .floating-hero-title {
-            font-family: 'Roboto Slab', serif;
+            // font-family: 'Roboto Slab', serif;
             font-family: "Poppins", sans-serif;
 
             font-size: 7rem !important;
@@ -134,7 +134,7 @@ $transition: all 0.3s ease;
             }
 
             @media (max-width: 480px) {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
     }
@@ -176,7 +176,7 @@ $transition: all 0.3s ease;
     text-align: justify;
 
     @include responsive(mobile) {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.7;
     }
 }
@@ -302,7 +302,7 @@ $transition: all 0.3s ease;
     text-align: center;
 
     @include responsive(mobile) {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 30px;
     }
 }
@@ -336,7 +336,7 @@ $transition: all 0.3s ease;
     color: $text-color;
 
     @include responsive(mobile) {
-        font-size: 0.87rem;
+        font-size: 0.85rem;
         line-height: 1.6;
     }
 }
@@ -500,7 +500,7 @@ $transition: all 0.3s ease;
     text-align: justify;
 
     @include responsive(mobile) {
-        font-size: 0.87rem;
+        font-size: 0.85rem;
         line-height: 1.6;
     }
 }
@@ -511,8 +511,8 @@ $transition: all 0.3s ease;
     gap: 15px;
 
     @include responsive(mobile) {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
     }
 }
 
@@ -529,8 +529,8 @@ $transition: all 0.3s ease;
     }
 
     @include responsive(mobile) {
-        height: 200px;
-        width: fit-content;
+        height: 180px;
+        width: 100%;
     }
 }
 
@@ -547,13 +547,13 @@ $transition: all 0.3s ease;
     font-family: "Poppins", sans-serif;
     font-size: 2rem;
     font-weight: 800;
-    color: #0d1630;font-family: 'Roboto Slab', serif;
+    color: #0d1630;
     margin-bottom: 50px;
     color: $primary-color;
     text-align: center;
 
     @include responsive(mobile) {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 30px;
     }
 }
@@ -587,7 +587,7 @@ $transition: all 0.3s ease;
     text-align: justify;
 
     @include responsive(mobile) {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.6;
     }
 }
@@ -738,9 +738,8 @@ $transition: all 0.3s ease;
     margin-bottom: 10px;
     margin-top: 40px;
 
-
     @include responsive(mobile) {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         margin-top: 0;
         margin-bottom: 15px;
         text-align: center;
@@ -754,12 +753,12 @@ $transition: all 0.3s ease;
     text-align: justify;
 
     @include responsive(mobile) {
-        font-size: 0.87rem;
+        font-size: 0.85rem;
         line-height: 1.6;
     }
 }
 
-// Technical Data Section (Keep as it is)
+// Technical Data Section
 .technical-data {
     width: 100%;
     padding: 60px 20px;
@@ -769,11 +768,14 @@ $transition: all 0.3s ease;
 
     .technical-title {
         font-family: "Poppins", sans-serif;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #0d1630;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0d1630;
         margin-bottom: 30px;
-        
+
+        @include responsive(mobile) {
+            font-size: 1.5rem;
+        }
     }
 
     .table-wrapper {
@@ -869,7 +871,7 @@ $transition: all 0.3s ease;
         padding: 40px 8px;
 
         .technical-title {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
 
         .table-wrapper {
@@ -931,12 +933,21 @@ $transition: all 0.3s ease;
     .floating-conventional-para,
     .floating-aluminum-para {
         text-align: justify;
+        font-size: 0.85rem;
+    }
+
+    // Mobile heading sizes
+    .floating-swing-heading,
+    .floating-conventional-heading,
+    .floating-aluminum-heading,
+    .technical-data .technical-title {
+        font-size: 1.5rem;
     }
 }
 
 @include responsive(small-mobile) {
     .floating-container {
-        padding: 0 10px;
+        padding: 0 20px;
     }
 
     // Further reduce gaps for very small screens
@@ -964,8 +975,6 @@ $transition: all 0.3s ease;
         max-height: 250px;
     }
 }
-
-
 
 // Add these media queries at the end of your SCSS file, after all the existing styles
 
@@ -998,6 +1007,23 @@ $transition: all 0.3s ease;
             }
         }
     }
+
+    // Mobile font sizes
+    .floating-intro-text,
+    .floating-drain-para,
+    .floating-specs-text,
+    .floating-swing-para,
+    .floating-testing-text,
+    .floating-conventional-para,
+    .floating-aluminum-para {
+        font-size: 0.85rem;
+    }
+
+    .floating-swing-heading,
+    .floating-conventional-heading,
+    .floating-aluminum-heading {
+        font-size: 1.5rem;
+    }
 }
 
 @include responsive(small-mobile) {
@@ -1011,7 +1037,6 @@ $transition: all 0.3s ease;
             height: 160px !important;
             border-radius: none !important;
             box-shadow: none !important;
-
         }
     }
 

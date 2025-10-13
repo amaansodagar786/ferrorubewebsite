@@ -128,7 +128,7 @@ const Footer = () => {
 
       {/* ADDED DEVELOPER CREDIT AT BOTTOM CENTER OF ENTIRE FOOTER */}
       <div className="footer__bottom-credit">
-        DESIGNED AND DEVELOPED BY{" "}
+        Designed And Developed By{" "}
         <a
           href="https://techorses.com"       // <-- replace with your actual site link
           target="_blank"
@@ -136,7 +136,7 @@ const Footer = () => {
           className="footer__credit-link"
         >
           TECHORSES
-        </a>
+        </a>!
       </div>
     </footer>
   );

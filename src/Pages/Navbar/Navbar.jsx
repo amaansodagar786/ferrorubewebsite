@@ -37,9 +37,6 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     }
   };
 
-  // Split product names into two lines
-  // In the ProductsDropdown component, replace the formatProductName function with this:
-
   // Split product names into two lines PROPERLY
   const formatProductName = (name) => {
     const words = name.split(' ');
@@ -61,8 +58,6 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     }
     return { line1: name, line2: '' };
   };
-
-
 
   if (isMobile) {
     return (
@@ -159,7 +154,10 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
     <header className="navbar">
       <div className="navbar__inner">
         <div className="navbar__left" onClick={closeMenu}>
-          <img src={logo} alt="Ferro Tube & Forge Industries" className="navbar__logo" />
+          {/* ADDED HOME LINK TO LOGO */}
+          <NavLink to="/" className="navbar__logo-link">
+            <img src={logo} alt="Ferro Tube & Forge Industries" className="navbar__logo" />
+          </NavLink>
         </div>
 
         <div className={`navbar__right ${menuOpen ? "open" : ""}`} role="navigation" aria-label="Main navigation">

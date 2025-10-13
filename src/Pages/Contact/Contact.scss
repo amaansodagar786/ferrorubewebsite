@@ -86,7 +86,7 @@ $body-font: 'Poppins', sans-serif;
 }
 
 .hero__center h1 {
-    font-size: clamp(2rem, 5.5vw, 3rem);
+    font-size: clamp(2.5rem, 5.5vw, 7rem);
     margin: 0 0 8px;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -146,6 +146,10 @@ $body-font: 'Poppins', sans-serif;
     color: #556076;
     line-height: 1.6;
     margin-bottom: 20px;
+
+     @media (max-width: 768px) {
+        font-size: 0.90rem;
+    }
 }
 
 .info-list {
@@ -474,9 +478,9 @@ $body-font: 'Poppins', sans-serif;
         padding: 20px;
     }
 
-    .hero__center h1 {
-        font-size: 32px;
-    }
+    // .hero__center h1 {
+    //     font-size: 32px;
+    // }
 }
 
 @media (max-width: 520px) {
@@ -484,9 +488,9 @@ $body-font: 'Poppins', sans-serif;
         padding: 30px 15px;
     }
 
-    .hero__center h1 {
-        font-size: 24px;
-    }
+    // .hero__center h1 {
+    //     font-size: 24px;
+    // }
 
     .contact__form {
         padding: 18px;
@@ -534,9 +538,9 @@ $body-font: 'Poppins', sans-serif;
         padding: 15px;
     }
 
-    .hero__center h1 {
-        font-size: 22px;
-    }
+    // .hero__center h1 {
+    //     font-size: 22px;
+    // }
 
     .info-list .icon {
         width: 42px;

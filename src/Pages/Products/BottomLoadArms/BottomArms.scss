@@ -1,4 +1,3 @@
-// File: src/components/BottomArms/BottomArms.scss
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap');
 
 /* CSS variables for quick adjustments */
@@ -88,13 +87,14 @@
         letter-spacing: 1px;
         text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         letter-spacing: 0.1px;
+        line-height: 1.2;
 
         @media (max-width: 900px) {
-            font-size: 2.4rem;
+            font-size: 2.5rem;
         }
 
         @media (max-width: 480px) {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             padding: 0 15px;
         }
     }
@@ -124,12 +124,22 @@
         margin: 0 auto;
         padding: 0 12px;
         text-align: center;
+
+         @media (max-width: 480px) {
+            
+            padding: 0 5px;
+        }
     }
 
     &__lead {
         margin: 4px 0 14px;
         color: rgba(0, 0, 0, 0.85);
         font-weight: 600;
+        font-size: 0.95rem;
+
+        @media (max-width: 768px) {
+            font-size: 0.85rem;
+        }
     }
 
     &__cols {
@@ -153,6 +163,10 @@
         li {
             margin: 10px 0;
             font-size: 0.95rem;
+
+            @media (max-width: 768px) {
+                font-size: 0.85rem;
+            }
         }
     }
 
@@ -163,6 +177,10 @@
         max-width: 1100px;
         margin-left: auto;
         margin-right: auto;
+
+        @media (max-width: 768px) {
+            font-size: 0.85rem;
+        }
     }
 }
 
@@ -170,6 +188,11 @@
 .ba-spring {
     padding: 48px 20px;
     background: linear-gradient(180deg, #f5f6f8 0%, var(--ba-bg) 100%);
+
+
+     @media (max-width: 480px) {
+            padding: 48px 10px;
+        }
 
     &__container {
         max-width: var(--ba-container);
@@ -203,7 +226,10 @@
             font-weight: 600;
             text-align: left;
             font-size: 1.15rem;
-            // font-size: 1.15px;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
 
         .ba-spring__list {
@@ -216,6 +242,10 @@
                 margin: 10px 0;
                 font-size: 0.9rem;
                 text-align: justify;
+
+                @media (max-width: 768px) {
+                    font-size: 0.85rem;
+                }
             }
         }
     }
@@ -279,11 +309,15 @@
 
     &__title {
         font-family: "Poppins", sans-serif;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #0d1630;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0d1630;
         text-align: center;
         margin-bottom: 18px;
+
+        @media (max-width: 768px) {
+            font-size: 1.5rem;
+        }
     }
 
     &__grid {
@@ -341,6 +375,10 @@
             margin: 0 0 12px 0;
             font-weight: 600;
             font-size: 1.15rem;
+
+            @media (max-width: 768px) {
+                font-size: 1rem;
+            }
         }
 
         .ba-features__list {
@@ -357,6 +395,10 @@
                 list-style: disc;
                 font-size: 0.9rem;
                 text-align: justify;
+
+                @media (max-width: 768px) {
+                    font-size: 0.85rem;
+                }
 
                 // &::before {
                 //     content: "";
@@ -387,6 +429,11 @@
             li {
                 margin: 10px 0;
                 color: rgba(0, 0, 0, 0.78);
+                font-size: 0.9rem;
+
+                @media (max-width: 768px) {
+                    font-size: 0.85rem;
+                }
             }
         }
     }
@@ -429,12 +476,13 @@
     }
 
     .ba-hero__title {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
 
     .ba-spring__container {
         grid-template-columns: 1fr;
         gap: 18px;
+        padding: 0 10px;
     }
 
     .ba-features__left .ba-img-card img {

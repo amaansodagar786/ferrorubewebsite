@@ -1,4 +1,3 @@
-// About.scss
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 .about-page {
@@ -59,7 +58,7 @@
 
             h1 {
                 margin: 0;
-                font-size: clamp(2rem, 5.5vw, 3rem);
+                font-size: clamp(2.5rem, 5.5vw, 7rem);
                 font-family: 'Inter', sans-serif;
                 font-optical-sizing: auto;
                 font-style: normal;
@@ -91,6 +90,10 @@
                 font-size: 1rem;
                 color: #333;
                 text-align: justify;
+
+                @media (max-width: 768px) {
+                    font-size: 0.85rem;
+                }
             }
         }
 
@@ -102,7 +105,7 @@
                 width: 95%;
 
                 p {
-                    font-size: 1rem;
+                    font-size: 0.85rem;
                     line-height: 1.7;
                     text-align: justify;
                 }
@@ -210,6 +213,10 @@
             margin-bottom: 3rem;
             font-weight: 700;
             color: #1c3d91;
+
+            @media (max-width: 768px) {
+                font-size: 2rem;
+            }
         }
 
         .leaders-wrapper {
@@ -262,12 +269,20 @@
                     font-weight: 700;
                     margin-bottom: 0.5rem;
                     color: #1c3d91;
+
+                    @media (max-width: 768px) {
+                        font-size: 1.5rem;
+                    }
                 }
 
                 p {
                     font-size: 1.2rem;
                     color: #555;
                     margin-bottom: 1rem;
+
+                    @media (max-width: 768px) {
+                        font-size: 1rem;
+                    }
                 }
 
                 .leader-description {
@@ -278,6 +293,10 @@
 
                     /* Show on desktop only */
                     display: block;
+
+                    @media (max-width: 768px) {
+                        font-size: 0.85rem;
+                    }
                 }
 
                 .know-more {
@@ -295,6 +314,11 @@
                     &:hover {
                         transform: translateY(-3px);
                         box-shadow: 0 6px 18px rgba(28, 61, 145, 0.5);
+                    }
+
+                    @media (max-width: 768px) {
+                        font-size: 0.85rem;
+                        padding: 0.6rem 1.4rem;
                     }
                 }
             }
@@ -396,7 +420,9 @@
             padding: 3rem 1rem;
 
             h2 {
-                font-size: 1.8rem;
+                 font-size: 2rem;
+            font-weight: 800;
+            color: #0d1630;
                 margin-bottom: 2rem;
             }
 
@@ -406,6 +432,16 @@
 
             .leader-card-side {
                 padding: 1.5rem;
+                
+                .leader-image-side {
+                    width: 150px !important;
+                    height: 150px !important;
+                    
+                    img {
+                        width: 150px !important;
+                        height: 150px !important;
+                    }
+                }
             }
         }
     }

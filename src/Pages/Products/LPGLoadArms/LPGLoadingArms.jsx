@@ -29,7 +29,7 @@ const LPGLoadingArms = () => {
           className="hero-img mobile"
         />
         <div className="hero-center">
-          <h1>LPG LOADING ARMS</h1>
+          <h1>LPG LOADING<br /> ARMS</h1>
         </div>
       </section>
 
