@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Slider.scss';
 
 import slide1 from "../../../assets/home/slider/slide1.png";
@@ -8,7 +8,6 @@ import mobileslide2 from "../../../assets/mobileslider/mobileslide2.png";
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const slides = [
@@ -28,12 +27,12 @@ const Slider = () => {
     },
   ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
     setTimeout(() => setIsTransitioning(false), 600);
-  };
+  }, [isTransitioning, slides.length]);
 
   const prevSlide = () => {
     if (isTransitioning) return;
@@ -49,19 +48,18 @@ const Slider = () => {
     setTimeout(() => setIsTransitioning(false), 600);
   };
 
+  // ✅ FIXED AUTOPLAY - Removed hover stop and fixed dependencies
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(() => nextSlide(), 3000);
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    
     return () => clearInterval(interval);
-  }, [isAutoPlaying, currentSlide]);
+  }, [nextSlide]); // ✅ Only depend on nextSlide
 
   return (
     <div className="slider-container">
-      <div
-        className="slider-wrapper"
-        onMouseEnter={() => setIsAutoPlaying(false)}
-        onMouseLeave={() => setIsAutoPlaying(true)}
-      >
+      <div className="slider-wrapper">
         {/* Slides */}
         <div className="slides-container">
           {slides.map((slide, index) => (
@@ -101,14 +99,6 @@ const Slider = () => {
             </div>
           ))}
         </div>
-
-        {/* Navigation */}
-        {/* <button className="slider-arrow slider-arrow--prev" onClick={prevSlide}>
-          <span>‹</span>
-        </button>
-        <button className="slider-arrow slider-arrow--next" onClick={nextSlide}>
-          <span>›</span>
-        </button> */}
 
         {/* Dots */}
         <div className="slider-dots">
