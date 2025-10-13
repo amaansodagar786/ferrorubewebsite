@@ -96,7 +96,7 @@ const About = () => {
       {/* LEADERS SECTION - UPDATED LAYOUT */}
       <section className="about-leaders">
         <div className="container">
-          <h2>Our Leaders</h2>
+          <h2>Our Leader</h2>
           <div className="leaders-wrapper">
 
             {/* Leader 1 - Side by side layout */}

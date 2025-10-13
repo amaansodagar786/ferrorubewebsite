@@ -10,7 +10,7 @@ const HomeAbout = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate("/about"); // 👈 change this to your route
+    navigate("/about");
   };
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const HomeAbout = () => {
 
   return (
     <section className="home-about" ref={sectionRef}>
-      <div className="container">
+      <div className="home-about-container">
         <div className="about-grid">
           {/* Left Side - Image */}
           <div className="about-image" ref={imageRef}>
@@ -85,8 +85,6 @@ const HomeAbout = () => {
                 </p>
               </div>
               
-             
-
               <button className="cta-button" onClick={handleRedirect}>
                 Learn More About Us
                 <span className="arrow">→</span>

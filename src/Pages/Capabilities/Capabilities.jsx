@@ -4,8 +4,8 @@ import "./Capabilities.scss";
 import heroimage from "../../assets/home/slider/Capabilitieshero.png"
 import mobilehero from "../../assets/mobileslider/mobilecapabilities.png" 
 
-import img1 from "../../assets/home/capability/manufacturing.png"
-import img2 from "../../assets/home/capability/qualityAssurance.png"
+import img2 from "../../assets/home/capability/manufacturing.png"
+import img1 from "../../assets/home/capability/qualityAssurance.png"
 
 
 // Sample hero and section images
