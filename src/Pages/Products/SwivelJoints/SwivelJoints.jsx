@@ -4,7 +4,7 @@ import "./SwivelJoints.scss";
 
 // Sample hero and section images
 import heroimg from "../../../assets/products/swivel_joints/swivelhero.png";
-import mobilehero from "../../../assets/mobileslider/mobileswivel.png" ;
+import mobilehero from "../../../assets/mobileslider/mobileswivel.png";
 
 
 
@@ -115,7 +115,15 @@ const SwivelJoints = () => {
             {swivelData.map((item, idx) => (
                 <section className={`swivel-joints-row`} key={idx}>
                     <div className="text-col">
-                        <h2>{item.title}</h2>
+                        <h2 className={idx >= 2 ? "multi-line" : ""}>
+                            {idx === 2 ? (
+                                <>Cast Aluminum Alloy<br />Swivel Joint</>
+                            ) : idx === 3 ? (
+                                <>Heavy Duty Split Flange<br />Swivel Joint</>
+                            ) : (
+                                item.title
+                            )}
+                        </h2>
                         <ul>
                             {item.list.map((li, index) => (
                                 <li key={index}>{li}</li>
