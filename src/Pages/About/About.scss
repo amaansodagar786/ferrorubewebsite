@@ -34,8 +34,6 @@
 
         // Media query for mobile
         @media (max-width: 480px) {
-            
-
             .hero-img {
                 object-fit: cover;
             }
@@ -103,6 +101,7 @@
             .container {
                 max-width: 95%;
                 width: 95%;
+                padding: 10px 0px;
 
                 p {
                     font-size: 0.85rem;
@@ -241,6 +240,17 @@
             &:hover {
                 transform: translateY(-8px);
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+
+                .user-icon-placeholder {
+                    transform: scale(1.05);
+                    box-shadow: 0 12px 30px rgba(28, 61, 145, 0.3);
+                    background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+
+                    svg {
+                        transform: scale(1.1);
+                        fill: #1c3d91;
+                    }
+                }
             }
 
             // Reversed layout for second card
@@ -251,12 +261,49 @@
             .leader-image-side {
                 flex: 0 0 300px;
 
-                img {
+                .user-icon-placeholder {
                     width: 100%;
                     height: 300px;
-                    object-fit: cover;
+                    background: linear-gradient(135deg, #f0f2ff, #ffffff);
                     border-radius: 15px;
-                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 8px 25px rgba(28, 61, 145, 0.2);
+                    border: 3px solid #e0e5ff;
+                    outline: 2px solid #1c3d91;
+                    transition: all 0.4s ease;
+                    position: relative;
+                    overflow: hidden;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: linear-gradient(45deg,
+                                transparent,
+                                rgba(28, 61, 145, 0.05),
+                                transparent);
+                        transform: rotate(45deg);
+                        transition: all 0.6s ease;
+                    }
+
+                    &:hover::before {
+                        transform: rotate(45deg) translate(50%, 50%);
+                    }
+
+                    svg {
+                        fill: #1c3d91;
+                        filter: drop-shadow(0 2px 8px rgba(28, 61, 145, 0.3));
+                        transition: all 0.3s ease;
+                        position: relative;
+                        z-index: 2;
+                        width: 120px;
+                        height: 120px;
+                    }
                 }
             }
 
@@ -310,10 +357,13 @@
                     font-size: 1rem;
                     transition: all 0.3s ease;
                     box-shadow: 0 4px 12px rgba(28, 61, 145, 0.4);
+                    border: 2px solid transparent;
 
                     &:hover {
                         transform: translateY(-3px);
                         box-shadow: 0 6px 18px rgba(28, 61, 145, 0.5);
+                        background: linear-gradient(135deg, #3f5bd9, #1c3d91);
+                        border: 2px solid #1c3d91;
                     }
 
                     @media (max-width: 768px) {
@@ -341,13 +391,18 @@
 
                 .leader-image-side {
                     flex: 0 0 auto;
-                    width: 200px;
-                    height: 200px;
 
-                    img {
+                    .user-icon-placeholder {
                         width: 200px;
                         height: 200px;
                         border-radius: 50%;
+                        border: 3px solid #e0e5ff;
+                        outline: 2px solid #1c3d91;
+
+                        svg {
+                            width: 60px;
+                            height: 60px;
+                        }
                     }
                 }
 
@@ -420,9 +475,9 @@
             padding: 3rem 1rem;
 
             h2 {
-                 font-size: 2rem;
-            font-weight: 800;
-            color: #0d1630;
+                font-size: 2rem;
+                font-weight: 800;
+                color: #0d1630;
                 margin-bottom: 2rem;
             }
 
@@ -432,14 +487,16 @@
 
             .leader-card-side {
                 padding: 1.5rem;
-                
+
                 .leader-image-side {
-                    width: 150px !important;
-                    height: 150px !important;
-                    
-                    img {
-                        width: 150px !important;
-                        height: 150px !important;
+                    .user-icon-placeholder {
+                        width: 150px;
+                        height: 150px;
+
+                        svg {
+                            width: 70px;
+                            height: 70px;
+                        }
                     }
                 }
             }
@@ -456,8 +513,13 @@
                 .leader-image-side {
                     flex: 0 0 350px;
 
-                    img {
+                    .user-icon-placeholder {
                         height: 350px;
+
+                        svg {
+                            width: 100px;
+                            height: 100px;
+                        }
                     }
                 }
             }

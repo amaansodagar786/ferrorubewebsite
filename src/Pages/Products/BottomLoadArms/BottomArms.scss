@@ -515,3 +515,37 @@
         --ba-img-height: 200px;
     }
 }
+
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  /* Fix the lists alignment in mobile */
+  .ba-topintro__cols {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .ba-topintro__list {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .ba-topintro__list li {
+    text-align: justify;
+    font-size: 0.85rem;
+    margin: 8px 0;
+  }
+  
+  /* Remove line breaks and justify the paragraph */
+  .ba-topintro__note {
+    text-align: justify;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+  
+  .ba-topintro__note br {
+    display: none;
+  }
+}

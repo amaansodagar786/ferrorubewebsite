@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import "./Navbar.scss";
 import logoImg from "../../assets/logo/ferrologo.png";
@@ -25,6 +25,7 @@ const PRODUCT_PAGES = [
 
 const ProductsDropdown = ({ isMobile, closeMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -35,6 +36,16 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     if (isMobile) {
       closeMenu();
     }
+  };
+
+  // Check if any product page is active
+  const isAnyProductActive = PRODUCT_PAGES.some(product => 
+    location.pathname === product.link
+  );
+
+  // Check if specific product is active
+  const isProductActive = (productLink) => {
+    return location.pathname === productLink;
   };
 
   // Split product names into two lines PROPERLY
@@ -63,7 +74,7 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     return (
       <li className="products-dropdown">
         <div
-          className={`products-dropdown__trigger ${isOpen ? 'open' : ''}`}
+          className={`products-dropdown__trigger ${isOpen ? 'open' : ''} ${isAnyProductActive ? 'active' : ''}`}
           onClick={toggleDropdown}
         >
           <span>OUR PRODUCTS</span>
@@ -75,11 +86,12 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
           <div className="products-dropdown__grid">
             {PRODUCT_PAGES.map((product) => {
               const formattedName = formatProductName(product.title);
+              const isActive = isProductActive(product.link);
               return (
                 <div key={product.link} className="products-dropdown__item">
                   <NavLink
                     to={product.link}
-                    className="products-dropdown__link"
+                    className={`products-dropdown__link ${isActive ? 'active' : ''}`}
                     onClick={handleItemClick}
                   >
                     <span className="line1">{formattedName.line1}</span>
@@ -103,7 +115,7 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className={`products-dropdown__trigger ${isOpen ? 'open' : ''}`}>
+      <div className={`products-dropdown__trigger ${isOpen ? 'open' : ''} ${isAnyProductActive ? 'active' : ''}`}>
         <span>OUR PRODUCTS</span>
         <FiChevronDown className="arrow" />
       </div>
@@ -112,11 +124,12 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
         <div className="products-dropdown__grid">
           {PRODUCT_PAGES.map((product) => {
             const formattedName = formatProductName(product.title);
+            const isActive = isProductActive(product.link);
             return (
               <div key={product.link} className="products-dropdown__item">
                 <NavLink
                   to={product.link}
-                  className="products-dropdown__link"
+                  className={`products-dropdown__link ${isActive ? 'active' : ''}`}
                   onClick={handleItemClick}
                 >
                   <span className="line1">{formattedName.line1}</span>
@@ -135,6 +148,7 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
 
 const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     console.log("[Navbar] menuOpen =", menuOpen);
@@ -187,7 +201,11 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
             })}
           </ul>
 
-          <NavLink to="/contact" className="navbar__contact" onClick={closeMenu}>
+          <NavLink 
+            to="/contact" 
+            className={({ isActive }) => `navbar__contact ${isActive ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
             CONTACT
           </NavLink>
         </div>

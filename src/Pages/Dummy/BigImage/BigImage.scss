@@ -1,0 +1,11 @@
+.bigimage {
+  padding: 4rem 0;
+  text-align: center;
+  background: #fff;
+
+  .bigimage__img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+}

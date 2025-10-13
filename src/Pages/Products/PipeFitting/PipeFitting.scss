@@ -55,7 +55,7 @@ $transition: all 0.3s ease;
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 123, 255, 0.15);
+    background: rgba(0, 123, 255, 0.30);
     z-index: 2;
   }
 
@@ -84,14 +84,14 @@ $transition: all 0.3s ease;
       }
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg,
-          rgba(44, 62, 80, 0.7) 0%,
-          rgba(44, 62, 80, 0.3) 100%);
-      z-index: 1;
-    }
+    // .hero-overlay {
+    //   position: absolute;
+    //   inset: 0;
+    //   background: linear-gradient(135deg,
+    //       rgba(44, 62, 80, 0.7) 0%,
+    //       rgba(44, 62, 80, 0.3) 100%);
+    //   z-index: 1;
+    // }
   }
 
   .hero-content {

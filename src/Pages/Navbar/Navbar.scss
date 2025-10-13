@@ -165,6 +165,12 @@ $max-width: 1600px;
       &.open .arrow {
         transform: rotate(180deg);
       }
+
+      // ACTIVE STATE ADDED - Only underline for desktop
+      &.active {
+        text-decoration: underline;
+        text-underline-offset: 6px;
+      }
     }
 
     &__menu {
@@ -248,6 +254,14 @@ $max-width: 1600px;
       line-height: 1.3;
       display: block;
       width: 100%;
+
+      // ACTIVE STATE ADDED - Background color for desktop dropdown items
+      &.active {
+        background-color: rgba(255, 215, 0, 0.15);
+        border-radius: 8px;
+        padding: 8px;
+        margin: -8px;
+      }
 
       .line1 {
         display: block;
@@ -354,6 +368,11 @@ $max-width: 1600px;
           padding: 12px 0;
           width: 100%;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+          // ACTIVE STATE ADDED - Only color for mobile
+          &.active {
+            color: #FFD700;
+          }
         }
       }
 
@@ -363,6 +382,11 @@ $max-width: 1600px;
         text-align: center;
         font-size: 16px;
         margin-top: 20px;
+
+        // ACTIVE STATE ADDED - Only color for mobile
+        &.active {
+          color: #FFD700;
+        }
       }
     }
 
@@ -385,6 +409,11 @@ $max-width: 1600px;
 
         .arrow {
           display: none !important; // This will hide the arrow in mobile view
+        }
+
+        // ACTIVE STATE ADDED - Only color for mobile
+        &.active {
+          color: #FFD700;
         }
       }
 
@@ -465,6 +494,11 @@ $max-width: 1600px;
         // ADDED: Ensure proper text alignment
         text-align: left;
         margin-left: 0;
+
+        // ACTIVE STATE ADDED - Only color for mobile
+        &.active {
+          color: #FFD700;
+        }
 
         // CHANGED: Single line for mobile
         .line1,

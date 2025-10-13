@@ -43,7 +43,12 @@ const LeaderIntro = () => {
             >
                 <div className="hero-content">
                     <div className="hero-img-wrapper">
-                        <img src={leader.imageUrl} alt={leader.name} />
+                        <div className="user-icon-placeholder">
+                            <svg width="140" height="140" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="4" fill="#1c3d91" />
+                                <path d="M12 14C8 14 4 16 4 20H20C20 16 16 14 12 14Z" fill="#1c3d91" />
+                            </svg>
+                        </div>
                     </div>
                     <div className="hero-text">
                         <h1>{leader.name}</h1>

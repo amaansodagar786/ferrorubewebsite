@@ -22,12 +22,56 @@
                 flex: 1 1 300px;
                 max-width: 400px;
 
-                img {
+                .user-icon-placeholder {
                     width: 100%;
-                    height: auto;
+                    height: 400px;
+                    background: linear-gradient(135deg, #f0f2ff, #ffffff);
                     border-radius: 20px;
-                    object-fit: cover;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                    border: 3px solid #e0e5ff;
+                    outline: 2px solid #1c3d91;
+                    transition: all 0.4s ease;
+                    position: relative;
+                    overflow: hidden;
+                    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: linear-gradient(
+                            45deg,
+                            transparent,
+                            rgba(28, 61, 145, 0.05),
+                            transparent
+                        );
+                        transform: rotate(45deg);
+                        transition: all 0.6s ease;
+                    }
+                    
+                    &:hover::before {
+                        transform: rotate(45deg) translate(50%, 50%);
+                    }
+                    
+                    svg {
+                        fill: #1c3d91;
+                        filter: drop-shadow(0 2px 8px rgba(28, 61, 145, 0.3));
+                        transition: all 0.3s ease;
+                        position: relative;
+                        z-index: 2;
+                        width: 140px;
+                        height: 140px;
+                    }
+                }
+
+                // Remove the original image
+                img {
+                    display: none;
                 }
             }
 
@@ -245,6 +289,17 @@
                 margin-left: auto;
                 margin-right: auto;
                 flex: 1 1 100% !important;
+                
+                .user-icon-placeholder {
+                     height: 320px;
+                border-radius: 50%; /* Make it circular */
+                width: 320px;
+                    
+                    svg {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
             }
         }
 
@@ -320,6 +375,17 @@
 
                 .hero-img-wrapper {
                     max-width: 280px;
+                    
+                    .user-icon-placeholder {
+                         height: 180px;
+                    border-radius: 50%; /* Make it circular */
+                    width: 240px;
+                        
+                        svg {
+                            width: 100px !important;
+                            height: 100px !important;
+                        }
+                    }
                 }
             }
         }
@@ -420,6 +486,15 @@
 
                 .hero-img-wrapper {
                     max-width: 250px;
+                    
+                    .user-icon-placeholder {
+                        height: 250px;
+                        
+                        svg {
+                            width: 70px;
+                            height: 70px;
+                        }
+                    }
                 }
             }
         }

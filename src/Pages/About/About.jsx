@@ -102,7 +102,12 @@ const About = () => {
             {/* Leader 1 - Side by side layout */}
             <div className="leader-card-side">
               <div className="leader-image-side">
-                <img src={leader1} alt="Mr. Kishan Snehi" />
+                <div className="user-icon-placeholder">
+                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="4" fill="#1c3d91" />
+                    <path d="M12 14C8 14 4 16 4 20H20C20 16 16 14 12 14Z" fill="#1c3d91" />
+                  </svg>
+                </div>
               </div>
               <div className="leader-content-side">
                 <h3>Mr. Kishan Snehi</h3>
@@ -120,7 +125,7 @@ const About = () => {
             </div>
 
             {/* Leader 2 - Side by side layout (reversed on desktop) */}
-            <div className="leader-card-side reversed">
+            {/* <div className="leader-card-side reversed">
               <div className="leader-image-side">
                 <img src={leader2} alt="Jane Smith" />
               </div>
@@ -137,7 +142,7 @@ const About = () => {
                   Know More
                 </button>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
