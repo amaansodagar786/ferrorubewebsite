@@ -319,6 +319,18 @@ $max-width: 1600px;
 
 }
 
+/* Media Queries for Large Screens (1700px - 2500px) */
+@media (min-width: 1600px) and (max-width: 2500px) {
+    .footer {
+        .footer__right {
+            .footer__logo img {
+                transform: scale(1.8);
+                margin-left: -100px;
+            }
+        }
+    }
+}
+
 /* Responsiveness */
 @media (max-width: 1100px) {
     .footer {
@@ -357,6 +369,9 @@ $max-width: 1600px;
         overflow-x: hidden;
         padding-bottom: 50px;
         /* Add padding for bottom credit */
+
+        /* REMOVED THE BACKGROUND IMAGE FROM CSS - We'll handle it in JSX */
+        position: relative;
     }
 
     .footer,
@@ -373,67 +388,33 @@ $max-width: 1600px;
         text-align: center;
         padding: 20px 16px;
         min-height: auto;
-        background: $blue;
+        background: transparent;
+        position: relative;
+        z-index: 2;
+        /* Ensure content stays above background */
     }
 
-    /* --- LOGO SECTION MOBILE - UNCHANGED --- */
+    /* --- HIDE LOGO SECTION IN MOBILE (since it's now background) --- */
     .footer__right {
-        order: 1;
-        width: 100%;
-        margin-left: 0 !important;
-        background: transparent !important;
-        padding: 8px 0 18px !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .footer__right::before {
-        display: none;
-    }
-
-    .footer__logo {
-        width: 36%;
-        max-width: 160px;
-        margin: 0 auto;
-        display: block;
-
-        .mobile-logo {
-            display: block !important;
-        }
-
-        .desktop-logo {
-            display: none !important;
-        }
-    }
-
-    .footer__logo img {
-        display: block;
-        width: 90% !important;
-        height: auto;
-        object-fit: contain;
-        margin: 0 !important;
-        filter: brightness(1.1);
-        transform: none !important;
-        margin-left: 80px !important;
-        margin-top: -20px !important;
-        margin-bottom: -55px !important;
+        display: none !important;
+        /* Hide the logo section in mobile */
     }
 
     /* --- MIDDLE SECTION MOBILE - UPDATED FOR 2x2 GRID --- */
     .footer__middle {
-        order: 2;
+        order: 1;
+        /* Changed order to appear first */
         width: 100%;
         background: transparent;
         padding: 12px 16px !important;
-        /* Reduced padding */
         text-align: center;
         justify-content: center;
+        position: relative;
+        z-index: 2;
     }
 
     .footer__links-grid {
         gap: 8px !important;
-        /* Reduced gap */
         width: 100% !important;
         max-width: 100% !important;
         display: flex !important;
@@ -448,7 +429,6 @@ $max-width: 1600px;
         display: grid !important;
         grid-template-columns: 1fr 1fr;
         gap: 8px !important;
-        /* Reduced gap */
         width: 100%;
         max-width: 280px;
         margin: 0 auto;
@@ -466,22 +446,20 @@ $max-width: 1600px;
         width: 100%;
         text-align: center;
         font-weight: 400 !important;
-        /* Normal weight for mobile */
     }
 
     .footer__link-item a {
         font-size: 14px !important;
         padding: 10px 8px !important;
-        /* Reduced padding */
         white-space: nowrap;
         display: block;
         width: 100%;
         text-align: center !important;
         font-weight: 400 !important;
-        /* Normal weight for mobile */
-        // border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 6px;
         transition: all 0.3s ease;
+        // background: rgba(255, 255, 255, 0.05); 
+        /* Slight background for better readability */
     }
 
     .footer__link-item a:hover {
@@ -492,11 +470,14 @@ $max-width: 1600px;
 
     /* --- INFO SECTION MOBILE - UNCHANGED --- */
     .footer__left {
-        order: 3;
+        order: 2;
+        /* Changed order to appear second */
         width: 100%;
         background: transparent;
         padding: 18px 20px !important;
         text-align: center;
+        position: relative;
+        z-index: 2;
     }
 
     .footer__left .footer__name {
@@ -549,6 +530,9 @@ $max-width: 1600px;
         padding: 15px 0 0;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         font-size: 11px;
+        z-index: 2;
+        /* Ensure it stays above background */
+        background: transparent;
     }
 
     /* disable heavy hover transforms on mobile for stability */
@@ -560,14 +544,25 @@ $max-width: 1600px;
     }
 }
 
-/* Media Queries for Large Screens (1700px - 2500px) */
-@media (min-width: 1600px) and (max-width: 2500px) {
-    .footer {
-        .footer__right {
-            .footer__logo img {
-                transform: scale(1.8);
-                margin-left: -100px;
-            }
-        }
-    }
+
+
+// Add this at the end of your Footer.scss file
+.mobile-bg-logo-new {
+  display: none;
+  
+  @media (max-width: 720px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../assets/logo/mobilefooter.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 250px auto;
+    opacity: 0.15;
+    z-index: 2;
+    pointer-events: none;
+  }
 }

@@ -10,6 +10,14 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+
+      <div
+        className="footer__bg-logo-mobile"
+        style={{
+          display: 'none', // Hidden by default, shown only in mobile
+        }}
+      />
+
       <div className="footer__container">
         {/* LEFT: info - UNCHANGED */}
         <div className="footer__left">
@@ -138,6 +146,37 @@ const Footer = () => {
           TECHORSES
         </a>!
       </div>
+
+
+      <div className="mobile-bg-logo-new"></div>
+
+      <div
+        className="mobile-bg-logo"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url(${mobilelogo})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: '180px auto',
+          opacity: 0.15,
+          zIndex: 1,
+          pointerEvents: 'none',
+          display: 'none' // Hidden by default
+        }}
+      />
+
+      {/* Mobile-specific styles */}
+      <style jsx>{`
+        @media (max-width: 720px) {
+          .mobile-bg-logo {
+            display: block !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 };

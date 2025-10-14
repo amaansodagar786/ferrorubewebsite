@@ -20,7 +20,7 @@ import BottomLoadingArms from "./Pages/Products/BottomLoadArms/BottomLoadingArms
 import LPGLoadingArms from "./Pages/Products/LPGLoadArms/LPGLoadingArms";
 import SwivelJoints from "./Pages/Products/SwivelJoints/SwivelJoints";
 import Accessories from "./Pages/Products/Accessories/Accessories";
-import Dummy from "./Pages/Dummy/Dummy";
+// import Dummy from "./Pages/Dummy/Dummy"; 
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/kishansnehi" element={<LeaderIntro />} />
         <Route path="/about/leader2" element={<Leader2 />} />
-        <Route path="/dummy" element={<Dummy />} />
+        {/* <Route path="/dummy" element={<Dummy />} />  */}
 
 
         <Route path="/products/pipe-fitting" element={<PipeFitting />} />

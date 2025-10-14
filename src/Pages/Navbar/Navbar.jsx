@@ -9,10 +9,10 @@ const DEFAULT_MENU = [
   { title: "ABOUT US", link: "/about" },
   { title: "CAPABILITIES", link: "/capabilities" },
   { title: "OUR PRODUCTS", link: "/products", hasDropdown: true },
-  { title: "INQUIRY FORM", link: "/contact" },
+  { title: "INQUIRY FORM", link: "/contact" }, // stays as contact page
 ];
 
-// Sample product pages - replace with your actual 7 pages
+// Product pages
 const PRODUCT_PAGES = [
   { title: "Pipe Fittings", link: "/products/pipe-fitting" },
   { title: "Floating Roof Drains", link: "/products/floating-roof-drains" },
@@ -27,62 +27,47 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleItemClick = () => {
     setIsOpen(false);
-    if (isMobile) {
-      closeMenu();
-    }
+    if (isMobile) closeMenu();
   };
 
-  // Check if any product page is active
-  const isAnyProductActive = PRODUCT_PAGES.some(product => 
-    location.pathname === product.link
+  const isAnyProductActive = PRODUCT_PAGES.some(
+    (product) => location.pathname === product.link
   );
 
-  // Check if specific product is active
-  const isProductActive = (productLink) => {
-    return location.pathname === productLink;
-  };
+  const isProductActive = (productLink) =>
+    location.pathname === productLink;
 
-  // Split product names into two lines PROPERLY
   const formatProductName = (name) => {
-    const words = name.split(' ');
-    if (words.length === 2) {
+    const words = name.split(" ");
+    if (words.length === 2) return { line1: words[0], line2: words[1] };
+    if (words.length === 3)
+      return { line1: words[0] + " " + words[1], line2: words[2] };
+    if (words.length === 4)
       return {
-        line1: words[0],
-        line2: words[1]
+        line1: words[0] + " " + words[1],
+        line2: words[2] + " " + words[3],
       };
-    } else if (words.length === 3) {
-      return {
-        line1: words[0] + ' ' + words[1], // First two words in top line
-        line2: words[2] // Last word in bottom line
-      };
-    } else if (words.length === 4) {
-      return {
-        line1: words[0] + ' ' + words[1], // First two words in top line
-        line2: words[2] + ' ' + words[3] // Last two words in bottom line
-      };
-    }
-    return { line1: name, line2: '' };
+    return { line1: name, line2: "" };
   };
 
   if (isMobile) {
     return (
       <li className="products-dropdown">
         <div
-          className={`products-dropdown__trigger ${isOpen ? 'open' : ''} ${isAnyProductActive ? 'active' : ''}`}
+          className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${
+            isAnyProductActive ? "active" : ""
+          }`}
           onClick={toggleDropdown}
         >
           <span>OUR PRODUCTS</span>
           <FiChevronDown className="arrow" />
         </div>
 
-        {/* FIXED: Only show dropdown items when open */}
-        <div className={`products-dropdown__menu ${isOpen ? 'open' : ''}`}>
+        <div className={`products-dropdown__menu ${isOpen ? "open" : ""}`}>
           <div className="products-dropdown__grid">
             {PRODUCT_PAGES.map((product) => {
               const formattedName = formatProductName(product.title);
@@ -91,7 +76,9 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
                 <div key={product.link} className="products-dropdown__item">
                   <NavLink
                     to={product.link}
-                    className={`products-dropdown__link ${isActive ? 'active' : ''}`}
+                    className={`products-dropdown__link ${
+                      isActive ? "active" : ""
+                    }`}
                     onClick={handleItemClick}
                   >
                     <span className="line1">{formattedName.line1}</span>
@@ -108,19 +95,23 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     );
   }
 
-  // Desktop version
+  // Desktop
   return (
     <li
       className="products-dropdown"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className={`products-dropdown__trigger ${isOpen ? 'open' : ''} ${isAnyProductActive ? 'active' : ''}`}>
+      <div
+        className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${
+          isAnyProductActive ? "active" : ""
+        }`}
+      >
         <span>OUR PRODUCTS</span>
         <FiChevronDown className="arrow" />
       </div>
 
-      <div className={`products-dropdown__menu ${isOpen ? 'open' : ''}`}>
+      <div className={`products-dropdown__menu ${isOpen ? "open" : ""}`}>
         <div className="products-dropdown__grid">
           {PRODUCT_PAGES.map((product) => {
             const formattedName = formatProductName(product.title);
@@ -129,7 +120,9 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
               <div key={product.link} className="products-dropdown__item">
                 <NavLink
                   to={product.link}
-                  className={`products-dropdown__link ${isActive ? 'active' : ''}`}
+                  className={`products-dropdown__link ${
+                    isActive ? "active" : ""
+                  }`}
                   onClick={handleItemClick}
                 >
                   <span className="line1">{formattedName.line1}</span>
@@ -148,33 +141,28 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
 
 const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
-  useEffect(() => {
-    console.log("[Navbar] menuOpen =", menuOpen);
-  }, [menuOpen]);
-
-  const toggleMenu = () => {
-    console.log("[Navbar] toggleMenu ->", !menuOpen);
-    setMenuOpen((v) => !v);
-  };
-
-  const closeMenu = () => {
-    console.log("[Navbar] closeMenu");
-    setMenuOpen(false);
-  };
+  const toggleMenu = () => setMenuOpen((v) => !v);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="navbar">
       <div className="navbar__inner">
         <div className="navbar__left" onClick={closeMenu}>
-          {/* ADDED HOME LINK TO LOGO */}
           <NavLink to="/" className="navbar__logo-link">
-            <img src={logo} alt="Ferro Tube & Forge Industries" className="navbar__logo" />
+            <img
+              src={logo}
+              alt="Ferro Tube & Forge Industries"
+              className="navbar__logo"
+            />
           </NavLink>
         </div>
 
-        <div className={`navbar__right ${menuOpen ? "open" : ""}`} role="navigation" aria-label="Main navigation">
+        <div
+          className={`navbar__right ${menuOpen ? "open" : ""}`}
+          role="navigation"
+          aria-label="Main navigation"
+        >
           <ul className="navbar__links">
             {menuItems.map((item) => {
               if (item.hasDropdown) {
@@ -191,7 +179,9 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
                 <li key={item.title}>
                   <NavLink
                     to={item.link}
-                    className={({ isActive }) => (isActive ? "navlink active" : "navlink")}
+                    className={({ isActive }) =>
+                      isActive ? "navlink active" : "navlink"
+                    }
                     onClick={closeMenu}
                   >
                     {item.title}
@@ -201,13 +191,14 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
             })}
           </ul>
 
-          <NavLink 
-            to="/contact" 
-            className={({ isActive }) => `navbar__contact ${isActive ? 'active' : ''}`}
+          {/* UPDATED CONTACT BUTTON - direct call */}
+          <a
+            href="tel:+919879611705"
+            className="navbar__contact"
             onClick={closeMenu}
           >
             CONTACT
-          </NavLink>
+          </a>
         </div>
 
         <button
@@ -220,7 +211,13 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
         </button>
       </div>
 
-      {menuOpen && <div className="navbar__backdrop" onClick={closeMenu} aria-hidden="true" />}
+      {menuOpen && (
+        <div
+          className="navbar__backdrop"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
     </header>
   );
 };

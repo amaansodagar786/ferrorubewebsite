@@ -1,4 +1,4 @@
-import {React , useEffect} from "react";
+import { React, useEffect } from "react";
 import "./TopLoadingArms.scss";
 
 
@@ -40,9 +40,9 @@ const bigB =
 const TopLoadingArms = () => {
 
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
 
   return (
@@ -72,8 +72,9 @@ const TopLoadingArms = () => {
       {/* MAIN SECTION */}
       <section className="short-reach-section">
         <div className="container">
-          <h2 className="section-title">Short reach loader / scissor arm</h2>
-
+          <h2 className="section-title">
+            Short reach loader /<br className="mobile-break" /> Scissor arm
+          </h2>
           {/* ROW 1: left = 2 list items, right = image */}
           <div className="row">
             <div className="text-block">
