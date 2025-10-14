@@ -324,7 +324,7 @@ $max-width: 1600px;
     .footer {
         .footer__right {
             .footer__logo img {
-                transform: scale(1.8);
+                transform: scale(1.7);
                 margin-left: -100px;
             }
         }
@@ -564,5 +564,28 @@ $max-width: 1600px;
     opacity: 0.15;
     z-index: 2;
     pointer-events: none;
+  }
+}
+
+
+
+// Add this to your existing Footer.scss - just add these lines to extend blue background
+
+/* FIX FOR LARGER SCREENS - LEFT SIDE BLUE BACKGROUND */
+@media (min-width: 1601px) {
+  .footer__left {
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -90vw; /* Extend far beyond viewport */
+      bottom: 0;
+      width: 100vw;
+      background: #264697;
+      z-index: -1;
+      pointer-events: none;
+    }
   }
 }

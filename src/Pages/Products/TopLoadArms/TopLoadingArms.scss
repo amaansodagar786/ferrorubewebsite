@@ -1268,3 +1268,119 @@ $light-gray: #e9ecf4;
         }
     }
 }
+
+
+
+/* SUPPORTED LONG REACH LOADER - REDUCE WIDTH FOR BIG SCREENS */
+@media (min-width: 1600px) {
+    .supported-long-reach {
+        .slr-container {
+            max-width: 1400px;
+            /* Reduced from default */
+            margin: 0 auto;
+        }
+
+        .slr-row {
+            grid-template-columns: 1fr 400px;
+            /* Reduced image column width */
+            gap: 30px;
+        }
+
+        .slr-row-bottom {
+            grid-template-columns: 480px 1fr;
+            /* Reduced image column width */
+            gap: 30px;
+        }
+    }
+}
+
+/* UNSUPPORTED LONG REACH LOADER - REDUCE WIDTH FOR BIG SCREENS */
+@media (min-width: 1600px) {
+    .unsupported-loader {
+        .unsupported-loader-content {
+            max-width: 1400px;
+            /* Reduced from default */
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .loader-image img {
+            width: 50%;
+            /* Slightly reduce image size */
+            max-width: 400px;
+        }
+    }
+}
+
+/* LOADING ARM SPECIAL - MANUAL SHAPE STYLES FOR BIG SCREENS */
+@media (min-width: 1600px) {
+    .loading-arm-special {
+        
+
+        padding-bottom: 5rem;
+
+        .loading-arm-text {
+
+            max-width: 1200px;
+        }
+        .loading-arm-images {
+            .shape1 {
+                top: 45% !important;
+                left: 23% !important;
+                width: 200px !important;
+                height: 200px !important;
+                border-radius: 30px !important;
+                // transform: rotate(15deg) !important;
+            }
+
+            .shape2 {
+                bottom: -20% !important;
+                right: 22% !important;
+                width: 200px !important;
+                height: 200px !important;
+                border-radius: 40px !important;
+                // transform: rotate(-10deg) !important;
+            }
+
+            .shape3 {
+                top: -25% !important;
+                right: 40% !important;
+                width: 180px !important;
+                height: 170px !important;
+                border-radius: 25px !important;
+                // transform: rotate(5deg) !important;
+            }
+        }
+    }
+
+
+    .unsupported-loader {
+        // padding-bottom: 2rem !important; 
+        // margin-bottom: 3rem !important;
+
+        .unsupported-loader-content {
+            max-width: 1600px;
+            padding-bottom: 3rem;
+            
+        }
+    }
+}
+
+/* EXTRA LARGE SCREENS - FURTHER OPTIMIZATION */
+@media (min-width: 2000px) {
+    .supported-long-reach {
+        .slr-container {
+            max-width: 1600px;
+        }
+    }
+
+    .unsupported-loader {
+        padding-bottom: 2rem !important;
+
+        .unsupported-loader-content {
+            max-width: 1600px;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+}

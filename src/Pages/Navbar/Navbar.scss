@@ -66,6 +66,21 @@ $max-width: 1600px;
     z-index: 3;
     overflow: visible;
 
+
+     @media (min-width: 1601px) {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -100vw; // Extend far beyond viewport
+        bottom: 0;
+        width: 101vw;
+        background: $blue;
+        z-index: -1;
+        pointer-events: none;
+      }
+    }
+
     // Extended diagonal wedge to cover the increased left area
     &::before {
       content: "";
