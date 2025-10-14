@@ -89,7 +89,7 @@ const Footer = () => {
             {/* Row 3: Product Links 1 - Equal width */}
             <div className="footer__link-row">
               <div className="footer__link-item">
-                <a href="/products/pipe-fitting">Pipe Fittings</a>
+                <a href="/products/pipe-fitting">Bottom Loading Arms</a>
               </div>
               <div className="footer__link-item">
                 <a href="/products/floating-roof-drains">Floating Roof Drains</a>
@@ -102,7 +102,7 @@ const Footer = () => {
             {/* Row 4: Product Links 2 - Equal width */}
             <div className="footer__link-row">
               <div className="footer__link-item">
-                <a href="/products/bottom-loading-arms">Bottom Loading Arms</a>
+                <a href="/products/bottom-loading-arms">Pipe Fittings</a>
               </div>
               <div className="footer__link-item">
                 <a href="/products/lpg-loading-arms">Lpg Loading Arms</a>
