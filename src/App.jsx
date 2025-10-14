@@ -40,7 +40,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about/kishansnehi" element={<LeaderIntro />} />
-        <Route path="/about/leader2" element={<Leader2 />} />
+        <Route path="/about/girdhar" element={<Leader2 />} />
         {/* <Route path="/dummy" element={<Dummy />} />  */}
 
 

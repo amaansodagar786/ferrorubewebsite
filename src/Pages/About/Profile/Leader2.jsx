@@ -1,26 +1,27 @@
 import { React, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaEnvelope, FaAward } from 'react-icons/fa';
 import './Leader2.scss';
+import girdhar from "../../../assets/home/about/girdhar.png"
 
 const Leader2 = () => {
-
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    // Dummy data
+
+    // Updated data for Mr. Girdhar Patel
     const leader = {
-        name: 'Dummy User',
-        position: 'Founder & CEO',
-        designation: 'Tech Entrepreneur, Visionary Leader',
-        education: 'B.Tech in Computer Engineering, MIT University',
-        introduction: `Person is a visionary leader with over 15 years in the tech industry.  
-      He combines strategic thinking with hands-on execution to build scalable solutions.  
-      Passionate about innovation and human-centric design, he leads teams with empathy and purpose.  
-      In his free time, he mentors startups and writes on emerging technologies.`,
-        imageUrl: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        email: 'dummy@example.com',
+        name: 'Mr. Girdhar Patel',
+        position: 'Partner',
+        designation: 'Electrical Industry Expert, Senior Mechanical Engineer',
+        education: 'Extensive technical education in Electrical and Mechanical Engineering',
+        introduction: `Mr. Girdhar Patel is a Partner at Ferro Tube and Forge Industries. He brings with him over 50+ years of extensive experience in the Electrical industry, with in-depth expertise across core industry segments and key business functions. He has vast experience in handling different types of mechanical engineering problems & projects. He is also a partner at Multimetal Industries. His vast knowledge in the development of forged components, in the design of high-pressure hydraulic fittings, valves & other equipment. His vast experience of 45+ years of practical production and inspection is very crucial for company's growth and future.`,
+        imageUrl: girdhar,
+        email: 'girdhar.patel@ferrotube.com',
+        experience: '50+ years in Electrical Industry',
+        expertise: 'Development of forged components, design of high-pressure hydraulic fittings, valves & equipment',
+        currentRole: 'Partner at Ferro Tube and Forge Industries & Multimetal Industries',
+        specialization: 'Mechanical engineering problems & projects, production and inspection'
     };
 
     // Animation variants
@@ -30,7 +31,7 @@ const Leader2 = () => {
     };
 
     return (
-        <div className="leader-intro-page">
+        <div className="leader2-intro-page">
             {/* Hero / Header section */}
             <motion.section
                 className="intro-hero"
@@ -42,7 +43,9 @@ const Leader2 = () => {
             >
                 <div className="hero-content">
                     <div className="hero-img-wrapper">
-                        <img src={leader.imageUrl} alt={leader.name} />
+                        <div className="leader-image">
+                            <img src={leader.imageUrl} alt={leader.name} />
+                        </div>
                     </div>
                     <div className="hero-text">
                         <h1>{leader.name}</h1>
@@ -75,12 +78,24 @@ const Leader2 = () => {
                 >
                     <ul>
                         <li>
-                            <FaGraduationCap className="icon" />
+                            <FaGraduationCap className="icon education-icon" />
                             <strong>Education:</strong> {leader.education}
                         </li>
                         <li>
+                            <FaAward className="icon" />
+                            <strong>Experience:</strong> {leader.experience}
+                        </li>
+                        <li>
                             <FaBriefcase className="icon" />
-                            <strong>Career:</strong> {leader.position}
+                            <strong>Current Role:</strong> {leader.currentRole}
+                        </li>
+                        <li>
+                            <FaBriefcase className="icon" />
+                            <strong>Key Expertise:</strong> {leader.expertise}
+                        </li>
+                        <li>
+                            <FaBriefcase className="icon" />
+                            <strong>Specialization:</strong> {leader.specialization}
                         </li>
                         <li>
                             <FaEnvelope className="icon" />
@@ -99,7 +114,7 @@ const Leader2 = () => {
                 transition={{ duration: 1 }}
             >
                 <blockquote>
-                    “I believe success is not just about technology, but about building lasting impact through people and trust.”
+                    "With over five decades of experience, I believe in the power of practical knowledge, precision engineering, and continuous innovation to drive sustainable growth in the manufacturing industry."
                 </blockquote>
             </motion.section>
 

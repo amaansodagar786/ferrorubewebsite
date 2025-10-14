@@ -261,48 +261,19 @@
             .leader-image-side {
                 flex: 0 0 300px;
 
-                .user-icon-placeholder {
-                    width: 100%;
+                .leader-img {
+                    width: fit-content;
                     height: 300px;
-                    background: linear-gradient(135deg, #f0f2ff, #ffffff);
+                    object-fit: contain;
                     border-radius: 15px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 8px 25px rgba(28, 61, 145, 0.2);
                     border: 3px solid #e0e5ff;
                     outline: 2px solid #1c3d91;
+                    box-shadow: 0 8px 25px rgba(28, 61, 145, 0.2);
                     transition: all 0.4s ease;
-                    position: relative;
-                    overflow: hidden;
 
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        top: -50%;
-                        left: -50%;
-                        width: 200%;
-                        height: 200%;
-                        background: linear-gradient(45deg,
-                                transparent,
-                                rgba(28, 61, 145, 0.05),
-                                transparent);
-                        transform: rotate(45deg);
-                        transition: all 0.6s ease;
-                    }
-
-                    &:hover::before {
-                        transform: rotate(45deg) translate(50%, 50%);
-                    }
-
-                    svg {
-                        fill: #1c3d91;
-                        filter: drop-shadow(0 2px 8px rgba(28, 61, 145, 0.3));
-                        transition: all 0.3s ease;
-                        position: relative;
-                        z-index: 2;
-                        width: 120px;
-                        height: 120px;
+                    &:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 12px 30px rgba(28, 61, 145, 0.3);
                     }
                 }
             }
@@ -483,20 +454,57 @@
 
             .leaders-wrapper {
                 gap: 2rem;
+                flex-direction: column;
             }
 
             .leader-card-side {
+                flex-direction: column; // stacked layout on mobile
+                text-align: center;
+                gap: 1.5rem;
                 padding: 1.5rem;
 
-                .leader-image-side {
-                    .user-icon-placeholder {
-                        width: 150px;
-                        height: 150px;
+                &.reversed {
+                    flex-direction: column; // keep stacked even if reversed
+                }
 
-                        svg {
-                            width: 70px;
-                            height: 70px;
+                .leader-image-side {
+                    flex: 0 0 auto;
+
+                    .leader-img {
+                        width: 170px;
+                        height: 200px;
+                        border-radius: 50%; // circular on mobile
+                        object-fit: contain;
+                        border: 3px solid #e0e5ff;
+                        outline: 2px solid #1c3d91;
+                        box-shadow: 0 8px 20px rgba(28, 61, 145, 0.2);
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            transform: scale(1.05);
+                            box-shadow: 0 12px 25px rgba(28, 61, 145, 0.25);
                         }
+                    }
+                }
+
+                .leader-content-side {
+                    text-align: center;
+
+                    h3 {
+                        font-size: 1.4rem;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                    }
+
+                    .leader-description {
+                        display: none; // hide long description on mobile
+                    }
+
+                    .know-more {
+                        font-size: 0.85rem;
+                        padding: 0.6rem 1.4rem;
                     }
                 }
             }

@@ -1,6 +1,8 @@
 import {React , useEffect} from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import kishan from "../../../assets/home/about/kishan.png" 
+// import kishan from "../../../assets/home/about/girdhar.png"
 import './LeaderIntro.scss';
 
 const LeaderIntro = () => {
@@ -16,8 +18,8 @@ const LeaderIntro = () => {
         designation: 'Mechanical Industry Expert, Strategic Leader',
         education: 'Bachelor\'s in Electrical Engineering from L.D.R.P Gandhinagar & Masters in CNC Technology',
         introduction: `Mr. Kishan Snehi brings with him over 8 years of extensive experience in the mechanical industry, with in-depth expertise across core industry segments and key business functions. His strategic leadership has been pivotal in enhancing operational efficiency and driving sustained growth at Ferro Tube & Forge Industries. Previously, he was associated with Multi Metal Industry as a CEO. He is highly experienced in designing & manufacturing of various types of loading & unloading arms and several other products. He has successfully overseen multiple functions, including sales, operations, and finance. His visionary leadership inspires the team to grow and transform the company's future.`,
-        imageUrl: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // You might want to replace with actual photo
-        email: 'kishansnehi@gmail.com', // Updated email format
+        imageUrl: kishan, // Using the imported image
+        email: 'md@ferrotubeindia.com', // Updated email format
         appointmentDate: 'April 1, 2025',
         previousRole: 'CEO at Multi Metal Industry',
         expertise: 'Designing & manufacturing of loading & unloading arms and various mechanical products',
@@ -43,11 +45,8 @@ const LeaderIntro = () => {
             >
                 <div className="hero-content">
                     <div className="hero-img-wrapper">
-                        <div className="user-icon-placeholder">
-                            <svg width="140" height="140" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="8" r="4" fill="#1c3d91" />
-                                <path d="M12 14C8 14 4 16 4 20H20C20 16 16 14 12 14Z" fill="#1c3d91" />
-                            </svg>
+                        <div className="leader-image">
+                            <img src={leader.imageUrl} alt={leader.name} />
                         </div>
                     </div>
                     <div className="hero-text">

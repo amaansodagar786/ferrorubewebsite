@@ -10,6 +10,10 @@ import video1 from "../../assets/home/about/aboutvideo1.mp4"
 import video2 from "../../assets/home/about/aboutvideo2.mp4"
 import img1 from "../../assets/home/about/aboutimage.png"
 
+import kishan from "../../assets/home/about/kishan.png"
+import girdhar from "../../assets/home/about/girdhar.png"
+
+
 const media1 = "https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media2 = "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
 const media3 = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80";
@@ -102,12 +106,7 @@ const About = () => {
             {/* Leader 1 - Side by side layout */}
             <div className="leader-card-side">
               <div className="leader-image-side">
-                <div className="user-icon-placeholder">
-                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="4" fill="#1c3d91" />
-                    <path d="M12 14C8 14 4 16 4 20H20C20 16 16 14 12 14Z" fill="#1c3d91" />
-                  </svg>
-                </div>
+                <img src={kishan} alt="Kishan Snehi" className="leader-img" />
               </div>
               <div className="leader-content-side">
                 <h3>Mr. Kishan Snehi</h3>
@@ -125,24 +124,26 @@ const About = () => {
             </div>
 
             {/* Leader 2 - Side by side layout (reversed on desktop) */}
-            {/* <div className="leader-card-side reversed">
+            <div className="leader-card-side reversed">
               <div className="leader-image-side">
-                <img src={leader2} alt="Jane Smith" />
+                <img src={girdhar} alt="Girdhar Patel" className="leader-img" />
               </div>
               <div className="leader-content-side">
-                <h3>Jane Smith</h3>
-                <p>Chief Operating Officer</p>
+                <h3>Mr. Girdhar Patel</h3>
+                <p>Partner</p>
                 <p className="leader-description">
-                  Jane Smith brings extensive operational expertise to our organization, ensuring seamless manufacturing processes and maintaining our high standards.
+                  Partner at Ferro Tube and Forge Industries with 50+ years of experience in Electrical and Mechanical industries, contributing to company growth and operations.
                 </p>
                 <button
                   className="know-more"
-                  onClick={() => handleRedirect("/about/leader2")}
+                  onClick={() => handleRedirect("/about/girdhar")}
                 >
                   Know More
                 </button>
               </div>
-            </div> */}
+            </div>
+
+
 
           </div>
         </div>

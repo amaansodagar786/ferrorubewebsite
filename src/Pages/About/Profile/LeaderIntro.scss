@@ -19,12 +19,16 @@
             gap: 2rem;
 
             .hero-img-wrapper {
-                flex: 1 1 300px;
+               flex: 1 1 300px;
                 max-width: 400px;
+                display: flex; // ✅ make wrapper a flex container
+                justify-content: center; // ✅ center the image horizontally
+                align-items: center;
+                
 
-                .user-icon-placeholder {
-                    width: 100%;
-                    height: 400px;
+                .leader-image {
+                    width: fit-content;
+                    height: 350px;
                     background: linear-gradient(135deg, #f0f2ff, #ffffff);
                     border-radius: 20px;
                     display: flex;
@@ -36,7 +40,7 @@
                     transition: all 0.4s ease;
                     position: relative;
                     overflow: hidden;
-                    
+
                     &::before {
                         content: "";
                         position: absolute;
@@ -44,34 +48,27 @@
                         left: -50%;
                         width: 200%;
                         height: 200%;
-                        background: linear-gradient(
-                            45deg,
-                            transparent,
-                            rgba(28, 61, 145, 0.05),
-                            transparent
-                        );
+                        background: linear-gradient(45deg,
+                                transparent,
+                                rgba(28, 61, 145, 0.05),
+                                transparent);
                         transform: rotate(45deg);
                         transition: all 0.6s ease;
                     }
-                    
+
                     &:hover::before {
                         transform: rotate(45deg) translate(50%, 50%);
                     }
-                    
-                    svg {
-                        fill: #1c3d91;
-                        filter: drop-shadow(0 2px 8px rgba(28, 61, 145, 0.3));
-                        transition: all 0.3s ease;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 17px;
                         position: relative;
                         z-index: 2;
-                        width: 140px;
-                        height: 140px;
+                        transition: all 0.3s ease;
                     }
-                }
-
-                // Remove the original image
-                img {
-                    display: none;
                 }
             }
 
@@ -289,15 +286,17 @@
                 margin-left: auto;
                 margin-right: auto;
                 flex: 1 1 100% !important;
-                
-                .user-icon-placeholder {
-                     height: 320px;
-                border-radius: 50%; /* Make it circular */
-                width: 320px;
-                    
-                    svg {
-                        width: 100px;
-                        height: 100px;
+
+                .leader-image {
+                    height: 320px;
+                    border-radius: 50%;
+                    /* Make it circular */
+                    width: fit-content;
+
+                    img {
+                        border-radius: 50%;
+                        /* Make image circular to match container */
+                        
                     }
                 }
             }
@@ -374,16 +373,19 @@
                 }
 
                 .hero-img-wrapper {
-                    max-width: 280px;
-                    
-                    .user-icon-placeholder {
-                         height: 180px;
-                    border-radius: 50%; /* Make it circular */
-                    width: 240px;
+                    // max-width: 280px; 
+
+                    .leader-image {
+                        height: 250px;
+                        border-radius: 50%;
+                        /* Make it circular */
+                        width: 240px;
                         
-                        svg {
-                            width: 100px !important;
-                            height: 100px !important;
+
+                        img {
+                            border-radius: 50%;
+                            object-fit: contain;
+                            /* Make image circular to match container */
                         }
                     }
                 }
@@ -484,18 +486,14 @@
                     }
                 }
 
-                .hero-img-wrapper {
-                    max-width: 250px;
-                    
-                    .user-icon-placeholder {
-                        height: 250px;
-                        
-                        svg {
-                            width: 70px;
-                            height: 70px;
-                        }
-                    }
-                }
+                // .hero-img-wrapper {
+                //     // max-width: 250px; 
+
+                //     .leader-image {
+                //         height: 250px;  
+                //         // width: 250px; 
+                //     }
+                // }
             }
         }
 
