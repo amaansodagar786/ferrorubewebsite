@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Capabilities.scss";
 
 import heroimage from "../../assets/home/slider/Capabilitieshero.png"
-import mobilehero from "../../assets/mobileslider/mobilecapabilities.png" 
+import mobilehero from "../../assets/mobileslider/mobilecapabilities.png"
 
 import img2 from "../../assets/home/capability/manufacturing.png"
 import img1 from "../../assets/home/capability/qualityAssurance.png"
@@ -14,25 +14,25 @@ import img1 from "../../assets/home/capability/qualityAssurance.png"
 const Capabilities = () => {
 
 
-   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   return (
     <div className="capabilities">
       {/* HERO */}
       <section className="capabilities-hero">
-  {/* Desktop hero image */}
-  <img src={heroimage} alt="Capabilities hero" className="hero-img desktop" />
+        {/* Desktop hero image */}
+        <img src={heroimage} alt="Capabilities hero" className="hero-img desktop" />
 
-  {/* Mobile hero image */}
-  <img src={mobilehero} alt="Capabilities hero" className="hero-img mobile" />
+        {/* Mobile hero image */}
+        <img src={mobilehero} alt="Capabilities hero" className="hero-img mobile" />
 
-  <div className="hero-center">
-    <h1>Capabilities</h1>
-  </div>
-</section>
+        <div className="hero-center">
+          <h1>Capabilities</h1>
+        </div>
+      </section>
 
       {/* SECTION 1: LEFT TEXT - RIGHT IMAGE */}
       <section className="capabilities-row">
@@ -76,18 +76,13 @@ const Capabilities = () => {
         <div className="text-col">
           <h2>Manufacturing</h2>
           <p>
-            Ferro Tube has two separate manufacturing plants in the same
-            industrial area at Vadodara, Gujarat (India) for their various
-            products. Both the plants are fully equipped with latest
-            manufacturing and testing facilities.
+            Ferro Tube has a manufacturing plant in the industrial area at Vadodara, Gujarat (India) for their various products. The plant is fully equipped with the latest manufacturing and testing facilities.
           </p>
           <p>
-            Latest CNC machines are extensively used for accurate machining.
-            Swivel Joints, API Couplers, API Adapters and other critical
-            components for loading arms are CNC machined to highly close
-            tolerances.
+            Latest CNC machines are extensively used for accurate machining. Swivel Joints, API Couplers, API Adapters, and other critical components for loading arms are CNC machined to highly precise tolerances.
           </p>
         </div>
+
       </section>
     </div>
   );

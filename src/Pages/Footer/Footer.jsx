@@ -22,37 +22,38 @@ const Footer = () => {
         {/* LEFT: info - UNCHANGED */}
         <div className="footer__left">
           <div className="footer__person">
-            <h3 className="footer__name">Mr. G. K. Majumder</h3>
-            <div className="footer__role">Chief Executive</div>
+            <h3 className="footer__name">Mr. Kishan Snehi</h3>
+            <div className="footer__role">Managing Director</div>
           </div>
 
           <ul className="footer__contacts">
             <li>
               <FiPhone className="footer__icon" />
-              <a href="tel:+919879611705">+91 98796 11705</a>
+              <a href="tel:+919898485638">+91 9898485638</a>
             </li>
 
             <li>
               <FiMail className="footer__icon" />
-              <a href="mailto:ferrotube@yahoo.in">ferrotube@yahoo.in</a>
+              <a href="mailto:md@ferrotubeindia.com">md@ferrotubeindia.com</a>
             </li>
 
             <li>
               <FiMail className="footer__icon" />
-              <a href="mailto:ferrotubeindia@yahoo.in">ferrotubeindia@yahoo.in</a>
+              <a href="mailto:ferrotubeind@gmail.com">ferrotubeind@gmail.com</a>
             </li>
 
             <li className="address-item">
               <FiMapPin className="footer__icon" />
               <a
-                href="https://www.google.com/maps/place/C1%2F219,+GIDC+Estate,+Vaghdodia,+Vadodara+-+391760+Gujarat+(India)"
+                href="https://www.google.com/maps/search/?api=1&query=547+GIDC+Waghodia+Vadodara+Gujarat+391760+India"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                C1/219, GIDC Estate, Vaghdodia,<br />
-                Vadodara - 391760 Gujarat (India)
+                FERRO TUBE & FORGE INDUSTRIES<br />
+                547, GIDC Waghodia, Vadodara, Gujarat 391760
               </a>
             </li>
+
           </ul>
         </div>
 

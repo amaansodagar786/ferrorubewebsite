@@ -108,19 +108,19 @@ const Contact = () => {
             </p>
 
             <ul className="info-list">
-              <li onClick={() => window.open("tel:+919879611705", "_self")}>
+              <li onClick={() => window.open("tel:+919898485638", "_self")}>
                 <span className="icon"><FiPhone /></span>
                 <div className="text-content">
                   <strong>Phone</strong>
-                  <div className="muted">+91 98796 11705</div>
+                  <div className="muted">+91 9898485638</div>
                 </div>
               </li>
-              <li onClick={() => window.open("mailto:ferrotube@yahoo.in,ferrotubeindia@yahoo.in", "_self")}>
+              <li onClick={() => window.open("mailto:md@ferrotubeindia.com,ferrotubeind@gmail.com", "_self")}>
                 <span className="icon"><HiOutlineMail /></span>
                 <div className="text-content">
                   <strong>Email</strong>
-                  <div className="muted">ferrotube@yahoo.in</div>
-                  <div className="muted">ferrotubeindia@yahoo.in</div>
+                  <div className="muted">md@ferrotubeindia.com</div>
+                  <div className="muted">ferrotubeind@gmail.com</div>
                 </div>
               </li>
               <li onClick={() => window.open("https://ferrotubeindia.com", "_blank")}>
@@ -130,17 +130,18 @@ const Contact = () => {
                   <div className="muted">ferrotubeindia.com</div>
                 </div>
               </li>
-              <li onClick={() => window.open("https://maps.google.com/?q=C1/219,GIDC+Estate,Vaghodia,Vadodara,391760,Gujarat,India", "_blank")}>
+              <li onClick={() => window.open("https://www.google.com/maps/search/?api=1&query=547+GIDC+Waghodia+Vadodara+391760+Gujarat+India", "_blank")}>
                 <span className="icon"><GoLocation /></span>
                 <div className="text-content">
                   <strong>Location</strong>
                   <div className="muted">
-                    C1/219, GIDC Estate, Vaghodia, Vadodara - 391760
+                    547, GIDC Waghodia, Vadodara - 391760
                     <br />
                     Gujarat (India)
                   </div>
                 </div>
               </li>
+
             </ul>
 
             <div className="note">

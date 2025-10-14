@@ -30,7 +30,7 @@ $max-width: 1600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    height: 73px;
+    height: 80px;
     position: relative;
     padding: 0;
   }
@@ -40,16 +40,28 @@ $max-width: 1600px;
     background: #fff;
     display: flex;
     align-items: center;
-    padding: 0px 36px;
+    padding: 0px 45px;
     z-index: 1;
     height: 100%;
     flex: 0 0 auto;
     // padding-right: 190px; 
 
+    @media (min-width: 1601px) {
+
+
+      padding: 0px 70px;
+    }
+
+
     .navbar__logo {
-      height: 56px;
+      height: 62px;
       object-fit: contain;
       display: block;
+
+
+      @media (min-width: 1601px) {
+        transform: scale(1.1); 
+      }
     }
   }
 
@@ -61,7 +73,7 @@ $max-width: 1600px;
     justify-content: center;
     background: $blue;
     height: 100%;
-    padding: 0 20px 0 80px;
+    padding: 0 20px 0 70px;
     position: relative;
     z-index: 3;
     overflow: visible;
@@ -115,7 +127,7 @@ $max-width: 1600px;
         font-size: 15px;
         text-decoration: none;
         letter-spacing: 0.3px;
-        padding: 6px 0;
+        padding: 8px 0;
         display: inline-block;
         transition: opacity 0.18s ease, transform 0.18s ease;
 

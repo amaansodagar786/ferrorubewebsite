@@ -193,7 +193,7 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
 
           {/* UPDATED CONTACT BUTTON - direct call */}
           <a
-  href="https://wa.me/919879611705"
+  href="https://wa.me/919898485638"
   className="navbar__contact"
   onClick={closeMenu}
   target="_blank"
