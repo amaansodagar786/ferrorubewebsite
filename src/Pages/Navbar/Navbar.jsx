@@ -193,12 +193,14 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
 
           {/* UPDATED CONTACT BUTTON - direct call */}
           <a
-            href="tel:+919879611705"
-            className="navbar__contact"
-            onClick={closeMenu}
-          >
-            CONTACT
-          </a>
+  href="https://wa.me/919879611705"
+  className="navbar__contact"
+  onClick={closeMenu}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  CONTACT
+</a>
         </div>
 
         <button
