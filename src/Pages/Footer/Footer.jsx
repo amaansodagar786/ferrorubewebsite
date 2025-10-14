@@ -2,7 +2,8 @@
 import React from "react";
 import "./Footer.scss";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import logo from "../../assets/logo/ferrologo.jpg"
+// import logo from "../../assets/logo/ferrologo.jpg" 
+import logo from "../../assets/logo/newlogo.png"
 import mobilelogo from "../../assets/logo/mobilefooter.png"
 
 const Footer = () => {
@@ -74,13 +75,15 @@ const Footer = () => {
               <div className="footer__link-item">
                 <a href="/contact">INQUIRY FORM</a>
               </div>
+              <div className="footer__link-item">
+                <a href="/contact">OUR PRODUCTS</a>
+              </div>
             </div>
 
             {/* Row 2: Our Products Heading */}
             <div className="footer__link-row">
-              <div className="footer__link-item products-heading single-item">
-                <a href="/products">OUR PRODUCTS</a>
-              </div>
+               <div className="footer__divider"></div>
+              
             </div>
 
             {/* Row 3: Product Links 1 - Equal width */}
@@ -111,7 +114,7 @@ const Footer = () => {
 
             {/* Row 5: Accessories */}
             <div className="footer__link-row">
-              <div className="footer__link-item single-item">
+              <div className="footer__link-item ">
                 <a href="/products/accessories">Accessories</a>
               </div>
             </div>
@@ -127,7 +130,7 @@ const Footer = () => {
               className="desktop-logo"
             />
             <img
-              src={mobilelogo}
+              src={logo}
               alt="company logo"
               className="mobile-logo"
             />

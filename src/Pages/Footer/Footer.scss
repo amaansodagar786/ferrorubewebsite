@@ -3,10 +3,12 @@ $blue: #264697;
 $white: #ffffff;
 $max-width: 1600px;
 
+
 .footer {
     width: 100%;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     position: relative;
+    overflow-x: hidden;
     //  border: 2px solid red !important; 
     //  overflow: hidden;
 
@@ -156,7 +158,7 @@ $max-width: 1600px;
                 display: block;
                 width: 100%;
                 box-sizing: border-box;
-                text-align: left;
+                text-align: center;
 
                 &:hover {
                     color: #ffd700;
@@ -168,64 +170,63 @@ $max-width: 1600px;
                 transform: translateX(5px);
             }
 
-            &.products-heading {
-                flex: 0 0 auto;
-                margin-left: -10px;
-
-                a {
-                    font-size: 14px;
-                    font-weight: 900;
-                    padding: 8px 20px;
-                    white-space: nowrap;
-                    text-align: left;
-                }
-            }
-
             &.single-item {
                 flex: 0 0 auto;
                 text-align: left;
             }
         }
 
-        /* PAGES LINKS - KEEP BOLD */
+        /* PAGES LINKS - FIT CONTENT WIDTH */
         .footer__link-row:nth-child(1) .footer__link-item {
-            flex: 1;
+            flex: 0 0 auto !important;
+            /* CHANGED: fit-content */
             text-align: left;
             font-weight: 800;
-            /* Keep pages links bold */
 
             a {
                 font-weight: 800;
-                /* Keep pages links bold */
             }
         }
 
-        /* PRODUCTS HEADING - KEEP BOLD */
-        .footer__link-row:nth-child(2) .footer__link-item {
-            flex: 1;
-            text-align: left;
-            justify-content: flex-start;
-            font-weight: 800;
-            /* Keep products heading bold */
+        /* CENTERED DIVIDER LINE - ADDED */
+        .footer__link-row:nth-child(2) {
+            justify-content: center !important;
 
-            a {
-                font-weight: 800;
-                /* Keep products heading bold */
+            .footer__divider {
+                width: 120px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #ffd700, transparent);
+                margin: 0 auto;
+                border-radius: 2px;
+                opacity: 0.7;
             }
         }
 
         /* PRODUCT LINKS - REMOVE BOLD */
         .footer__link-row:nth-child(3) .footer__link-item,
-        .footer__link-row:nth-child(4) .footer__link-item,
-        .footer__link-row:nth-child(5) .footer__link-item {
+        .footer__link-row:nth-child(4) .footer__link-item {
             flex: 1;
             text-align: left;
             font-weight: 400 !important;
-            /* Remove bold from product links */
 
             a {
                 font-weight: 400 !important;
-                /* Remove bold from product links */
+            }
+        }
+
+        /* ACCESSORIES - CENTERED IN GRID */
+        .footer__link-row:nth-child(5) {
+            justify-content: center !important;
+
+            .footer__link-item {
+                flex: 0 0 auto !important;
+                text-align: center !important;
+
+                a {
+                    text-align: center !important;
+                    font-weight: 400 !important;
+                    // margin-left: -92px;
+                }
             }
         }
     }
@@ -241,21 +242,24 @@ $max-width: 1600px;
         overflow: visible;
         padding: 18px;
         z-index: 2;
-        margin-left: 27%;
+        margin-left: 24%; 
 
         .footer__logo {
-            width: 78%;
+            width: 76%;
             transition: all 0.3s ease;
 
             img {
                 display: block;
-                width: 106%;
+                width: 100%;
+                /* CHANGED: from 106% to 100% */
                 height: auto;
                 object-fit: contain;
                 transition: all 0.3s ease;
                 filter: brightness(1.1);
-                transform: scale(2);
-                margin-left: -154px;
+                transform: scale(5.8); 
+                /* CHANGED: from 2 to 1.8 */
+                margin-left: -200px;
+                /* CHANGED: from -154px to -120px */
                 margin-top: 15px;
             }
 
@@ -279,9 +283,11 @@ $max-width: 1600px;
         &::before {
             content: "";
             position: absolute;
-            left: -980px;
+            left: -1100px;
+            /* CHANGED: from -1100px to -1000px */
             top: 0;
-            width: 730px;
+            width: 800px;
+            /* CHANGED: from 770px to 700px */
             height: 100%;
             background: #264697;
             transform: skewX(-22deg);
@@ -326,8 +332,8 @@ $max-width: 1600px;
     .footer {
         .footer__right {
             .footer__logo img {
-                transform: scale(1.7);
-                margin-left: -100px;
+                transform: scale(2.7);
+                // margin-left: -100px;  
             }
         }
     }
@@ -550,23 +556,23 @@ $max-width: 1600px;
 
 // Add this at the end of your Footer.scss file
 .mobile-bg-logo-new {
-  display: none;
-  
-  @media (max-width: 720px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../../assets/logo/mobilefooter.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 250px auto;
-    opacity: 0.15;
-    z-index: 2;
-    pointer-events: none;
-  }
+    display: none;
+
+    @media (max-width: 720px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('../../assets/logo/mobilefooter.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 250px auto;
+        opacity: 0.15;
+        z-index: 2;
+        pointer-events: none;
+    }
 }
 
 
@@ -575,46 +581,49 @@ $max-width: 1600px;
 
 /* FIX FOR LARGER SCREENS - LEFT SIDE BLUE BACKGROUND */
 @media (min-width: 1601px) {
-  .footer__left {
-    position: relative;
-    
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -90vw; /* Extend far beyond viewport */
-      bottom: 0;
-      width: 100vw;
-      background: #264697;
-      z-index: -1;
-      pointer-events: none;
+    .footer__left {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -90vw;
+            /* Extend far beyond viewport */
+            bottom: 0;
+            width: 100vw;
+            background: #264697;
+            z-index: -1;
+            pointer-events: none;
+        }
     }
-  }
 }
 
 
 /* REDUCE VERTICAL GAP BETWEEN PRODUCT LIST ITEMS IN DESKTOP */
 @media (min-width: 721px) {
-  .footer__middle {
-    .footer__links-grid {
-      gap: 8px !important; /* Reduced from 12px */
+    .footer__middle {
+        .footer__links-grid {
+            gap: 8px !important;
+            /* Reduced from 12px */
+        }
+
+        .footer__link-row {
+            gap: 10px !important;
+            /* Reduced from 15px */
+        }
+
+
+
+        /* Specifically target product rows for tighter spacing */
+        .footer__link-row:nth-child(3),
+        .footer__link-row:nth-child(4),
+        .footer__link-row:nth-child(5) {
+            gap: 8px !important;
+
+            .footer__link-item a {
+                padding: 4px 8px !important;
+            }
+        }
     }
-    
-    .footer__link-row {
-      gap: 25px !important; /* Reduced from 15px */
-    }
-    
-    
-    
-    /* Specifically target product rows for tighter spacing */
-    .footer__link-row:nth-child(3),
-    .footer__link-row:nth-child(4),
-    .footer__link-row:nth-child(5) {
-      gap: 8px !important;
-      
-      .footer__link-item a {
-        padding: 4px 8px !important;
-      }
-    }
-  }
 }

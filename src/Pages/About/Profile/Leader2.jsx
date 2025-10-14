@@ -17,7 +17,7 @@ const Leader2 = () => {
         education: 'Extensive technical education in Electrical and Mechanical Engineering',
         introduction: `Mr. Girdhar Patel is a Partner at Ferro Tube and Forge Industries. He brings with him over 50+ years of extensive experience in the Electrical industry, with in-depth expertise across core industry segments and key business functions. He has vast experience in handling different types of mechanical engineering problems & projects. He is also a partner at Multimetal Industries. His vast knowledge in the development of forged components, in the design of high-pressure hydraulic fittings, valves & other equipment. His vast experience of 45+ years of practical production and inspection is very crucial for company's growth and future.`,
         imageUrl: girdhar,
-        email: 'girdhar.patel@ferrotube.com',
+        email: 'ferrotubeind@gmail.com',
         experience: '50+ years in Electrical Industry',
         expertise: 'Development of forged components, design of high-pressure hydraulic fittings, valves & equipment',
         currentRole: 'Partner at Ferro Tube and Forge Industries & Multimetal Industries',
