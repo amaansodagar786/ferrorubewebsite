@@ -40,6 +40,7 @@ const Contact = () => {
     setLoading(true);
     try {
       const res = await fetch("https://ferrotubeindia.techorses.com/api/inquiry/submit", {
+      // const res = await fetch("http://localhost:3036/inquiry/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
