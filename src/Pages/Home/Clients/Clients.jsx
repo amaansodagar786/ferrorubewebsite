@@ -13,6 +13,8 @@ import client9 from "../../../assets/home/clients/client9.png"
 import client10 from "../../../assets/home/clients/client10.png"
 import client11 from "../../../assets/home/clients/client11.png"
 import client12 from "../../../assets/home/clients/client12.png"
+import client13 from "../../../assets/home/clients/client13.png"
+import client14 from "../../../assets/home/clients/client14.png"
 
 const Clients = () => {
   const [isPaused, setIsPaused] = useState(false); // kept for any UI needs
@@ -43,18 +45,20 @@ const Clients = () => {
     { id: 10, name: 'Chemtrols', logo: client10 },
     { id: 11, name: 'Mecon', logo: client11 },
     { id: 12, name: 'L & T', logo: client12 },
+    { id: 13, name: 'Megha Engineering & Infrastructure Ltd', logo: client13 },
+    { id: 14, name: 'Gujarat Fluorochemicals Limited', logo: client14 },
   ];
 
   const topRowLogos = [
-    ...clientLogos.slice(0, 6),
-    ...clientLogos.slice(0, 6),
-    ...clientLogos.slice(0, 6)
+    ...clientLogos.slice(0, 7),
+    ...clientLogos.slice(0, 7),
+    ...clientLogos.slice(0, 7)
   ];
 
   const bottomRowLogos = [
-    ...clientLogos.slice(6, 12),
-    ...clientLogos.slice(6, 12),
-    ...clientLogos.slice(6, 12)
+    ...clientLogos.slice(7, 14),
+    ...clientLogos.slice(7, 14),
+    ...clientLogos.slice(7, 14)
   ];
 
   useEffect(() => {
@@ -67,7 +71,7 @@ const Clients = () => {
       const logos = element.querySelectorAll('.client-logo');
       if (!logos || logos.length === 0) return 0;
       // take first 6 logos (one set)
-      const firstSix = Array.from(logos).slice(0, 6);
+      const firstSix = Array.from(logos).slice(0, 7);
       const logosWidth = firstSix.reduce((acc, el) => acc + el.offsetWidth, 0);
       // try to read gap from computed style, else fallback to 60
       const computedGap = parseInt(getComputedStyle(element).gap || '') || 60;

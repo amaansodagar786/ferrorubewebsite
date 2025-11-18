@@ -22,10 +22,10 @@ const Footer = () => {
       <div className="footer__container">
         {/* LEFT: info - UNCHANGED */}
         <div className="footer__left">
-          <div className="footer__person">
+          {/* <div className="footer__person">
             <h3 className="footer__name">Mr. Kishan Snehi</h3>
             <div className="footer__role">Managing Director</div>
-          </div>
+          </div> */}
 
           <ul className="footer__contacts">
             <li>

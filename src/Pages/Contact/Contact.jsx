@@ -40,7 +40,7 @@ const Contact = () => {
     setLoading(true);
     try {
       const res = await fetch("https://ferrotubeindia.techorses.com/api/inquiry/submit", {
-      // const res = await fetch("http://localhost:3036/inquiry/submit", {
+        // const res = await fetch("http://localhost:3036/inquiry/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,6 +93,15 @@ const Contact = () => {
         <img className="hero__img mobile" src={mobilehero} alt="Contact Hero Mobile" />
         <div className="hero__center">
           <h1>Get in Touch</h1>
+
+          <a
+            href="https://wa.me/919898485638"
+            className="hero__btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Let's Connect
+          </a>
         </div>
       </header>
 

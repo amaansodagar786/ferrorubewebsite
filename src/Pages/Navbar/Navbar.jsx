@@ -9,7 +9,7 @@ const DEFAULT_MENU = [
   { title: "ABOUT US", link: "/about" },
   { title: "CAPABILITIES", link: "/capabilities" },
   { title: "OUR PRODUCTS", link: "/products", hasDropdown: true },
-  { title: "INQUIRY FORM", link: "/contact" }, // stays as contact page
+  // { title: "INQUIRY FORM", link: "/contact" }, 
 ];
 
 // Product pages
@@ -58,9 +58,8 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
     return (
       <li className="products-dropdown">
         <div
-          className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${
-            isAnyProductActive ? "active" : ""
-          }`}
+          className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${isAnyProductActive ? "active" : ""
+            }`}
           onClick={toggleDropdown}
         >
           <span>OUR PRODUCTS</span>
@@ -76,9 +75,8 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
                 <div key={product.link} className="products-dropdown__item">
                   <NavLink
                     to={product.link}
-                    className={`products-dropdown__link ${
-                      isActive ? "active" : ""
-                    }`}
+                    className={`products-dropdown__link ${isActive ? "active" : ""
+                      }`}
                     onClick={handleItemClick}
                   >
                     <span className="line1">{formattedName.line1}</span>
@@ -103,9 +101,8 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
       onMouseLeave={() => setIsOpen(false)}
     >
       <div
-        className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${
-          isAnyProductActive ? "active" : ""
-        }`}
+        className={`products-dropdown__trigger ${isOpen ? "open" : ""} ${isAnyProductActive ? "active" : ""
+          }`}
       >
         <span>OUR PRODUCTS</span>
         <FiChevronDown className="arrow" />
@@ -120,9 +117,8 @@ const ProductsDropdown = ({ isMobile, closeMenu }) => {
               <div key={product.link} className="products-dropdown__item">
                 <NavLink
                   to={product.link}
-                  className={`products-dropdown__link ${
-                    isActive ? "active" : ""
-                  }`}
+                  className={`products-dropdown__link ${isActive ? "active" : ""
+                    }`}
                   onClick={handleItemClick}
                 >
                   <span className="line1">{formattedName.line1}</span>
@@ -192,15 +188,13 @@ const Navbar = ({ menuItems = DEFAULT_MENU, logo = logoImg }) => {
           </ul>
 
           {/* UPDATED CONTACT BUTTON - direct call */}
-          <a
-  href="https://wa.me/919898485638"
-  className="navbar__contact"
-  onClick={closeMenu}
-  target="_blank"
-  rel="noopener noreferrer"
->
-  CONTACT
-</a>
+          <NavLink
+            to="/contact"
+            className="navbar__contact"
+            onClick={closeMenu}
+          >
+            CONTACT
+          </NavLink>
         </div>
 
         <button

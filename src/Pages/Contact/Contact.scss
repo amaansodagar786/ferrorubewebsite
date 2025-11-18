@@ -147,7 +147,7 @@ $body-font: 'Poppins', sans-serif;
     line-height: 1.6;
     margin-bottom: 20px;
 
-     @media (max-width: 768px) {
+    @media (max-width: 768px) {
         font-size: 0.90rem;
     }
 }
@@ -450,7 +450,7 @@ $body-font: 'Poppins', sans-serif;
 
     @media (max-width: 480px) {
         padding: 0 15px;
-        
+
         h2 {
             width: 100%;
             font-size: 22px;
@@ -546,5 +546,42 @@ $body-font: 'Poppins', sans-serif;
         width: 42px;
         height: 42px;
         font-size: 18px;
+    }
+}
+
+
+
+
+/* HERO BUTTON */
+.hero__btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: #1f3d8a;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 10px 25px rgba(31, 61, 138, 0.25);
+    transition: all 0.3s ease;
+    border: 1px solid white;
+    letter-spacing: 0.3px;
+
+    &:hover {
+        background: #2a4ca0;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(31, 61, 138, 0.35);
+    }
+}
+
+/* Mobile Button Size */
+@media (max-width: 480px) {
+    .hero__btn {
+        padding: 12px 26px;
+        font-size: 0.9rem;
+        border-radius: 10px;
     }
 }
