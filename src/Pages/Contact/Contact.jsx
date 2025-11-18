@@ -110,10 +110,10 @@ const Contact = () => {
         <div className="contact__container">
           {/* LEFT SIDE INFO */}
           <aside className="contact__info">
-            <h2>Contact us</h2>
+            <h2>Contact Us</h2>
             <p className="lead">
               Whether you have questions about our services, need support, or
-              want to share your feedback, our dedicated team is here to assist
+              want to share your feedback , our dedicated team is here to assist
               you every step of the way.
             </p>
 
